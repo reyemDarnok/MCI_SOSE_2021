@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:mci_practicum/CreateEventRoute.dart';
 
-class OwnEventsRoute extends StatefulWidget{
+import 'Event.dart';
+import 'ViewEventRoute.dart';
+
+class OwnEventsRoute extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => OwnEventsRouteState();
 }
 
-class OwnEventsRouteState extends State<OwnEventsRoute>{
-  final List<String> events = new List.generate(5,(i){return "Event Name $i";});
+class OwnEventsRouteState extends State<OwnEventsRoute> {
+  final List<Event> events = new List.generate(5, (i) {
+    return Event(name: '$i', minDuration: i);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +22,8 @@ class OwnEventsRouteState extends State<OwnEventsRoute>{
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          leading: BackButton(onPressed: () {Navigator.pop(context);},),
+          appBar: AppBar(
+            leading: BackButton(onPressed: () {Navigator.pop(context);},),
           title: Text('Eigene Events'),
         ),
         body: Column(
@@ -43,13 +48,18 @@ class OwnEventsRouteState extends State<OwnEventsRoute>{
                 shrinkWrap: true,
                 itemCount: events.length,
                 itemBuilder: (context, index) {
-                  //TODO replace noop with navigation
                   return Center(
                       child: ElevatedButton(
-                          onPressed: (){},
-                          child: Text(events[index])
-                      )
-                  );
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ViewEventRoute(
+                                            event: events[index])));
+                              },
+                              child: Text(events[index].name +
+                                  ':' +
+                                  events[index].minDuration.toString())));
                 }
               )
             )

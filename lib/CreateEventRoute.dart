@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
-class CreateEventRoute extends StatelessWidget{
-  CreateEventRoute({Key? key, required this.update, required this.events}): super(key: key);
+import 'Event.dart';
+
+class CreateEventRoute extends StatelessWidget {
+  CreateEventRoute({Key? key, required this.update, required this.events})
+      : super(key: key);
   final VoidCallback update;
-  final List<String> events;
+  final List<Event> events;
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +38,13 @@ class CreateEventRoute extends StatelessWidget{
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: (){
-                    events.add('${eventName.text} : ${minDuration.text}');
-                    update();
-                  },
+                  onPressed: () {
+                  //TODO error handling + feedback
+                  events.add(new Event(
+                      name: '${eventName.text}',
+                      minDuration: double.parse(minDuration.text)));
+                  update();
+                },
                   child: Text('Erzeuge Event'))
               ]
           )
