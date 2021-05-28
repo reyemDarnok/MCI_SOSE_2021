@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class OwnEventsRoute extends StatelessWidget{
-  final List<String> events = new List.generate(5,(i){return "$i";});
+  final List<String> events = new List.generate(5,(i){return "Event Name $i";});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,23 +14,21 @@ class OwnEventsRoute extends StatelessWidget{
           leading: BackButton(onPressed: () {Navigator.pop(context);},),
           title: Text('Eigene Events'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              //TODO remove noop
-              ElevatedButton(onPressed: (){}, child: Text('Event erstellen')),
-              ListView.builder(
-                  itemCount: events.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(events[index]),
-                    );
-                  }
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(onPressed: (){}, child: Text('Neues Event erstellen')),
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: events.length,
+                itemBuilder: (context, index) {
+                  return Center(child: Text(events[index]));
+                }
               )
-            ],
-          ),
-        ),
+            )
+          ]
+        )
       ),
     );
 
