@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mci_practicum/OwnEventsRoute.dart';
+import 'package:mci_practicum/Event/OwnEventsRoute.dart';
 import 'package:mci_practicum/QRCodeButton.dart';
 import 'package:mci_practicum/StatusWidget.dart';
 import 'package:mci_practicum/TestEntryRoute.dart';

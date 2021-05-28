@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mci_practicum/CreateEventRoute.dart';
+import 'package:mci_practicum/Event/CreateEventRoute.dart';
 
 import 'Event.dart';
 import 'ViewEventRoute.dart';

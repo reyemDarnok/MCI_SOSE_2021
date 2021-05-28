@@ -1,6 +1,6 @@
 import 'package:uuid/uuid.dart';
 
-import 'Visitor.dart';
+import '../Person.dart';
 
 class Event {
   static Uuid uuid = Uuid();
@@ -9,7 +9,7 @@ class Event {
     this.manualVisitors = List.empty(growable: true);
   }
 
-  late final List<Visitor> manualVisitors;
+  late final List<Person> manualVisitors;
   final String unique = uuid.v4();
   final String name;
   final num minDuration;
