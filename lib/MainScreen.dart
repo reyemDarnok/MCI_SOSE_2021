@@ -16,22 +16,56 @@ class MainScreen extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Corona EventApp'),
+          actions: [
+            PopupMenuButton(
+              itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.white)
+                      ),
+                      onPressed: (){},
+                      child: Text('Eigene Events',
+                        style: TextStyle(color: Colors.black)
+                      )
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.white)
+                        ),
+                        onPressed: (){},
+                        child: Text('Settings',
+                            style: TextStyle(color: Colors.black)
+                        )
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.white)
+                        ),
+                        onPressed: (){},
+                        child: Text('FAQ',
+                            style: TextStyle(color: Colors.black)
+                        )
+                    ),
+                  ),
+                ]
+              )
+            ],
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  StatusWidget(status: status),
-                ],
-              ),
+              StatusWidget(status: status),
               ElevatedButton(
                 onPressed: (){
                   Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TestEntryScreen(status: status,))
+                  context,
+                  MaterialPageRoute(builder: (context) => TestEntryScreen(status: status,))
                   );
                 },
                 child: Text('Testergebns eingeben'),
