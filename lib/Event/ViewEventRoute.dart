@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'Event.dart';
+import 'ViewVisitorsRoute.dart';
 
 class ViewEventRoute extends StatelessWidget {
   ViewEventRoute({Key? key, required this.event}) : super(key: key);
@@ -27,9 +28,14 @@ class ViewEventRoute extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                 Text('Minimale Verweildauer: ${event.minDuration}'),
-                //TODO replace noop with navigation
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ViewVisitorsRoute(event: event)));
+                    },
                     child: Text(
                         'Manuelle Teilnehmer: ${event.manualVisitors.length}')),
                 ElevatedButton(

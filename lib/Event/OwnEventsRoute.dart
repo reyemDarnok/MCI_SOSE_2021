@@ -45,7 +45,6 @@ class OwnEventsRouteState extends State<OwnEventsRoute> {
               child: Text('Neues Event erstellen')),
             Expanded(
               child: ListView.builder(
-                shrinkWrap: true,
                 itemCount: events.length,
                 itemBuilder: (context, index) {
                   return Center(
