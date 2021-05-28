@@ -17,13 +17,20 @@ class OwnEventsRoute extends StatelessWidget{
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            //TODO replace noop with navigation
             ElevatedButton(onPressed: (){}, child: Text('Neues Event erstellen')),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: events.length,
                 itemBuilder: (context, index) {
-                  return Center(child: Text(events[index]));
+                  //TODO replace noop with navigation
+                  return Center(
+                      child: ElevatedButton(
+                          onPressed: (){},
+                          child: Text(events[index])
+                      )
+                  );
                 }
               )
             )
