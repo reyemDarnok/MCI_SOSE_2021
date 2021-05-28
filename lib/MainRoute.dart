@@ -2,9 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mci_practicum/QRCodeButton.dart';
 import 'package:mci_practicum/StatusWidget.dart';
-import 'package:mci_practicum/TestEntryScreen.dart';
+import 'package:mci_practicum/TestEntryRoute.dart';
 
-class MainScreen extends StatelessWidget {
+class MainRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ValueNotifier<bool> status = ValueNotifier(false);
@@ -65,7 +65,7 @@ class MainScreen extends StatelessWidget {
                 onPressed: (){
                   Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TestEntryScreen(status: status,))
+                  MaterialPageRoute(builder: (context) => TestEntryRoute(status: status,))
                   );
                 },
                 child: Text('Testergebns eingeben'),

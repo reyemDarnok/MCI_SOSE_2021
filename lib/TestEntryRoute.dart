@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mci_practicum/QRCodeButton.dart';
 
-class TestEntryScreen extends StatelessWidget {
-  TestEntryScreen({Key? key, required this.status}) : super(key: key);
+class TestEntryRoute extends StatelessWidget {
+  TestEntryRoute({Key? key, required this.status}) : super(key: key);
   final ValueNotifier<bool> status;
   @override
   Widget build(BuildContext context) {
