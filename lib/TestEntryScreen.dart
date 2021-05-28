@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mci_practicum/QRCodeButton.dart';
 
 class TestEntryScreen extends StatelessWidget {
   TestEntryScreen({Key? key, required this.status}) : super(key: key);
@@ -46,7 +47,8 @@ class TestEntryScreen extends StatelessWidget {
                     child: Text('Negativ',),
                   ),
                 ],
-              )
+              ),
+              QRCodeButton(callback: (s){}, text: 'Testergnis QR-Code scannen')
             ],
           ),
         ),

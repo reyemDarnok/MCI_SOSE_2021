@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mci_practicum/QRCodeButton.dart';
 import 'package:mci_practicum/StatusWidget.dart';
 import 'package:mci_practicum/TestEntryScreen.dart';
 
@@ -36,12 +37,9 @@ class MainScreen extends StatelessWidget {
                 child: Text('Testergebns eingeben'),
               ),
               Text('\n\n'),
-              ElevatedButton(
-                onPressed: (){
-                  print("more test");
-                },
-                child: Text('QR-Code scannen')
-              )
+              QRCodeButton(
+                  callback: (s){},
+                  text: 'QR-Code scannen'),
             ],
           ),
         ),
