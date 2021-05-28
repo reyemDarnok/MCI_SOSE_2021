@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mci_practicum/CreateEventRoute.dart';
 
-class OwnEventsRoute extends StatelessWidget{
+class OwnEventsRoute extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() => OwnEventsRouteState();
+}
+
+class OwnEventsRouteState extends State<OwnEventsRoute>{
   final List<String> events = new List.generate(5,(i){return "Event Name $i";});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,8 +24,20 @@ class OwnEventsRoute extends StatelessWidget{
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //TODO replace noop with navigation
-            ElevatedButton(onPressed: (){}, child: Text('Neues Event erstellen')),
+            ElevatedButton(
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          CreateEventRoute(
+                              update: (){setState(() {});},
+                              events: events
+                          )
+                  )
+                );
+              },
+              child: Text('Neues Event erstellen')),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
