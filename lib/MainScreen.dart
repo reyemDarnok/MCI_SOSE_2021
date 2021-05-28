@@ -30,16 +30,14 @@ class MainScreen extends StatelessWidget {
                 onPressed: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => TestEntryScreen())
+                    MaterialPageRoute(builder: (context) => TestEntryScreen(status: status,))
                   );
-                  status.value = true;
                 },
                 child: Text('Testergebns eingeben'),
               ),
               Text('\n\n'),
               ElevatedButton(
                 onPressed: (){
-                  status.value = false;
                   print("more test");
                 },
                 child: Text('QR-Code scannen')
