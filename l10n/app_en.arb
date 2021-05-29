@@ -1,0 +1,11 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "ownEvents": "Own Events",
+  "settings": "Settings",
+  "faq": "FAQ",
+  "enterTestResult": "Enter test result",
+  "scanQRCode": "Scan QR code"
+}

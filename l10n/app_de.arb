@@ -1,0 +1,8 @@
+{
+  "helloWorld": "Hallo Welt!",
+  "ownEvents": "Eigene Events",
+  "settings": "Einstellungen",
+  "faq": "FAQ",
+  "enterTestResult": "Testergebnis eingeben",
+  "scanQRCode": "QR Code scannen"
+}
