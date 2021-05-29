@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'AddVisitorRoute.dart';
 import 'Event.dart';
@@ -27,46 +28,46 @@ class ViewEventRouteState extends State<ViewEventRoute> {
               Navigator.pop(context);
             },
           ),
-          title: Text('Event ${event.name}'),
+          title: Text(event.name),
         ),
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                Text('Minimale Verweildauer: ${event.minDuration}'),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ViewVisitorsRoute(
-                                  event: event,
-                                  update: () {
-                                    setState(() {});
-                                  })));
-                    },
-                    child: Text(
-                        'Manuelle Teilnehmer: ${event.manualVisitors.length}')),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  AddVisitorRoute(
-                                    event: event,
-                                    update: () {
-                                      setState(() {});
+          Text(AppLocalizations.of(context)!.minDurationLabel +
+              event.minDuration.toString()),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ViewVisitorsRoute(
+                            event: event,
+                            update: () {
+                              setState(() {});
+                            })));
+              },
+              child: Text(AppLocalizations.of(context)!.manualVisitorsLabel +
+                  event.manualVisitors.length.toString())),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AddVisitorRoute(
+                              event: event,
+                              update: () {
+                                setState(() {});
                               },
                             )));
               },
-              child: Text('Manuelle Teilnehmer hinzufügen')),
+              child: Text(AppLocalizations.of(context)!.addManualVisitors)),
           //TODO replace with QR Code
           Text('Here should be a QR Code'),
           ElevatedButton(
               //TODO onPressed shares the QR Code
               onPressed: () {},
-              child: Text('QR Code teilen')),
+              child: Text(AppLocalizations.of(context)!.shareQRCode)),
         ])));
   }
 }

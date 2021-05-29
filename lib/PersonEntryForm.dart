@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'Person.dart';
 
@@ -65,7 +66,7 @@ class PersonEntryFormState extends State<PersonEntryForm> {
             controller: name,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Es muss ein Name angegeben werden';
+                return AppLocalizations.of(context)!.nameMissingError;
               } else {
                 return null;
               }
@@ -75,9 +76,10 @@ class PersonEntryFormState extends State<PersonEntryForm> {
               controller: telephoneNumber,
               validator: (value) {
                 if (value == null) {
-                  return 'Es muss eine Telefonnummer angegeben werden';
+                  return AppLocalizations.of(context)!.phoneNumberMissingError;
                 } else if (!phoneNumberRegex.hasMatch(value)) {
-                  return 'Das sieht nicht nach einer Telefonnummer aus';
+                  return AppLocalizations.of(context)!
+                      .phoneNumberMalformedError;
                 } else {
                   return null;
                 }
@@ -86,9 +88,9 @@ class PersonEntryFormState extends State<PersonEntryForm> {
             controller: street,
             validator: (value) {
               if (value == null) {
-                return 'Es muss eine Straße und Hausnummer angegeben werden';
+                return AppLocalizations.of(context)!.streetMissingError;
               } else if (!streetRegex.hasMatch(value)) {
-                return 'Das sieht nicht nach einer Straße und Hausnummer aus';
+                return AppLocalizations.of(context)!.streetMalformedError;
               } else {
                 return null;
               }
@@ -98,9 +100,9 @@ class PersonEntryFormState extends State<PersonEntryForm> {
             controller: city,
             validator: (value) {
               if (value == null) {
-                return 'Es muss eine Stadt angegeben werden';
+                return AppLocalizations.of(context)!.cityMissingError;
               } else if (!cityRegex.hasMatch(value)) {
-                return 'Es muss eine PLZ und optional ein Stadtname angegeben werden';
+                return AppLocalizations.of(context)!.cityMalformedError;
               }
             },
           ),
@@ -114,7 +116,7 @@ class PersonEntryFormState extends State<PersonEntryForm> {
                       city: city.text));
                 }
               },
-              child: Text('Hinzufügen'))
+              child: Text(AppLocalizations.of(context)!.add))
         ],
       ),
     );

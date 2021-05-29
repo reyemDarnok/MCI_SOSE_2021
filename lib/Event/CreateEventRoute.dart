@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../globals.dart';
 import 'EventForm.dart';
@@ -19,7 +20,7 @@ class CreateEventRoute extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          title: Text('Neues Event'),
+          title: Text(AppLocalizations.of(context)!.newEvent),
         ),
         body: EventForm(
           callback: (event) {

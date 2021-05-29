@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'AddVisitorRoute.dart';
 import 'Event.dart';
@@ -30,24 +31,24 @@ class ViewVisitorsRouteState extends State<ViewVisitorsRoute> {
               Navigator.pop(context);
             },
           ),
-          title: Text('Event ${event.name}'),
+          title: Text(event.name),
         ),
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                Text('Manuell hinzugefügte Teilnehmer'),
-                Expanded(
-                    child: Center(
-                        child: ListView.builder(
-                            itemCount: event.manualVisitors.length,
-                            itemBuilder: (context, index) {
-                              return ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
+          Text(AppLocalizations.of(context)!.manuallyAddedVisitors),
+          Expanded(
+              child: Center(
+                  child: ListView.builder(
+                      itemCount: event.manualVisitors.length,
+                      itemBuilder: (context, index) {
+                        return ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
                                                 ViewPersonRoute(
                                                   person: event
                                                       .manualVisitors[index],
@@ -59,9 +60,9 @@ class ViewVisitorsRouteState extends State<ViewVisitorsRoute> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AddVisitorRoute(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AddVisitorRoute(
                             event: event,
                             update: () {
                               setState(() {});
@@ -69,7 +70,7 @@ class ViewVisitorsRouteState extends State<ViewVisitorsRoute> {
                             },
                           )));
             },
-            child: Text('Manuellen Teilnehmer hinzufügen'),
+            child: Text(AppLocalizations.of(context)!.addManualVisitors),
           ),
         ])));
   }

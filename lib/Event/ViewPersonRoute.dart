@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../Person.dart';
 
@@ -21,15 +22,15 @@ class ViewPersonRoute extends StatelessWidget {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Name:'),
-                  Text(person.name),
-                  Text('Telefonnummer:'),
-                  Text(person.telephone),
-                  Text('Straße, Hausnummer:'),
-                  Text(person.street),
-                  Text('PLZ Stadt:'),
-                  Text(person.city),
-                ]))
+          Text(AppLocalizations.of(context)!.nameLabel),
+          Text(person.name),
+          Text(AppLocalizations.of(context)!.phoneNumberLabel),
+          Text(person.telephone),
+          Text(AppLocalizations.of(context)!.streetLabel),
+          Text(person.street),
+          Text(AppLocalizations.of(context)!.cityLabel),
+          Text(person.city),
+        ]))
     );
   }
 }

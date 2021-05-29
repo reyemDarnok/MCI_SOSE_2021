@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/PersonEntryForm.dart';
 
 import 'Event.dart';
@@ -18,7 +19,7 @@ class AddVisitorRoute extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          title: Text('Event ${event.name} - Teilnehmer hinzufügen'),
+          title: Text(event.name + AppLocalizations.of(context)!.addVisitor),
         ),
         body: Center(
             child:

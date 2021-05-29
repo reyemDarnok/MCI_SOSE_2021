@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/QRCodeButton.dart';
 
 class TestEntryRoute extends StatelessWidget {
@@ -11,7 +12,7 @@ class TestEntryRoute extends StatelessWidget {
         leading: BackButton(
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Testergebnis eingeben'),
+        title: Text(AppLocalizations.of(context)!.enterTestResult),
       ),
       body: Center(
         child: Column(
@@ -19,34 +20,41 @@ class TestEntryRoute extends StatelessWidget {
           children: <Widget>[
             TextField(
               decoration: InputDecoration(
-                hintText: 'Code eingeben',
-                ),
+                hintText: AppLocalizations.of(context)!.enterCode,
+              ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-                    ),
-                    onPressed: (){
-                      status.value = true;
-                    },
-                    child: Text('Positiv',),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.red),
                   ),
+                  onPressed: () {
+                    status.value = true;
+                  },
+                  child: Text(
+                    AppLocalizations.of(context)!.positive,
+                  ),
+                ),
                   ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(Colors.green)
-                    ),
-                    onPressed: (){
-                      status.value = false;
-                    },
-                    child: Text('Negativ',),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.green)),
+                  onPressed: () {
+                    status.value = false;
+                  },
+                  child: Text(
+                    AppLocalizations.of(context)!.negative,
                   ),
+                ),
                 ],
               ),
-              QRCodeButton(callback: (s){}, text: 'Testergnis QR-Code scannen')
-            ],
+            QRCodeButton(
+                callback: (s) {},
+                text: AppLocalizations.of(context)!.scanTestQRCode)
+          ],
           ),
         ),
     );

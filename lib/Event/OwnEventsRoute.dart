@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../globals.dart';
 import 'CreateEventRoute.dart';
@@ -20,39 +21,36 @@ class OwnEventsRouteState extends State<OwnEventsRoute> {
               Navigator.pop(context);
             },
           ),
-          title: Text('Eigene Events'),
+          title: Text(AppLocalizations.of(context)!.ownEvents),
         ),
         body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           ElevatedButton(
               onPressed: () {
                 Navigator.push(
                     context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          CreateEventRoute(
-                              update: (){setState(() {});},
-                          )
-                  )
-                );
-              },
-              child: Text('Neues Event erstellen')),
-            Expanded(
-              child: ListView.builder(
-                itemCount: events.length,
-                itemBuilder: (context, index) {
-                  return Center(
-                      child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ViewEventRoute(
-                                            event: events[index])));
+                    MaterialPageRoute(
+                        builder: (context) => CreateEventRoute(
+                              update: () {
+                                setState(() {});
                               },
-                              child: Text(events[index].name +
-                                  ':' +
-                                  events[index].minDuration.toString())));
-                }
+                            )));
+              },
+              child: Text(AppLocalizations.of(context)!.createNewEvent)),
+          Expanded(
+              child: ListView.builder(
+                  itemCount: events.length,
+                  itemBuilder: (context, index) {
+                    return Center(
+                        child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ViewEventRoute(
+                                          event: events[index])));
+                            },
+                            child: Text(events[index].name)));
+                  }
               )
             )
           ]

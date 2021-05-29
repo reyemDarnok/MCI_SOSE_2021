@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mci_practicum/MainRoute.dart';
+import 'package:mci_practicum/setup.dart';
 
 void main() {
-  runApp(MainRoute());
+  runApp(Setup());
 }

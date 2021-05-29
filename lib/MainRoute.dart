@@ -11,24 +11,19 @@ class MainRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ValueNotifier<bool> status = ValueNotifier(false);
-    return MaterialApp(
-        title: 'Corona EventApp',
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('Corona EventApp'),
-            actions: [
-              PopupMenuButton(
-                  itemBuilder: (context) => [
-                        PopupMenuItem(
-                          child: ElevatedButton(
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.white)),
-                              onPressed: () {
-                                Navigator.push(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.title),
+        actions: [
+          PopupMenuButton(
+              itemBuilder: (context) => [
+                    PopupMenuItem(
+                      child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.white)),
+                          onPressed: () {
+                            Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
@@ -77,17 +72,17 @@ class MainRoute extends StatelessWidget {
                             builder: (context) => TestEntryRoute(
                                   status: status,
                                 )));
-                  },
-                  child: Text(AppLocalizations.of(context)!.enterTestResult),
-                ),
-                QRCodeButton(
-                    //TODO real action
-                    callback: (s) {},
-                    text: AppLocalizations.of(context)!.scanQRCode),
-              ],
+              },
+              child: Text(AppLocalizations.of(context)!.enterTestResult),
             ),
-          ),
-        ));
+            QRCodeButton(
+                //TODO real action
+                callback: (s) {},
+                text: AppLocalizations.of(context)!.scanQRCode),
+          ],
+        ),
+      ),
+    );
   }
 
 }

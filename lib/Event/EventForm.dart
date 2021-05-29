@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'Event.dart';
 
@@ -48,7 +49,7 @@ class EventFormState extends State<EventForm> {
             controller: name,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Es muss ein Name angegeben werden';
+                return AppLocalizations.of(context)!.nameMissingError;
               } else {
                 return null;
               }
@@ -58,9 +59,10 @@ class EventFormState extends State<EventForm> {
               controller: minDuration,
               validator: (value) {
                 if (value == null) {
-                  return 'Es muss eine MindestDauer angegeben werden';
+                  return AppLocalizations.of(context)!.minDurationMissingError;
                 } else if (num.tryParse(value) == null) {
-                  return 'Mindestdauer muss eine Zahl sein';
+                  return AppLocalizations.of(context)!
+                      .minDurationMalformedError;
                 } else {
                   return null;
                 }
@@ -73,7 +75,7 @@ class EventFormState extends State<EventForm> {
                       minDuration: num.parse(minDuration.text)));
                 }
               },
-              child: Text('Hinzufügen'))
+              child: Text(AppLocalizations.of(context)!.add))
         ],
       ),
     );

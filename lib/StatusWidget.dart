@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class StatusWidget extends StatelessWidget {
   StatusWidget({Key? key, required this.status}) : super(key: key);
@@ -13,13 +14,17 @@ class StatusWidget extends StatelessWidget {
           return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Kontakt mit Infizierten: '),
-                status ?
-                Text('Ja', style: TextStyle(backgroundColor: Colors.red),)
-                    :
-                Text('Nein', style: TextStyle(backgroundColor: Colors.green),)
-              ]
-          );
+            Text(AppLocalizations.of(context)!.infectionRisk),
+            status
+                ? Text(
+                    AppLocalizations.of(context)!.high,
+                    style: TextStyle(backgroundColor: Colors.red),
+                  )
+                : Text(
+                    AppLocalizations.of(context)!.low,
+                    style: TextStyle(backgroundColor: Colors.green),
+                  )
+          ]);
         }
     );
   }
