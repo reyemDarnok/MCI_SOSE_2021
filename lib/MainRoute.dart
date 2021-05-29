@@ -9,23 +9,18 @@ class MainRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ValueNotifier<bool> status = ValueNotifier(false);
-    return MaterialApp(
-      title: 'Corona EventApp',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Corona EventApp'),
-          actions: [
-            PopupMenuButton(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Corona EventApp'),
+        actions: [
+          PopupMenuButton(
               itemBuilder: (context) => [
-                  PopupMenuItem(
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.white)
-                      ),
-                      onPressed: (){
+                    PopupMenuItem(
+                      child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.white)),
+                          onPressed: (){
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => OwnEventsRoute())
@@ -77,14 +72,12 @@ class MainRoute extends StatelessWidget {
                 },
                 child: Text('Testergebns eingeben'),
               ),
-              Text('\n\n'),
               QRCodeButton(
                   callback: (s){},
                   text: 'QR-Code scannen'),
             ],
           ),
         ),
-      ),
     );
   }
 

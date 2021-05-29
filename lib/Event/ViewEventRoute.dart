@@ -20,23 +20,18 @@ class ViewEventRouteState extends State<ViewEventRoute> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Corona EventApp',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-          appBar: AppBar(
-            leading: BackButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            title: Text('Event ${event.name}'),
+    return Scaffold(
+        appBar: AppBar(
+          leading: BackButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
-          body: Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+          title: Text('Event ${event.name}'),
+        ),
+        body: Center(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                 Text('Minimale Verweildauer: ${event.minDuration}'),
                 ElevatedButton(
@@ -62,17 +57,16 @@ class ViewEventRouteState extends State<ViewEventRoute> {
                                     event: event,
                                     update: () {
                                       setState(() {});
-                                    },
-                                  )));
-                    },
-                    child: Text('Manuelle Teilnehmer hinzufügen')),
-                //TODO replace with QR Code
-                Text('Here should be a QR Code'),
-                ElevatedButton(
-                    //TODO onPressed shares the QR Code
-                    onPressed: () {},
-                    child: Text('QR Code teilen')),
-              ]))),
-    );
+                              },
+                            )));
+              },
+              child: Text('Manuelle Teilnehmer hinzufügen')),
+          //TODO replace with QR Code
+          Text('Here should be a QR Code'),
+          ElevatedButton(
+              //TODO onPressed shares the QR Code
+              onPressed: () {},
+              child: Text('QR Code teilen')),
+        ])));
   }
 }

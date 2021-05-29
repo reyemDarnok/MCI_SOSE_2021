@@ -6,23 +6,20 @@ class TestEntryRoute extends StatelessWidget {
   final ValueNotifier<bool> status;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Corona EventApp',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          leading: BackButton(onPressed: () => Navigator.of(context).pop(),),
-          title: Text('Testergebnis eingeben'),
+    return Scaffold(
+      appBar: AppBar(
+        leading: BackButton(
+          onPressed: () => Navigator.of(context).pop(),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Code eingeben',
+        title: Text('Testergebnis eingeben'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Code eingeben',
                 ),
               ),
               Row(
@@ -52,9 +49,7 @@ class TestEntryRoute extends StatelessWidget {
             ],
           ),
         ),
-      ),
     );
-
   }
 
 }

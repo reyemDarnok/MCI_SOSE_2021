@@ -13,23 +13,20 @@ class OwnEventsRouteState extends State<OwnEventsRoute> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Corona EventApp',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-          appBar: AppBar(
-            leading: BackButton(onPressed: () {Navigator.pop(context);},),
+    return Scaffold(
+        appBar: AppBar(
+          leading: BackButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
           title: Text('Eigene Events'),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: (){
+        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          ElevatedButton(
+              onPressed: () {
                 Navigator.push(
-                  context,
+                    context,
                   MaterialPageRoute(
                       builder: (context) =>
                           CreateEventRoute(
@@ -60,7 +57,6 @@ class OwnEventsRouteState extends State<OwnEventsRoute> {
             )
           ]
         )
-      ),
     );
 
   }

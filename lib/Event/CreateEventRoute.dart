@@ -12,23 +12,21 @@ class CreateEventRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Corona EventApp',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-          appBar: AppBar(
-            leading: BackButton(onPressed: () {Navigator.pop(context);},),
-            title: Text('Neues Event'),
-          ),
-          body: EventForm(
-            callback: (event) {
-              events.add(event);
-              update();
+    return Scaffold(
+        appBar: AppBar(
+          leading: BackButton(
+            onPressed: () {
+              Navigator.pop(context);
             },
-          )),
-    );
+          ),
+          title: Text('Neues Event'),
+        ),
+        body: EventForm(
+          callback: (event) {
+            events.add(event);
+            update();
+          },
+        ));
   }
 
 }
