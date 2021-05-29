@@ -4,8 +4,18 @@ import 'package:mci_practicum/Event/AddVisitorRoute.dart';
 import 'Event.dart';
 import 'ViewVisitorsRoute.dart';
 
-class ViewEventRoute extends StatelessWidget {
-  ViewEventRoute({Key? key, required this.event}) : super(key: key);
+class ViewEventRoute extends StatefulWidget {
+  ViewEventRoute({Key? key, required this.event});
+
+  final Event event;
+
+  @override
+  State<StatefulWidget> createState() => ViewEventRouteState(event: event);
+}
+
+class ViewEventRouteState extends State<ViewEventRoute> {
+  ViewEventRouteState({required this.event});
+
   final Event event;
 
   @override
@@ -34,8 +44,11 @@ class ViewEventRoute extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  ViewVisitorsRoute(event: event)));
+                              builder: (context) => ViewVisitorsRoute(
+                                  event: event,
+                                  update: () {
+                                    setState(() {});
+                                  })));
                     },
                     child: Text(
                         'Manuelle Teilnehmer: ${event.manualVisitors.length}')),
@@ -45,10 +58,11 @@ class ViewEventRoute extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  //TODO make stateful for update
                                   AddVisitorRoute(
                                     event: event,
-                                    update: () {},
+                                    update: () {
+                                      setState(() {});
+                                    },
                                   )));
                     },
                     child: Text('Manuelle Teilnehmer hinzufügen')),

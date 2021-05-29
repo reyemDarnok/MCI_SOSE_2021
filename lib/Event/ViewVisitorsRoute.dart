@@ -4,9 +4,22 @@ import 'AddVisitorRoute.dart';
 import 'Event.dart';
 import 'ViewPersonRoute.dart';
 
-class ViewVisitorsRoute extends StatelessWidget {
-  ViewVisitorsRoute({Key? key, required this.event}) : super(key: key);
+class ViewVisitorsRoute extends StatefulWidget {
+  ViewVisitorsRoute({Key? key, required this.event, required this.update})
+      : super(key: key);
   final Event event;
+  final VoidCallback update;
+
+  @override
+  State<StatefulWidget> createState() =>
+      ViewVisitorsRouteState(event: event, update: update);
+}
+
+class ViewVisitorsRouteState extends State<ViewVisitorsRoute> {
+  ViewVisitorsRouteState({required this.event, required this.update});
+
+  final Event event;
+  final VoidCallback update;
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +67,12 @@ class ViewVisitorsRoute extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                //TODO make Stateful to do update
                                 AddVisitorRoute(
                                   event: event,
-                                  update: () {},
+                                  update: () {
+                                    setState(() {});
+                                    update();
+                                  },
                                 )));
                   },
                   child: Text('Manuellen Teilnehmer hinzufügen'),
