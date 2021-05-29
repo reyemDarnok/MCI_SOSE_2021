@@ -5,21 +5,36 @@ import 'Person.dart';
 typedef PersonCallback = void Function(Person person);
 
 class PersonEntryForm extends StatefulWidget {
-  PersonEntryForm({Key? key, required this.callback}) : super(key: key);
+  PersonEntryForm(
+      {Key? key,
+      required this.callback,
+      this.defaultName = '',
+      this.defaultNumber = '',
+      this.defaultStreet = '',
+      this.defaultCity = ''})
+      : super(key: key);
   final PersonCallback callback;
+  final String defaultName;
+  final String defaultNumber;
+  final String defaultStreet;
+  final String defaultCity;
 
   @override
-  State<StatefulWidget> createState() =>
-      PersonEntryFormState(callback: callback);
+  State<StatefulWidget> createState() => PersonEntryFormState(
+      callback: callback,
+      defaultCity: defaultCity,
+      defaultName: defaultName,
+      defaultNumber: defaultNumber,
+      defaultStreet: defaultStreet);
 }
 
 class PersonEntryFormState extends State<PersonEntryForm> {
   PersonEntryFormState({
     required this.callback,
-    String defaultName = '',
-    String defaultNumber = '',
-    String defaultStreet = '',
-    String defaultCity = '',
+    required String defaultName,
+    required String defaultNumber,
+    required String defaultStreet,
+    required String defaultCity,
   }) {
     name = new TextEditingController(text: defaultName);
     telephoneNumber = new TextEditingController(text: defaultNumber);

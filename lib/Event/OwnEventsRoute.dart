@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mci_practicum/Event/CreateEventRoute.dart';
 
-import 'Event.dart';
+import '../globals.dart';
 import 'ViewEventRoute.dart';
 
 class OwnEventsRoute extends StatefulWidget {
@@ -10,9 +10,6 @@ class OwnEventsRoute extends StatefulWidget {
 }
 
 class OwnEventsRouteState extends State<OwnEventsRoute> {
-  final List<Event> events = new List.generate(5, (i) {
-    return Event(name: '$i', minDuration: i);
-  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +34,6 @@ class OwnEventsRouteState extends State<OwnEventsRoute> {
                       builder: (context) =>
                           CreateEventRoute(
                               update: (){setState(() {});},
-                              events: events
                           )
                   )
                 );

@@ -40,7 +40,8 @@ class MainRoute extends StatelessWidget {
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(Colors.white)
                         ),
-                        onPressed: (){},
+                        //TODO Settings page
+                            onPressed: (){},
                         child: Text('Settings',
                             style: TextStyle(color: Colors.black)
                         )
@@ -51,7 +52,8 @@ class MainRoute extends StatelessWidget {
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(Colors.white)
                         ),
-                        onPressed: (){},
+                        //TODO FAQ page
+                            onPressed: (){},
                         child: Text('FAQ',
                             style: TextStyle(color: Colors.black)
                         )
