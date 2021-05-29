@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'AddVisitorRoute.dart';
 import 'Event.dart';
+import 'ViewPersonRoute.dart';
 
 class ViewVisitorsRoute extends StatelessWidget {
   ViewVisitorsRoute({Key? key, required this.event}) : super(key: key);
@@ -34,8 +35,16 @@ class ViewVisitorsRoute extends StatelessWidget {
                             itemCount: event.manualVisitors.length,
                             itemBuilder: (context, index) {
                               return ElevatedButton(
-                                  //TODO implement noop to show person
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ViewPersonRoute(
+                                                  person: event
+                                                      .manualVisitors[index],
+                                                )));
+                                  },
                                   child:
                                       Text(event.manualVisitors[index].name));
                             }))),

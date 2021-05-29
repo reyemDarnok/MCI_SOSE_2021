@@ -14,21 +14,34 @@ class PersonEntryForm extends StatefulWidget {
 }
 
 class PersonEntryFormState extends State<PersonEntryForm> {
-  PersonEntryFormState({required this.callback});
+  PersonEntryFormState({
+    required this.callback,
+    String defaultName = '',
+    String defaultNumber = '',
+    String defaultStreet = '',
+    String defaultCity = '',
+  }) {
+    name = new TextEditingController(text: defaultName);
+    telephoneNumber = new TextEditingController(text: defaultNumber);
+    street = new TextEditingController(text: defaultStreet);
+    city = new TextEditingController(text: defaultCity);
+  }
 
   final RegExp phoneNumberRegex = new RegExp(r'^[+\-()\d\s]+$');
   final RegExp streetRegex = new RegExp(r'^[\w\s.,-]+$');
   final RegExp cityRegex =
       new RegExp(r'^(\d{5}[\s,]+[\w-]+|[\w-]+[\s,]+\d{5}|\d{5})$');
+
   final PersonCallback callback;
   final _formKey = GlobalKey<FormState>();
 
+  late final TextEditingController name;
+  late final TextEditingController telephoneNumber;
+  late final TextEditingController street;
+  late final TextEditingController city;
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController name = new TextEditingController();
-    TextEditingController telephoneNumber = new TextEditingController();
-    TextEditingController street = new TextEditingController();
-    TextEditingController city = new TextEditingController();
     return Form(
       key: _formKey,
       child: Column(
