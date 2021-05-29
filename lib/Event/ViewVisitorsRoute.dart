@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mci_practicum/Person.dart';
 
+import 'AddVisitorRoute.dart';
 import 'Event.dart';
 
 class ViewVisitorsRoute extends StatelessWidget {
@@ -9,8 +9,6 @@ class ViewVisitorsRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    event.manualVisitors.add(new Person(
-        name: 'name', telephone: 'telephone', street: 'street', city: 'city'));
     return MaterialApp(
       title: 'Corona EventApp',
       theme: ThemeData(
@@ -42,8 +40,17 @@ class ViewVisitorsRoute extends StatelessWidget {
                                       Text(event.manualVisitors[index].name));
                             }))),
                 ElevatedButton(
-                  //TODO implement navigation to Person view
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                //TODO make Stateful to do update
+                                AddVisitorRoute(
+                                  event: event,
+                                  update: () {},
+                                )));
+                  },
                   child: Text('Manuellen Teilnehmer hinzufügen'),
                 ),
               ]))),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mci_practicum/Event/AddVisitorRoute.dart';
 
 import 'Event.dart';
 import 'ViewVisitorsRoute.dart';
@@ -39,8 +40,17 @@ class ViewEventRoute extends StatelessWidget {
                     child: Text(
                         'Manuelle Teilnehmer: ${event.manualVisitors.length}')),
                 ElevatedButton(
-                    //TODO replace noop with navigation
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  //TODO make stateful for update
+                                  AddVisitorRoute(
+                                    event: event,
+                                    update: () {},
+                                  )));
+                    },
                     child: Text('Manuelle Teilnehmer hinzufügen')),
                 //TODO replace with QR Code
                 Text('Here should be a QR Code'),
