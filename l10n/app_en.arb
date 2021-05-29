@@ -1,10 +1,9 @@
 {
-  "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  },
   "ownEvents": "Own Events",
   "settings": "Settings",
+  "@settings": {
+    "description": "The name of the settings tab"
+  },
   "faq": "FAQ",
   "enterTestResult": "Enter test result",
   "scanQRCode": "Scan QR code",
