@@ -7,7 +7,7 @@ class Setup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: AppLocalizations.of(context)!.title,
+        title: AppLocalizations.of(context)?.title ?? 'Corona EventApp',
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         home: MainRoute());
