@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/QRCodeButton.dart';
 
+import 'NavBar.dart';
+
 class TestEntryRoute extends StatelessWidget {
   static const String route = '/testEntry';
 
@@ -10,12 +12,7 @@ class TestEntryRoute extends StatelessWidget {
     final args =
         ModalRoute.of(context)!.settings.arguments as TestEntryArguments;
     return Scaffold(
-      appBar: AppBar(
-        leading: BackButton(
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: Text(AppLocalizations.of(context)!.enterTestResult),
-      ),
+      appBar: NavBar(AppLocalizations.of(context)!.enterTestResult),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

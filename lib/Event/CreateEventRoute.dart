@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../NavBar.dart';
 import '../globals.dart';
 import 'EventForm.dart';
 
@@ -12,14 +13,7 @@ class CreateEventRoute extends StatelessWidget {
     final args =
         ModalRoute.of(context)!.settings.arguments as CreateEventRouteArguments;
     return Scaffold(
-        appBar: AppBar(
-          leading: BackButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: Text(AppLocalizations.of(context)!.newEvent),
-        ),
+        appBar: NavBar(AppLocalizations.of(context)!.newEvent),
         body: EventForm(
           callback: (event) {
             events.add(event);

@@ -17,11 +17,11 @@ class OwnEventsRouteState extends State<OwnEventsRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: NavBar(title: AppLocalizations.of(context)!.ownEvents),
+        appBar: NavBar(AppLocalizations.of(context)!.ownEvents),
         body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, CreateEventRoute.route,
+                Navigator.of(context).pushNamed(CreateEventRoute.route,
                     arguments: CreateEventRouteArguments(() {
                   setState(() {});
                 }));
@@ -34,7 +34,8 @@ class OwnEventsRouteState extends State<OwnEventsRoute> {
                     return Center(
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, ViewEventRoute.route,
+                              Navigator.of(context).pushNamed(
+                                  ViewEventRoute.route,
                                   arguments:
                                       ViewEventRouteArguments(events[index]));
                             },

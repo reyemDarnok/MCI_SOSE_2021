@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget with PreferredSizeWidget {
-  NavBar(
-      {Key? key, required this.title, this.implyLeading = true, this.actions})
+  NavBar(this.title, {Key? key, this.implyLeading = true, this.actions})
       : preferredSize = Size.fromHeight(50.0),
         super(key: key);
   final String title;

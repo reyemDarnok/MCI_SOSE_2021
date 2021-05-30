@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../NavBar.dart';
 import 'AddVisitorRoute.dart';
 import 'Event.dart';
 import 'ViewPersonRoute.dart';
@@ -19,28 +20,20 @@ class ViewVisitorsRouteState extends State<ViewVisitorsRoute> {
     final args = ModalRoute.of(context)!.settings.arguments
         as ViewVisitorsRouteArguments;
     return Scaffold(
-        appBar: AppBar(
-          leading: BackButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: Text(args.event.name),
-        ),
+        appBar: NavBar(args.event.name),
         body: Center(
             child:
-            Column(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(AppLocalizations.of(context)!.manuallyAddedVisitors),
-                  Expanded(
-                      child: Center(
-                          child: ListView.builder(
-                              itemCount: args.event.manualVisitors.length,
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text(AppLocalizations.of(context)!.manuallyAddedVisitors),
+          Expanded(
+              child: Center(
+                  child: ListView.builder(
+                      itemCount: args.event.manualVisitors.length,
                       itemBuilder: (context, index) {
                         return ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(
-                                  context, ViewPersonRoute.route,
+                              Navigator.of(context).pushNamed(
+                                  ViewPersonRoute.route,
                                   arguments: ViewPersonRouteArguments(
                                       args.event.manualVisitors[index]));
                             },
@@ -48,7 +41,7 @@ class ViewVisitorsRouteState extends State<ViewVisitorsRoute> {
                       }))),
                   ElevatedButton(
                     onPressed: () {
-              Navigator.pushNamed(context, AddVisitorRoute.route,
+              Navigator.of(context).pushNamed(AddVisitorRoute.route,
                   arguments: AddVisitorRouteArguments(
                     args.event,
                     () {

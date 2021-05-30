@@ -6,6 +6,8 @@ import 'package:mci_practicum/StatusWidget.dart';
 import 'package:mci_practicum/TestEntryRoute.dart';
 
 import 'Event/OwnEventsRoute.dart';
+import 'FAQ/FAQRoute.dart';
+import 'NavBar.dart';
 import 'Settings/SettingsRoute.dart';
 
 class MainRoute extends StatelessWidget {
@@ -15,49 +17,30 @@ class MainRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     ValueNotifier<bool> status = ValueNotifier(false);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.title),
+      appBar: NavBar(
+        AppLocalizations.of(context)!.title,
         actions: [
           PopupMenuButton(
+              onSelected: (value) {
+                Navigator.of(context).pushNamed(value.toString());
+              },
               itemBuilder: (context) => [
                     PopupMenuItem(
-                  child: ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.white)),
-                      onPressed: () {
-                            Navigator.pushNamed(
-                              context,
-                              OwnEventsRoute.route,
-                            );
-                          },
-                      child: Text(
+                        value: OwnEventsRoute.route,
+                        child: Text(
                           AppLocalizations.of(context)!.ownEvents,
-                          style: TextStyle(color: Colors.black))),
-                ),
-                PopupMenuItem(
-                  child: ElevatedButton(
-                      style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.white)),
-                          onPressed: () {
-                            Navigator.pushNamed(context, SettingsRoute.route);
-                          },
-                          child: Text(AppLocalizations.of(context)!.settings,
-                              style: TextStyle(color: Colors.black))),
-                ),
-                PopupMenuItem(
-                  child: ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor:
-                          MaterialStateProperty.all<Color>(
-                              Colors.white)),
-                      //TODO FAQ page
-                      onPressed: () {},
-                      child: Text(AppLocalizations.of(context)!.faq,
-                          style: TextStyle(color: Colors.black))),
-                ),
-              ])
+                        )),
+                    PopupMenuItem(
+                        value: SettingsRoute.route,
+                        child: Text(
+                          AppLocalizations.of(context)!.settings,
+                        )),
+                    PopupMenuItem(
+                        value: FAQRoute.route,
+                        child: Text(
+                          AppLocalizations.of(context)!.faq,
+                        )),
+                  ])
         ],
       ),
       body: Center(
@@ -67,7 +50,7 @@ class MainRoute extends StatelessWidget {
             StatusWidget(status: status),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, TestEntryRoute.route,
+                Navigator.of(context).pushNamed(TestEntryRoute.route,
                     arguments: TestEntryArguments(status));
               },
               child: Text(AppLocalizations.of(context)!.enterTestResult),

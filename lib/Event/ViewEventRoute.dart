@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../NavBar.dart';
 import 'AddVisitorRoute.dart';
 import 'Event.dart';
 import 'ViewVisitorsRoute.dart';
@@ -18,23 +19,15 @@ class ViewEventRouteState extends State<ViewEventRoute> {
     final args =
         ModalRoute.of(context)!.settings.arguments as ViewEventRouteArguments;
     return Scaffold(
-        appBar: AppBar(
-          leading: BackButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: Text(args.event.name),
-        ),
+        appBar: NavBar(args.event.name),
         body: Center(
             child:
-            Column(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Text(AppLocalizations.of(context)!.minDurationLabel +
               args.event.minDuration.toString()),
           ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, ViewVisitorsRoute.route,
+                Navigator.of(context).pushNamed(ViewVisitorsRoute.route,
                     arguments: ViewVisitorsRouteArguments(args.event, () {
                       setState(() {});
                     }));
@@ -43,7 +36,7 @@ class ViewEventRouteState extends State<ViewEventRoute> {
                   args.event.manualVisitors.length.toString())),
           ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, AddVisitorRoute.route,
+                Navigator.of(context).pushNamed(AddVisitorRoute.route,
                     arguments: AddVisitorRouteArguments(args.event, () {
                       setState(() {});
                     }));

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/PersonEntryForm.dart';
 
+import '../NavBar.dart';
 import 'Event.dart';
 
 class AddVisitorRoute extends StatelessWidget {
@@ -12,15 +13,8 @@ class AddVisitorRoute extends StatelessWidget {
     final args =
         ModalRoute.of(context)!.settings.arguments as AddVisitorRouteArguments;
     return Scaffold(
-        appBar: AppBar(
-          leading: BackButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title:
-              Text(args.event.name + AppLocalizations.of(context)!.addVisitor),
-        ),
+        appBar:
+            NavBar(args.event.name + AppLocalizations.of(context)!.addVisitor),
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [

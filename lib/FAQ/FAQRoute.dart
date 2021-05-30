@@ -3,13 +3,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../NavBar.dart';
 
-class SettingsRoute extends StatelessWidget {
-  static const String route = '/settings';
+//TODO make it not a settings clone
+class FAQRoute extends StatelessWidget {
+  static const String route = '/faq';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NavBar(AppLocalizations.of(context)!.settings),
+      appBar: NavBar(AppLocalizations.of(context)!.faq),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
