@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../NavBar.dart';
 import 'AddVisitorRoute.dart';
@@ -17,21 +21,21 @@ class ViewEventRouteState extends State<ViewEventRoute> {
   @override
   Widget build(BuildContext context) {
     final args =
-        ModalRoute.of(context)!.settings.arguments as ViewEventRouteArguments;
+    ModalRoute.of(context)!.settings.arguments as ViewEventRouteArguments;
     return Scaffold(
         appBar: NavBar(args.event.name),
         body: Center(
             child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(AppLocalizations.of(context)!.minDurationLabel +
-              args.event.minDuration.toString()),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(ViewVisitorsRoute.route,
-                    arguments: ViewVisitorsRouteArguments(args.event, () {
-                      setState(() {});
-                    }));
-              },
+            Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(AppLocalizations.of(context)!.minDurationLabel +
+                  args.event.minDuration.toString()),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(ViewVisitorsRoute.route,
+                        arguments: ViewVisitorsRouteArguments(args.event, () {
+                          setState(() {});
+                        }));
+                  },
               child: Text(AppLocalizations.of(context)!.manualVisitorsLabel +
                   args.event.manualVisitors.length.toString())),
           ElevatedButton(
@@ -42,11 +46,15 @@ class ViewEventRouteState extends State<ViewEventRoute> {
                     }));
               },
               child: Text(AppLocalizations.of(context)!.addManualVisitors)),
-          //TODO replace with QR Code
-          Text('Here should be a QR Code'),
+          QrImage(
+              data: jsonEncode(args.event),
+              errorCorrectionLevel: QrErrorCorrectLevel.H,
+              size: 200),
+          //TODO share image button
           ElevatedButton(
-              //TODO onPressed shares the QR Code
-              onPressed: () {},
+              onPressed: () {
+                Share.share(jsonEncode(args.event));
+              },
               child: Text(AppLocalizations.of(context)!.shareQRCode)),
         ])));
   }
