@@ -39,5 +39,6 @@
   "phoneNumberLabel": "Telephone number:",
   "streetLabel": "Street, number:",
   "cityLabel": "PLZ, city",
-  "manuallyAddedVisitors": "Manually added visitors"
+  "manuallyAddedVisitors": "Manually added visitors",
+  "save": "Save"
 }

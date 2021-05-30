@@ -9,39 +9,41 @@ class PersonEntryForm extends StatefulWidget {
   PersonEntryForm(
       {Key? key,
       required this.callback,
-      this.defaultName = '',
-      this.defaultNumber = '',
-      this.defaultStreet = '',
-      this.defaultCity = ''})
-      : super(key: key);
+      required this.submitText,
+      Person? defaultPerson})
+      : super(key: key) {
+    if (defaultPerson == null) {
+      this.defaultPerson =
+          Person(city: '', name: '', telephone: '', street: '');
+    } else {
+      this.defaultPerson = defaultPerson;
+    }
+  }
+
   final PersonCallback callback;
-  final String defaultName;
-  final String defaultNumber;
-  final String defaultStreet;
-  final String defaultCity;
+  late final Person defaultPerson;
+  final String submitText;
 
   @override
   State<StatefulWidget> createState() => PersonEntryFormState(
-      callback: callback,
-      defaultCity: defaultCity,
-      defaultName: defaultName,
-      defaultNumber: defaultNumber,
-      defaultStreet: defaultStreet);
+        callback: callback,
+        defaultPerson: defaultPerson,
+        submitText: submitText,
+      );
 }
 
 class PersonEntryFormState extends State<PersonEntryForm> {
-  PersonEntryFormState({
-    required this.callback,
-    required String defaultName,
-    required String defaultNumber,
-    required String defaultStreet,
-    required String defaultCity,
-  }) {
-    name = new TextEditingController(text: defaultName);
-    telephoneNumber = new TextEditingController(text: defaultNumber);
-    street = new TextEditingController(text: defaultStreet);
-    city = new TextEditingController(text: defaultCity);
+  PersonEntryFormState(
+      {required this.callback,
+      required Person defaultPerson,
+      required this.submitText}) {
+    name = new TextEditingController(text: defaultPerson.name);
+    telephoneNumber = new TextEditingController(text: defaultPerson.telephone);
+    street = new TextEditingController(text: defaultPerson.street);
+    city = new TextEditingController(text: defaultPerson.city);
   }
+
+  final String submitText;
 
   final RegExp phoneNumberRegex = new RegExp(r'^[+\-()\d\s]+$');
   final RegExp streetRegex = new RegExp(r'^[\w\s.,-]+$');
@@ -116,7 +118,7 @@ class PersonEntryFormState extends State<PersonEntryForm> {
                       city: city.text));
                 }
               },
-              child: Text(AppLocalizations.of(context)!.add))
+              child: Text(submitText))
         ],
       ),
     );

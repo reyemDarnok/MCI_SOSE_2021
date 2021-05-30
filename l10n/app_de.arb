@@ -36,5 +36,6 @@
   "phoneNumberLabel": "Telefonnummer:",
   "streetLabel": "Straße, Hausnummer:",
   "cityLabel": "PLZ, Stadt:",
-  "manuallyAddedVisitors": "Manuell hinzugefügte Teilnehmer"
+  "manuallyAddedVisitors": "Manuell hinzugefügte Teilnehmer",
+  "save": "Speichern"
 }
