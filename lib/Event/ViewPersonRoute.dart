@@ -4,11 +4,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../Person.dart';
 
 class ViewPersonRoute extends StatelessWidget {
-  ViewPersonRoute({Key? key, required this.person}) : super(key: key);
-  final Person person;
+  static const String route = '/ownEvents/viewPerson';
 
   @override
   Widget build(BuildContext context) {
+    final args =
+        ModalRoute.of(context)!.settings.arguments as ViewPersonRouteArguments;
     return Scaffold(
         appBar: AppBar(
           leading: BackButton(
@@ -16,21 +17,26 @@ class ViewPersonRoute extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          title: Text(person.name),
+          title: Text(args.person.name),
         ),
         body: Center(
             child:
-                Column(mainAxisAlignment: MainAxisAlignment.center,
+            Column(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
           Text(AppLocalizations.of(context)!.nameLabel),
-          Text(person.name),
+          Text(args.person.name),
           Text(AppLocalizations.of(context)!.phoneNumberLabel),
-          Text(person.telephone),
+          Text(args.person.telephone),
           Text(AppLocalizations.of(context)!.streetLabel),
-          Text(person.street),
+          Text(args.person.street),
           Text(AppLocalizations.of(context)!.cityLabel),
-          Text(person.city),
-        ]))
-    );
+          Text(args.person.city),
+        ])));
   }
+}
+
+class ViewPersonRouteArguments {
+  ViewPersonRouteArguments(this.person);
+
+  final Person person;
 }

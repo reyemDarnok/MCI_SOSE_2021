@@ -5,14 +5,12 @@ import '../globals.dart';
 import 'EventForm.dart';
 
 class CreateEventRoute extends StatelessWidget {
-  CreateEventRoute({
-    Key? key,
-    required this.update,
-  }) : super(key: key);
-  final VoidCallback update;
+  static const String route = '/ownEvents/createEvent';
 
   @override
   Widget build(BuildContext context) {
+    final args =
+        ModalRoute.of(context)!.settings.arguments as CreateEventRouteArguments;
     return Scaffold(
         appBar: AppBar(
           leading: BackButton(
@@ -25,9 +23,14 @@ class CreateEventRoute extends StatelessWidget {
         body: EventForm(
           callback: (event) {
             events.add(event);
-            update();
+            args.update();
           },
         ));
   }
+}
 
+class CreateEventRouteArguments {
+  CreateEventRouteArguments(this.update);
+
+  final VoidCallback update;
 }

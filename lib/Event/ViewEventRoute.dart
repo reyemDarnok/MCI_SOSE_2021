@@ -6,21 +6,17 @@ import 'Event.dart';
 import 'ViewVisitorsRoute.dart';
 
 class ViewEventRoute extends StatefulWidget {
-  ViewEventRoute({Key? key, required this.event});
-
-  final Event event;
+  static const String route = '/ownEvents/viewEvent';
 
   @override
-  State<StatefulWidget> createState() => ViewEventRouteState(event: event);
+  State<StatefulWidget> createState() => ViewEventRouteState();
 }
 
 class ViewEventRouteState extends State<ViewEventRoute> {
-  ViewEventRouteState({required this.event});
-
-  final Event event;
-
   @override
   Widget build(BuildContext context) {
+    final args =
+        ModalRoute.of(context)!.settings.arguments as ViewEventRouteArguments;
     return Scaffold(
         appBar: AppBar(
           leading: BackButton(
@@ -28,38 +24,29 @@ class ViewEventRouteState extends State<ViewEventRoute> {
               Navigator.pop(context);
             },
           ),
-          title: Text(event.name),
+          title: Text(args.event.name),
         ),
         body: Center(
             child:
-                Column(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+            Column(mainAxisAlignment: MainAxisAlignment.center,
+                children: [
           Text(AppLocalizations.of(context)!.minDurationLabel +
-              event.minDuration.toString()),
+              args.event.minDuration.toString()),
           ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ViewVisitorsRoute(
-                            event: event,
-                            update: () {
-                              setState(() {});
-                            })));
+                Navigator.pushNamed(context, ViewVisitorsRoute.route,
+                    arguments: ViewVisitorsRouteArguments(args.event, () {
+                      setState(() {});
+                    }));
               },
               child: Text(AppLocalizations.of(context)!.manualVisitorsLabel +
-                  event.manualVisitors.length.toString())),
+                  args.event.manualVisitors.length.toString())),
           ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => AddVisitorRoute(
-                              event: event,
-                              update: () {
-                                setState(() {});
-                              },
-                            )));
+                Navigator.pushNamed(context, AddVisitorRoute.route,
+                    arguments: AddVisitorRouteArguments(args.event, () {
+                      setState(() {});
+                    }));
               },
               child: Text(AppLocalizations.of(context)!.addManualVisitors)),
           //TODO replace with QR Code
@@ -70,4 +57,10 @@ class ViewEventRouteState extends State<ViewEventRoute> {
               child: Text(AppLocalizations.of(context)!.shareQRCode)),
         ])));
   }
+}
+
+class ViewEventRouteArguments {
+  ViewEventRouteArguments(this.event);
+
+  final Event event;
 }

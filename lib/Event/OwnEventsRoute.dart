@@ -1,39 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../NavBar.dart';
 import '../globals.dart';
 import 'CreateEventRoute.dart';
 import 'ViewEventRoute.dart';
 
 class OwnEventsRoute extends StatefulWidget {
+  static const String route = '/ownEvents';
+
   @override
   State<StatefulWidget> createState() => OwnEventsRouteState();
 }
 
 class OwnEventsRouteState extends State<OwnEventsRoute> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: BackButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: Text(AppLocalizations.of(context)!.ownEvents),
-        ),
+        appBar: NavBar(title: AppLocalizations.of(context)!.ownEvents),
         body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => CreateEventRoute(
-                              update: () {
-                                setState(() {});
-                              },
-                            )));
+                Navigator.pushNamed(context, CreateEventRoute.route,
+                    arguments: CreateEventRouteArguments(() {
+                  setState(() {});
+                }));
               },
               child: Text(AppLocalizations.of(context)!.createNewEvent)),
           Expanded(
@@ -43,11 +34,9 @@ class OwnEventsRouteState extends State<OwnEventsRoute> {
                     return Center(
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ViewEventRoute(
-                                          event: events[index])));
+                              Navigator.pushNamed(context, ViewEventRoute.route,
+                                  arguments:
+                                      ViewEventRouteArguments(events[index]));
                             },
                             child: Text(events[index].name)));
                   }
@@ -56,7 +45,5 @@ class OwnEventsRouteState extends State<OwnEventsRoute> {
           ]
         )
     );
-
   }
-
 }

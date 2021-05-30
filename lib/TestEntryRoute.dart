@@ -3,10 +3,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/QRCodeButton.dart';
 
 class TestEntryRoute extends StatelessWidget {
-  TestEntryRoute({Key? key, required this.status}) : super(key: key);
-  final ValueNotifier<bool> status;
+  static const String route = '/testEntry';
+
   @override
   Widget build(BuildContext context) {
+    final args =
+        ModalRoute.of(context)!.settings.arguments as TestEntryArguments;
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
@@ -22,42 +24,47 @@ class TestEntryRoute extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: AppLocalizations.of(context)!.enterCode,
               ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    style: ButtonStyle(
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.red),
+                    MaterialStateProperty.all<Color>(Colors.red),
                   ),
                   onPressed: () {
-                    status.value = true;
+                    args.status.value = true;
                   },
                   child: Text(
                     AppLocalizations.of(context)!.positive,
                   ),
                 ),
-                  ElevatedButton(
-                    style: ButtonStyle(
+                ElevatedButton(
+                  style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.green)),
+                      MaterialStateProperty.all<Color>(Colors.green)),
                   onPressed: () {
-                    status.value = false;
+                    args.status.value = false;
                   },
                   child: Text(
                     AppLocalizations.of(context)!.negative,
                   ),
                 ),
-                ],
-              ),
+              ],
+            ),
             QRCodeButton(
                 callback: (s) {},
                 text: AppLocalizations.of(context)!.scanTestQRCode)
           ],
-          ),
         ),
+      ),
     );
   }
+}
 
+class TestEntryArguments {
+  TestEntryArguments(this.status);
+
+  final ValueNotifier<bool> status;
 }

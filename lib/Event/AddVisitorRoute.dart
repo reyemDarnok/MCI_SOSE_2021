@@ -5,13 +5,12 @@ import 'package:mci_practicum/PersonEntryForm.dart';
 import 'Event.dart';
 
 class AddVisitorRoute extends StatelessWidget {
-  AddVisitorRoute({Key? key, required this.event, required this.update})
-      : super(key: key);
-  final Event event;
-  final VoidCallback update;
+  static const String route = '/ownEvents/addVisitor';
 
   @override
   Widget build(BuildContext context) {
+    final args =
+        ModalRoute.of(context)!.settings.arguments as AddVisitorRouteArguments;
     return Scaffold(
         appBar: AppBar(
           leading: BackButton(
@@ -19,15 +18,23 @@ class AddVisitorRoute extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          title: Text(event.name + AppLocalizations.of(context)!.addVisitor),
+          title:
+              Text(args.event.name + AppLocalizations.of(context)!.addVisitor),
         ),
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           PersonEntryForm(callback: (person) {
-            event.manualVisitors.add(person);
-            update();
+            args.event.manualVisitors.add(person);
+            args.update();
           })
         ])));
   }
+}
+
+class AddVisitorRouteArguments {
+  AddVisitorRouteArguments(this.event, this.update);
+
+  final Event event;
+  final VoidCallback update;
 }

@@ -9,6 +9,7 @@ class QRCodeButton extends StatelessWidget{
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () {
+          //TODO replace with QR Code read
           callback('missing');
         },
         child: Text(text));
