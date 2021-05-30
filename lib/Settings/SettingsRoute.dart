@@ -19,7 +19,6 @@ class SettingsRoute extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {},
                 child: Text(AppLocalizations.of(context)!.language)),
-            //TODO Personal Data
             ElevatedButton(
               onPressed: () =>
                   Navigator.of(context).pushNamed(PersonalDataRoute.route),
