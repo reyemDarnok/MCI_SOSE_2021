@@ -37,5 +37,8 @@
   "streetLabel": "Straße, Hausnummer:",
   "cityLabel": "PLZ, Stadt:",
   "manuallyAddedVisitors": "Manuell hinzugefügte Teilnehmer",
-  "save": "Speichern"
+  "save": "Speichern",
+  "sourceCode": "Quellcode (externer Link)",
+  "logfile": "Log Datei",
+  "functionalityNotAvailable": "Diese Funktionalität ist auf dieser Plattform leider nicht verfügbar"
 }

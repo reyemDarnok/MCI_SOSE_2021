@@ -31,7 +31,7 @@
   "minDurationMissingError": "A minimum duration has to be specified",
   "minDurationMalformedError": "The minimum duration has to be a number",
   "createNewEvent": "Create new event",
-  "minDurationLabel": "Minimum duration of visit",
+  "minDurationLabel": "Minimum duration of visit: ",
   "manualVisitorsLabel": "Manual visitors",
   "addManualVisitors": "Add Visitor manually",
   "shareQRCode": "Share QR code",
@@ -40,5 +40,8 @@
   "streetLabel": "Street, number:",
   "cityLabel": "PLZ, city",
   "manuallyAddedVisitors": "Manually added visitors",
-  "save": "Save"
+  "save": "Save",
+  "sourceCode": "Source Code (external link)",
+  "logfile": "Log file",
+  "functionalityNotAvailable": "This functionality is sadly not supported for this platform"
 }

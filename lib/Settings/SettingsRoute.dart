@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mci_practicum/Settings/InternalsRoute.dart';
 import 'package:mci_practicum/Settings/PersonalDataRoute.dart';
 
 import '../NavBar.dart';
@@ -24,9 +25,9 @@ class SettingsRoute extends StatelessWidget {
                   Navigator.of(context).pushNamed(PersonalDataRoute.route),
               child: Text(AppLocalizations.of(context)!.personalData),
             ),
-            //TODO Internal Workings
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(InternalsRoute.route),
                 child: Text(AppLocalizations.of(context)!.internalWorkings))
           ],
         ),

@@ -6,6 +6,7 @@ import 'package:mci_practicum/Event/OwnEventsRoute.dart';
 import 'package:mci_practicum/Event/ViewEventRoute.dart';
 import 'package:mci_practicum/Event/ViewPersonRoute.dart';
 import 'package:mci_practicum/Event/ViewVisitorsRoute.dart';
+import 'package:mci_practicum/Settings/InternalsRoute.dart';
 import 'package:mci_practicum/Settings/PersonalDataRoute.dart';
 import 'package:mci_practicum/Settings/SettingsRoute.dart';
 import 'package:mci_practicum/TestEntryRoute.dart';
@@ -28,7 +29,8 @@ void main() {
       ViewVisitorsRoute.route: (context) => ViewVisitorsRoute(),
       SettingsRoute.route: (context) => SettingsRoute(),
       TestEntryRoute.route: (context) => TestEntryRoute(),
-      PersonalDataRoute.route: (context) => PersonalDataRoute()
+      PersonalDataRoute.route: (context) => PersonalDataRoute(),
+      InternalsRoute.route: (context) => InternalsRoute()
     },
   ));
 }
