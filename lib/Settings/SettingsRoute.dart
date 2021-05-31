@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/Settings/InternalsRoute.dart';
 import 'package:mci_practicum/Settings/PersonalDataRoute.dart';
+import 'package:mci_practicum/globals.dart';
 
 import '../NavBar.dart';
 
@@ -18,7 +19,9 @@ class SettingsRoute extends StatelessWidget {
           children: <Widget>[
             //TODO Language change
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  appLocale.value = Locale('de');
+                },
                 child: Text(AppLocalizations.of(context)!.language)),
             ElevatedButton(
               onPressed: () =>
