@@ -17,10 +17,28 @@ class SettingsRoute extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            //TODO Language change
             ElevatedButton(
                 onPressed: () {
-                  appLocale.value = Locale('de');
+                  showDialog(
+                      context: context,
+                      builder: (context) => SimpleDialog(
+                            title: Text(
+                                AppLocalizations.of(context)!.selectLanguage),
+                            children: [
+                              TextButton(
+                                  onPressed: () {
+                                    appLocale.value = Locale('de');
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('Deutsch')),
+                              TextButton(
+                                  onPressed: () {
+                                    appLocale.value = Locale('en');
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('English')),
+                            ],
+                          ));
                 },
                 child: Text(AppLocalizations.of(context)!.language)),
             ElevatedButton(

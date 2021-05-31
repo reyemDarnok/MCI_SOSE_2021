@@ -40,5 +40,6 @@
   "save": "Speichern",
   "sourceCode": "Quellcode (externer Link)",
   "logfile": "Log Datei",
-  "functionalityNotAvailable": "Diese Funktionalität ist auf dieser Plattform leider nicht verfügbar"
+  "functionalityNotAvailable": "Diese Funktionalität ist auf dieser Plattform leider nicht verfügbar",
+  "selectLanguage": "Sprache wählen"
 }

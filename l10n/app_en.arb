@@ -43,5 +43,6 @@
   "save": "Save",
   "sourceCode": "Source Code (external link)",
   "logfile": "Log file",
-  "functionalityNotAvailable": "This functionality is sadly not supported for this platform"
+  "functionalityNotAvailable": "This functionality is sadly not supported for this platform",
+  "selectLanguage": "Select language"
 }
