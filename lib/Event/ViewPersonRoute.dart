@@ -16,14 +16,11 @@ class ViewPersonRoute extends StatelessWidget {
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(AppLocalizations.of(context)!.nameLabel),
-          Text(args.person.name),
-          Text(AppLocalizations.of(context)!.phoneNumberLabel),
-          Text(args.person.telephone),
-          Text(AppLocalizations.of(context)!.streetLabel),
-          Text(args.person.street),
-          Text(AppLocalizations.of(context)!.cityLabel),
-          Text(args.person.city),
+          Text(AppLocalizations.of(context)!.name(args.person.name)),
+          Text(
+              AppLocalizations.of(context)!.phoneNumber(args.person.telephone)),
+          Text(AppLocalizations.of(context)!.street(args.person.street)),
+          Text(AppLocalizations.of(context)!.city(args.person.city)),
         ])));
   }
 }

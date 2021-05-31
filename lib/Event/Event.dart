@@ -21,7 +21,7 @@ class Event {
 
   @JsonKey(ignore: true)
   late final List<Person> manualVisitors;
-  late final String unique;
-  final String name;
-  final num minDuration;
+  late String unique;
+  String name;
+  num minDuration;
 }

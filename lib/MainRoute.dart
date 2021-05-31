@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -5,6 +7,7 @@ import 'package:mci_practicum/QRCodeButton.dart';
 import 'package:mci_practicum/StatusWidget.dart';
 import 'package:mci_practicum/TestEntryRoute.dart';
 
+import 'Event/Event.dart';
 import 'Event/OwnEventsRoute.dart';
 import 'FAQ/FAQRoute.dart';
 import 'NavBar.dart';
@@ -25,22 +28,22 @@ class MainRoute extends StatelessWidget {
                 Navigator.of(context).pushNamed(value.toString());
               },
               itemBuilder: (context) => [
-                    PopupMenuItem(
-                        value: OwnEventsRoute.route,
-                        child: Text(
-                          AppLocalizations.of(context)!.ownEvents,
-                        )),
-                    PopupMenuItem(
-                        value: SettingsRoute.route,
-                        child: Text(
-                          AppLocalizations.of(context)!.settings,
-                        )),
-                    PopupMenuItem(
-                        value: FAQRoute.route,
-                        child: Text(
-                          AppLocalizations.of(context)!.faq,
-                        )),
-                  ])
+                PopupMenuItem(
+                    value: OwnEventsRoute.route,
+                    child: Text(
+                      AppLocalizations.of(context)!.ownEvents,
+                    )),
+                PopupMenuItem(
+                    value: SettingsRoute.route,
+                    child: Text(
+                      AppLocalizations.of(context)!.settings,
+                    )),
+                PopupMenuItem(
+                    value: FAQRoute.route,
+                    child: Text(
+                      AppLocalizations.of(context)!.faq,
+                    )),
+              ])
         ],
       ),
       body: Center(
@@ -56,13 +59,15 @@ class MainRoute extends StatelessWidget {
               child: Text(AppLocalizations.of(context)!.enterTestResult),
             ),
             QRCodeButton(
-                //TODO real action
                 callback: (s) {
+                  Event event = Event.fromJson(jsonDecode(s));
                   showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
-                          title: Text('Event visited'),
-                          content: Text('Visited event ' + s)));
+                          title: Text(
+                              AppLocalizations.of(context)!.eventRegistered),
+                          content: Text(AppLocalizations.of(context)!
+                              .eventInfo(event.name, event.unique))));
                 },
                 text: AppLocalizations.of(context)!.scanQRCode),
           ],

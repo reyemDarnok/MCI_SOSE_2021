@@ -23,8 +23,8 @@ class ViewEventRoute extends StatelessWidget {
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(AppLocalizations.of(context)!.minDurationLabel +
-              args.event.value.minDuration.toString()),
+          Text(AppLocalizations.of(context)!
+              .minDuration(args.event.value.minDuration.toString())),
           ValueListenableBuilder<Event>(
               valueListenable: args.event,
               builder: (context, status, child) {
@@ -33,9 +33,8 @@ class ViewEventRoute extends StatelessWidget {
                       Navigator.of(context).pushNamed(ViewVisitorsRoute.route,
                           arguments: ViewVisitorsRouteArguments(args.event));
                     },
-                    child: Text(
-                        AppLocalizations.of(context)!.manualVisitorsLabel +
-                            status.manualVisitors.length.toString()));
+                    child: Text(AppLocalizations.of(context)!.manualVisitors(
+                        status.manualVisitors.length.toString())));
               }),
           ElevatedButton(
               onPressed: () {
@@ -52,7 +51,7 @@ class ViewEventRoute extends StatelessWidget {
           //TODO share image button
           ElevatedButton(
               onPressed: () {
-                Share.share(jsonEncode(args.event));
+                Share.share(jsonEncode(args.event.value));
               },
               child: Text(AppLocalizations.of(context)!.shareQRCode)),
         ])));

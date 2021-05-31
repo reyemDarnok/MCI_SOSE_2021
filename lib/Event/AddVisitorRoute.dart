@@ -15,7 +15,7 @@ class AddVisitorRoute extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as AddVisitorRouteArguments;
     return Scaffold(
         appBar: NavBar(
-            args.event.value.name + AppLocalizations.of(context)!.addVisitor),
+            AppLocalizations.of(context)!.addVisitor(args.event.value.name)),
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [

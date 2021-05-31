@@ -1,9 +1,6 @@
 {
   "ownEvents": "Own Events",
   "settings": "Settings",
-  "@settings": {
-    "description": "The name of the settings tab"
-  },
   "faq": "FAQ",
   "enterTestResult": "Enter test result",
   "scanQRCode": "Scan QR code",
@@ -26,23 +23,75 @@
   "personalData": "Personal Data",
   "internalWorkings": "Internal workings",
   "title": "Corona EventApp",
-  "addVisitor": " - Add Visitor",
+  "addVisitor": "{eventName} - Add Visitor",
+  "@addVisitor": {
+    "description": "Heading showing the event name and that a visitor is being added",
+    "placeholders": {
+      "eventName": {}
+    }
+  },
   "newEvent": "New event",
   "minDurationMissingError": "A minimum duration has to be specified",
   "minDurationMalformedError": "The minimum duration has to be a number",
   "createNewEvent": "Create new event",
-  "minDurationLabel": "Minimum duration of visit: ",
-  "manualVisitorsLabel": "Manual visitors",
+  "minDuration": "Minimum duration of visit: {minDuration}",
+  "@minDuration": {
+    "description": "Entry for the minimum Duration of the event",
+    "placeholders": {
+      "minDuration": {}
+    }
+  },
+  "manualVisitors": "Manual visitors: {visitorNum}",
+  "@manualVisitors": {
+    "description": "Entry for the manual Visitors of the event",
+    "placeholders": {
+      "visitorNum": {}
+    }
+  },
   "addManualVisitors": "Add Visitor manually",
   "shareQRCode": "Share QR code",
-  "nameLabel": "Name:",
-  "phoneNumberLabel": "Telephone number:",
-  "streetLabel": "Street, number:",
-  "cityLabel": "PLZ, city",
+  "name": "Name: {name}",
+  "@name": {
+    "description": "Entry for the name of a person",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "phoneNumber": "Telephone number: {phoneNum}",
+  "@phoneNumber": {
+    "description": "Entry for the telephone number of a person",
+    "placeholders": {
+      "phoneNum": {}
+    }
+  },
+  "street": "Street, number: {street}",
+  "@street": {
+    "description": "Entry for the street of a person",
+    "placeholders": {
+      "street": {}
+    }
+  },
+  "city": "PLZ, city: {city}",
+  "@city": {
+    "description": "Entry for the city of a person",
+    "placeholders": {
+      "city": {}
+    }
+  },
   "manuallyAddedVisitors": "Manually added visitors",
   "save": "Save",
   "sourceCode": "Source Code (external link)",
   "logfile": "Log file",
   "functionalityNotAvailable": "This functionality is sadly not supported for this platform",
-  "selectLanguage": "Select language"
+  "selectLanguage": "Select language",
+  "shareQRCodeImage": "Share QR code as picture",
+  "eventRegistered": "Event registered",
+  "eventInfo": "Name: {name}\nId: {id}",
+  "@eventInfo": {
+    "description": "Displays information of an event",
+    "placeholders": {
+      "name": {},
+      "id": {}
+    }
+  }
 }
