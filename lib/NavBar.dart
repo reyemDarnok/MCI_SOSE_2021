@@ -20,7 +20,7 @@ class NavBar extends StatelessWidget with PreferredSizeWidget {
             ? actions
             : [
                 TextButton(
-                    onPressed: () => Navigator.of(context)
+                  onPressed: () => Navigator.of(context)
                       .pushNamedAndRemoveUntil(
                           MainRoute.route, (route) => false),
                   child: Image.asset('assets/logo.png'),

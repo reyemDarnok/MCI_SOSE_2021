@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mci_practicum/FAQ/FAQElement.dart';
 
 import '../NavBar.dart';
 
@@ -14,7 +15,7 @@ class FAQRoute extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
+          children: <Widget>[FAQElement('title', 'content')],
         ),
       ),
     );
