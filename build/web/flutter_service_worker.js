@@ -12,9 +12,9 @@ const RESOURCES = {
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "version.json": "0e6c25a40fb01bee5d8959a0cda66ca5",
-"main.dart.js": "a5dc620c6e20154cf6140a65d7c70fba",
-"index.html": "d60017ee59817e7581451ae842372629",
-"/": "d60017ee59817e7581451ae842372629",
+"main.dart.js": "0e375b484f78e349f7241c5637f114dd",
+"index.html": "7eff5acbf43f85685ebcc36730d2d2b9",
+"/": "7eff5acbf43f85685ebcc36730d2d2b9",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1"
 };
