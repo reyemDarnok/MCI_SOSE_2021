@@ -56,8 +56,11 @@ class MainRoute extends StatelessWidget {
               child: Text(AppLocalizations.of(context)!.enterTestResult),
             ),
             QRCodeButton(
-              //TODO real action
-                callback: (s) {},
+                //TODO real action
+                callback: (s) {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(new SnackBar(content: Text(s)));
+                },
                 text: AppLocalizations.of(context)!.scanQRCode),
           ],
         ),

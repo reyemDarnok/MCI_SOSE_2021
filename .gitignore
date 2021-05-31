@@ -46,3 +46,7 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+#hover
+go/build
+go/.last_goflutter_check
+
