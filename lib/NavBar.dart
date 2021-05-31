@@ -21,13 +21,10 @@ class NavBar extends StatelessWidget with PreferredSizeWidget {
             : [
                 TextButton(
                     onPressed: () => Navigator.of(context)
-                        .pushNamedAndRemoveUntil(
-                            MainRoute.route, (route) => false),
-                    child: Text('Logo is here',
-                        style: TextStyle(
-                            color:
-                                Colors.black)) //Image.asset('assets/logo.png'),
-                    )
+                      .pushNamedAndRemoveUntil(
+                          MainRoute.route, (route) => false),
+                  child: Image.asset('assets/logo.png'),
+                )
               ]);
   }
 }
