@@ -23,7 +23,7 @@ class NavBar extends StatelessWidget with PreferredSizeWidget {
                     onPressed: () => Navigator.of(context)
                         .pushNamedAndRemoveUntil(
                             MainRoute.route, (route) => false),
-                    child: Text('CEV'))
+                    child: Text('CEA'))
               ]);
   }
 }
