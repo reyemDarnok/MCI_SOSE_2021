@@ -45,6 +45,7 @@ class ViewEventRoute extends StatelessWidget {
               },
               child: Text(AppLocalizations.of(context)!.addManualVisitors)),
           QrImage(
+              embeddedImage: Image.asset('assets/logo.png').image,
               data: jsonEncode(args.event.value),
               errorCorrectionLevel: QrErrorCorrectLevel.H,
               size: 200),
