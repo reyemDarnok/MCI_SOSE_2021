@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/PersonEntryForm.dart';
+import 'package:mci_practicum/PropertyValueNotifier.dart';
 
 import '../NavBar.dart';
 import 'Event.dart';
@@ -13,15 +14,15 @@ class AddVisitorRoute extends StatelessWidget {
     final args =
         ModalRoute.of(context)!.settings.arguments as AddVisitorRouteArguments;
     return Scaffold(
-        appBar:
-            NavBar(args.event.name + AppLocalizations.of(context)!.addVisitor),
+        appBar: NavBar(
+            args.event.value.name + AppLocalizations.of(context)!.addVisitor),
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           PersonEntryForm(
             callback: (person) {
-              args.event.manualVisitors.add(person);
-              args.update();
+              args.event.value.manualVisitors.add(person);
+              args.event.notifyListeners();
               Navigator.of(context).pop();
             },
             submitText: AppLocalizations.of(context)!.add,
@@ -31,8 +32,7 @@ class AddVisitorRoute extends StatelessWidget {
 }
 
 class AddVisitorRouteArguments {
-  AddVisitorRouteArguments(this.event, this.update);
+  AddVisitorRouteArguments(this.event);
 
-  final Event event;
-  final VoidCallback update;
+  final PropertyValueNotifier<Event> event;
 }

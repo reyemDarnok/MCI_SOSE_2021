@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mci_practicum/PropertyValueNotifier.dart';
 
 import '../NavBar.dart';
 import '../globals.dart';
@@ -10,22 +11,14 @@ class CreateEventRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final args =
-        ModalRoute.of(context)!.settings.arguments as CreateEventRouteArguments;
     return Scaffold(
         appBar: NavBar(AppLocalizations.of(context)!.newEvent),
         body: EventForm(
           callback: (event) {
-            events.add(event);
-            args.update();
-            Navigator.of(context).pop();
+            events.value.add(PropertyValueNotifier(event));
+            events.notifyListeners();
+            Navigator.of(context).pop(event);
           },
         ));
   }
-}
-
-class CreateEventRouteArguments {
-  CreateEventRouteArguments(this.update);
-
-  final VoidCallback update;
 }

@@ -23,11 +23,11 @@ class NavBar extends StatelessWidget with PreferredSizeWidget {
                     onPressed: () => Navigator.of(context)
                         .pushNamedAndRemoveUntil(
                             MainRoute.route, (route) => false),
-                    child: Image(
-                      image: AssetImage('assets/logo.png'),
-                      errorBuilder: (context, a, stacktrace) =>
-                          Text('Error loading logo'),
-                    ))
+                    child: Text('Logo is here',
+                        style: TextStyle(
+                            color:
+                                Colors.black)) //Image.asset('assets/logo.png'),
+                    )
               ]);
   }
 }

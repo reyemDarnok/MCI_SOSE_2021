@@ -37,18 +37,18 @@ class PersonEntryFormState extends State<PersonEntryForm> {
       {required this.callback,
       required Person defaultPerson,
       required this.submitText}) {
-    name = new TextEditingController(text: defaultPerson.name);
-    telephoneNumber = new TextEditingController(text: defaultPerson.telephone);
-    street = new TextEditingController(text: defaultPerson.street);
-    city = new TextEditingController(text: defaultPerson.city);
+    name = TextEditingController(text: defaultPerson.name);
+    telephoneNumber = TextEditingController(text: defaultPerson.telephone);
+    street = TextEditingController(text: defaultPerson.street);
+    city = TextEditingController(text: defaultPerson.city);
   }
 
   final String submitText;
 
-  final RegExp phoneNumberRegex = new RegExp(r'^[+\-()\d\s]+$');
-  final RegExp streetRegex = new RegExp(r'^[\w\s.,-]+$');
+  final RegExp phoneNumberRegex = RegExp(r'^[+\-()\d\s]+$');
+  final RegExp streetRegex = RegExp(r'^[\w\s.,-]+$');
   final RegExp cityRegex =
-      new RegExp(r'^(\d{5}[\s,]+[\w-]+|[\w-]+[\s,]+\d{5}|\d{5})$');
+      RegExp(r'^(\d{5}[\s,]+[\w-]+|[\w-]+[\s,]+\d{5}|\d{5})$');
 
   final PersonCallback callback;
   final _formKey = GlobalKey<FormState>();

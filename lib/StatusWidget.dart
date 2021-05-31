@@ -11,9 +11,7 @@ class StatusWidget extends StatelessWidget {
     return ValueListenableBuilder<bool>(
         valueListenable: status,
         builder: (context, status, child) {
-          return Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+          return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(AppLocalizations.of(context)!.infectionRisk),
             status
                 ? Text(
@@ -25,7 +23,6 @@ class StatusWidget extends StatelessWidget {
                     style: TextStyle(backgroundColor: Colors.green),
                   )
           ]);
-        }
-    );
+        });
   }
 }

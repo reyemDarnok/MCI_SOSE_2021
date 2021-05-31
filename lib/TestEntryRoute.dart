@@ -28,7 +28,7 @@ class TestEntryRoute extends StatelessWidget {
                 ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
-                    MaterialStateProperty.all<Color>(Colors.red),
+                        MaterialStateProperty.all<Color>(Colors.red),
                   ),
                   onPressed: () {
                     args.status.value = true;
@@ -40,7 +40,7 @@ class TestEntryRoute extends StatelessWidget {
                 ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.green)),
+                          MaterialStateProperty.all<Color>(Colors.green)),
                   onPressed: () {
                     args.status.value = false;
                   },

@@ -29,8 +29,8 @@ class EventFormState extends State<EventForm> {
     required String defaultName,
     required num defaultDuration,
   }) {
-    name = new TextEditingController(text: defaultName);
-    minDuration = new TextEditingController(text: defaultDuration.toString());
+    name = TextEditingController(text: defaultName);
+    minDuration = TextEditingController(text: defaultDuration.toString());
   }
 
   final EventCallback callback;

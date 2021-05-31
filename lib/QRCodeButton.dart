@@ -25,8 +25,7 @@ class QRCodeButton extends StatelessWidget {
           } else {
             FilePickerResult? result = await FilePicker.platform.pickFiles();
             if (result != null) {
-              String content =
-                  new String.fromCharCodes(result.files.first.bytes!);
+              String content = String.fromCharCodes(result.files.first.bytes!);
               callback(content);
             }
           }
