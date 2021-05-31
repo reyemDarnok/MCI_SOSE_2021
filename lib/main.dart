@@ -6,6 +6,7 @@ import 'package:mci_practicum/Event/OwnEventsRoute.dart';
 import 'package:mci_practicum/Event/ViewEventRoute.dart';
 import 'package:mci_practicum/Event/ViewPersonRoute.dart';
 import 'package:mci_practicum/Event/ViewVisitorsRoute.dart';
+import 'package:mci_practicum/FAQ/FAQRoute.dart';
 import 'package:mci_practicum/Settings/InternalsRoute.dart';
 import 'package:mci_practicum/Settings/PersonalDataRoute.dart';
 import 'package:mci_practicum/Settings/SettingsRoute.dart';
@@ -29,6 +30,7 @@ void main() {
     TestEntryRoute.route: (context) => TestEntryRoute(),
     PersonalDataRoute.route: (context) => PersonalDataRoute(),
     InternalsRoute.route: (context) => InternalsRoute(),
+    FAQRoute.route: (context) => FAQRoute()
   };
   runApp(ValueListenableBuilder<Locale>(
       valueListenable: appLocale,

@@ -58,8 +58,11 @@ class MainRoute extends StatelessWidget {
             QRCodeButton(
                 //TODO real action
                 callback: (s) {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(new SnackBar(content: Text(s)));
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                          title: Text('Event visited'),
+                          content: Text('Visited event ' + s)));
                 },
                 text: AppLocalizations.of(context)!.scanQRCode),
           ],
