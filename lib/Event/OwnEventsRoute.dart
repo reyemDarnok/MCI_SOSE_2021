@@ -8,15 +8,9 @@ import 'CreateEventRoute.dart';
 import 'Event.dart';
 import 'ViewEventRoute.dart';
 
-class OwnEventsRoute extends StatefulWidget {
+class OwnEventsRoute extends StatelessWidget {
   static const String route = '/ownEvents';
 
-  @override
-  State<StatefulWidget> createState() => OwnEventsRouteState();
-}
-
-class OwnEventsRouteState extends State<OwnEventsRoute> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: NavBar(AppLocalizations.of(context)!.ownEvents),

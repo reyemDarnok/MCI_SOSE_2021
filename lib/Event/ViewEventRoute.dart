@@ -11,13 +11,9 @@ import 'AddVisitorRoute.dart';
 import 'Event.dart';
 import 'ViewVisitorsRoute.dart';
 
-class ViewEventRoute extends StatefulWidget {
+class ViewEventRoute extends StatelessWidget {
   static const String route = '/ownEvents/viewEvent';
-  @override
-  State<StatefulWidget> createState() => ViewEventRouteState();
-}
 
-class ViewEventRouteState extends State<ViewEventRoute> {
   @override
   Widget build(BuildContext context) {
     final args =

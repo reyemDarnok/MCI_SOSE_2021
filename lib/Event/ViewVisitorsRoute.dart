@@ -7,14 +7,9 @@ import 'AddVisitorRoute.dart';
 import 'Event.dart';
 import 'ViewPersonRoute.dart';
 
-class ViewVisitorsRoute extends StatefulWidget {
+class ViewVisitorsRoute extends StatelessWidget {
   static const String route = '/ownEvents/viewVisitors';
 
-  @override
-  State<StatefulWidget> createState() => ViewVisitorsRouteState();
-}
-
-class ViewVisitorsRouteState extends State<ViewVisitorsRoute> {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments
