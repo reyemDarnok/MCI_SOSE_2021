@@ -18,6 +18,7 @@ class CreateEventRoute extends StatelessWidget {
           callback: (event) {
             events.add(event);
             args.update();
+            Navigator.of(context).pop();
           },
         ));
   }

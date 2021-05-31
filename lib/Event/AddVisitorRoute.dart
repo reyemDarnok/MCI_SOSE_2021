@@ -22,6 +22,7 @@ class AddVisitorRoute extends StatelessWidget {
             callback: (person) {
               args.event.manualVisitors.add(person);
               args.update();
+              Navigator.of(context).pop();
             },
             submitText: AppLocalizations.of(context)!.add,
           )
