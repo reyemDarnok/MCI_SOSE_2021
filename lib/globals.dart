@@ -24,7 +24,7 @@ Future<Logger> getLogger() async {
           ? MultiOutput([ConsoleOutput(), _webFileOutput])
           : MultiOutput([
               ConsoleOutput(),
-              FileOutput(
+              MyFileOutput(
                   file: File(join(
                       (await getApplicationDocumentsDirectory()).path,
                       'logfile.log')))

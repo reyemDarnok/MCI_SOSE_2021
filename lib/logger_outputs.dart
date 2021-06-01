@@ -4,13 +4,13 @@ import 'dart:io';
 import 'package:logger/logger.dart';
 
 /// Writes the log output to a file.
-class FileOutput extends LogOutput {
+class MyFileOutput extends LogOutput {
   final File file;
   final bool overrideExisting;
   final Encoding encoding;
   IOSink? _sink;
 
-  FileOutput({
+  MyFileOutput({
     required this.file,
     this.overrideExisting = false,
     this.encoding = utf8,
