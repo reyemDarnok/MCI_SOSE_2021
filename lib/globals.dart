@@ -1,12 +1,8 @@
-import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 
 import 'Event/Event.dart';
 import 'Person.dart';
@@ -20,15 +16,7 @@ Person me = Person(street: '', telephone: '', name: '', city: '');
 
 Future<Logger> getLogger() async {
   return Logger(
-      output: kIsWeb
-          ? MultiOutput([ConsoleOutput(), _webFileOutput])
-          : MultiOutput([
-              ConsoleOutput(),
-              MyFileOutput(
-                  file: File(join(
-                      (await getApplicationDocumentsDirectory()).path,
-                      'logfile.log')))
-            ]),
+      output: MultiOutput([ConsoleOutput(), _webFileOutput]),
       printer:
           PrettyPrinter(printTime: true, colors: false, printEmojis: false));
 }
@@ -37,11 +25,6 @@ RetainOutput _webFileOutput = RetainOutput();
 
 String getWebLog() {
   return _webFileOutput.content;
-}
-
-Future<File> getLog() async {
-  return File(
-      join((await getApplicationDocumentsDirectory()).path, 'logfile.log'));
 }
 
 late Logger log;
