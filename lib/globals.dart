@@ -18,21 +18,30 @@ PropertyValueNotifier<List<PropertyValueNotifier<Event>>> events =
     PropertyValueNotifier(List.empty(growable: true));
 Person me = Person(street: '', telephone: '', name: '', city: '');
 
-Future<Logger> getLogger(String name) async {
+Future<Logger> getLogger() async {
   return Logger(
-    output: kIsWeb
-        ? MultiOutput([ConsoleOutput(), WebFileOutput(name: 'logfile.log')])
-        : MultiOutput([
-            ConsoleOutput(),
-            FileOutput(
-                file: File(join((await getApplicationDocumentsDirectory()).path,
-                    'logfile.log'))),
-          ]),
-    printer: PrettyPrinter(
-      lineLength: 90,
-      colors: false,
-      methodCount: 1,
-      errorMethodCount: 5,
-    ),
-  );
+      output: kIsWeb
+          ? MultiOutput([ConsoleOutput(), _webFileOutput])
+          : MultiOutput([
+              ConsoleOutput(),
+              FileOutput(
+                  file: File(join(
+                      (await getApplicationDocumentsDirectory()).path,
+                      'logfile.log')))
+            ]),
+      printer:
+          PrettyPrinter(printTime: true, colors: false, printEmojis: false));
 }
+
+RetainOutput _webFileOutput = RetainOutput();
+
+String getWebLog() {
+  return _webFileOutput.content;
+}
+
+Future<File> getLog() async {
+  return File(
+      join((await getApplicationDocumentsDirectory()).path, 'logfile.log'));
+}
+
+late Logger log;

@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:logger/logger.dart';
-import 'package:universal_html/html.dart' as html;
 
 /// Writes the log output to a file.
 class FileOutput extends LogOutput {
@@ -37,20 +36,15 @@ class FileOutput extends LogOutput {
   }
 }
 
-class WebFileOutput extends LogOutput {
-  final String name;
-  late html.File file;
-
-  WebFileOutput({
-    required this.name,
-  }) {
-    file = html.File([], name);
+class RetainOutput extends LogOutput {
+  String get content {
+    return _list.join('\n');
   }
+
+  List<String> _list = new List.empty(growable: true);
 
   @override
   void output(OutputEvent event) {
-    List<Object> content = [file];
-    content.addAll(event.lines);
-    file = html.File(content, name);
+    _list.addAll(event.lines);
   }
 }

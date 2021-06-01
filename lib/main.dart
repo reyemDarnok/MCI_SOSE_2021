@@ -16,7 +16,9 @@ import 'package:mci_practicum/globals.dart';
 import 'MainRoute.dart';
 import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
 
-void main() {
+void main() async {
+  log = await getLogger();
+  log.i('Initializing App');
   configureApp();
   var routes = {
     MainRoute.route: (context) => MainRoute(),
