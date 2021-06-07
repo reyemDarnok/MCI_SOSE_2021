@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mci_practicum/globals.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -23,7 +24,7 @@ class InternalsRoute extends StatelessWidget {
                 child: Text(AppLocalizations.of(context)!.sourceCode)),
             ElevatedButton(
                 onPressed: () {
-                  Share.share('Logfile'); //TODO actual logs
+                  Share.share(getWebLog());
                 },
                 child: Row(
                   children: [

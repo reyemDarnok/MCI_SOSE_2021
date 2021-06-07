@@ -5,6 +5,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
+import 'globals.dart';
+
 typedef StringCallback = void Function(String data);
 
 class QRCodeButton extends StatelessWidget {
@@ -21,12 +23,18 @@ class QRCodeButton extends StatelessWidget {
             ScanResult result = await BarcodeScanner.scan();
             if (result.type == ResultType.Barcode) {
               callback(result.rawContent);
+              log.d('Scanned code: ' + result.rawContent);
+            } else {
+              log.d('Scanning aborted');
             }
           } else {
             FilePickerResult? result = await FilePicker.platform.pickFiles();
             if (result != null) {
               String content = String.fromCharCodes(result.files.first.bytes!);
               callback(content);
+              log.d('Scanned code: ' + content);
+            } else {
+              log.d('Scanning aborted');
             }
           }
         },
