@@ -4,7 +4,7 @@ import 'package:mci_practicum/FAQ/FAQElement.dart';
 
 import '../NavBar.dart';
 
-//TODO everything
+//TODO Questions and answers
 class FAQRoute extends StatelessWidget {
   static const String route = '/faq';
 
