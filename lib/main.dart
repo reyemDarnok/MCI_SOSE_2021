@@ -14,11 +14,9 @@ import 'package:mci_practicum/TestEntryRoute.dart';
 import 'package:mci_practicum/globals.dart';
 
 import 'MainRoute.dart';
-import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
 
 void main() {
   log.i('Initializing App');
-  configureApp();
   var routes = {
     MainRoute.route: (context) => MainRoute(),
     AddVisitorRoute.route: (context) => AddVisitorRoute(),
