@@ -104,5 +104,13 @@
   "streetLabel": "Street and house number",
   "streetHintText": "Enter Street and house number",
   "cityLabel": "City",
-  "cityHintText": "Enter PLZ and (optionally) the cityname"
+  "cityHintText": "Enter PLZ and (optionally) the cityname",
+  "estimatedDurationMalformedError": "Unknown format. Seperator is ',', known Units are d,h,m,s,ms,us",
+  "confirm": "Confirm",
+  "visitConfirmed": "Registered participation in event {event}",
+  "@visitConfirmed": {
+    "placeholders": {
+      "event": {}
+    }
+  }
 }

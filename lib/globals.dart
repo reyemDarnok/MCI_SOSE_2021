@@ -5,21 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
 import 'Event/Event.dart';
+import 'Event/EventVisit.dart';
 import 'Person.dart';
 import 'PropertyValueNotifier.dart';
 import 'logger_outputs.dart';
 
 ValueNotifier<Locale> appLocale = ValueNotifier(Locale('en'));
-PropertyValueNotifier<List<PropertyValueNotifier<Event>>> events =
+PropertyValueNotifier<List<PropertyValueNotifier<Event>>> ownEvents =
+    PropertyValueNotifier(List.empty(growable: true));
+PropertyValueNotifier<List<PropertyValueNotifier<EventVisit>>> visitedEvents =
     PropertyValueNotifier(List.empty(growable: true));
 Person me = Person(street: '', telephone: '', name: '', city: '');
-
-Future<Logger> getLogger() async {
-  return Logger(
-      output: MultiOutput([ConsoleOutput(), _webFileOutput]),
-      printer:
-          PrettyPrinter(printTime: true, colors: false, printEmojis: false));
-}
 
 RetainOutput _webFileOutput = RetainOutput();
 
@@ -27,4 +23,6 @@ String getWebLog() {
   return _webFileOutput.content;
 }
 
-late Logger log;
+Logger log = Logger(
+    output: MultiOutput([ConsoleOutput(), _webFileOutput]),
+    printer: PrettyPrinter(printTime: true, colors: false, printEmojis: false));

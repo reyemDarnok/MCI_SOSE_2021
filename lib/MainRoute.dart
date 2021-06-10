@@ -3,14 +3,18 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mci_practicum/Event/EventVisit.dart';
 import 'package:mci_practicum/QRCodeButton.dart';
 import 'package:mci_practicum/StatusWidget.dart';
 import 'package:mci_practicum/TestEntryRoute.dart';
+import 'package:mci_practicum/globals.dart';
+import 'package:mci_practicum/utils.dart';
 
 import 'Event/Event.dart';
 import 'Event/OwnEventsRoute.dart';
 import 'FAQ/FAQRoute.dart';
 import 'NavBar.dart';
+import 'PropertyValueNotifier.dart';
 import 'Settings/SettingsRoute.dart';
 
 class MainRoute extends StatelessWidget {
@@ -62,13 +66,54 @@ class MainRoute extends StatelessWidget {
                 callback: (s) {
                   try {
                     Event event = Event.fromJson(jsonDecode(s));
+                    //TODO remove hacky solution
+                    TextEditingController estimatedDuration =
+                        TextEditingController(
+                            text: event.minDuration.inHours.toString() + 'h');
                     showDialog(
+                        barrierDismissible: false,
                         context: context,
                         builder: (context) => AlertDialog(
                             title: Text(
                                 AppLocalizations.of(context)!.eventRegistered),
-                            content: Text(AppLocalizations.of(context)!
-                                .eventInfo(event.name, event.unique))));
+                            content: Column(children: [
+                              Text(AppLocalizations.of(context)!
+                                  .eventInfo(event.name, event.unique)),
+                              TextFormField(
+                                controller: estimatedDuration,
+                                validator: (content) {
+                                  if (content == null || content.isEmpty) {
+                                    return null;
+                                  }
+                                  try {
+                                    parseDuration(content);
+                                  } on FormatException {
+                                    return AppLocalizations.of(context)!
+                                        .estimatedDurationMalformedError;
+                                  }
+                                },
+                              ),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Duration d =
+                                        parseDuration(estimatedDuration.text);
+                                    visitedEvents.value.add(
+                                        PropertyValueNotifier(EventVisit(
+                                            event: event,
+                                            start: DateTime.now(),
+                                            visitDuration: d)));
+                                    visitedEvents.notifyListeners();
+                                    Navigator.of(context).pop();
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) => SimpleDialog(
+                                            title: Text(AppLocalizations.of(
+                                                    context)!
+                                                .visitConfirmed(event.name))));
+                                  },
+                                  child: Text(
+                                      AppLocalizations.of(context)!.confirm))
+                            ])));
                   } on FormatException {
                     showDialog(
                         context: context,
@@ -84,3 +129,4 @@ class MainRoute extends StatelessWidget {
     );
   }
 }
+

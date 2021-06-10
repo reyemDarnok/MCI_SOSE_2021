@@ -55,5 +55,8 @@
   "streetLabel": "Straße und Hausnummer",
   "streetHintText": "Straße und Hausnummer eingeben",
   "cityLabel": "Stadt",
-  "cityHintText": "PLZ und (optional) Stadtnamen eingeben"
+  "cityHintText": "PLZ und (optional) Stadtnamen eingeben",
+  "estimatedDurationMalformedError": "Unbekanntes Format. Trennzeichen ist ',', bekannte Einheiten sind d,h,m,s,ms,us",
+  "confirm": "Bestätigen",
+  "visitConfirmed": "Teilnahme am Event {event} registriert"
 }

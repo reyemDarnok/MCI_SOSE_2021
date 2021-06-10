@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mci_practicum/utils.dart';
 
 import 'Event.dart';
 
@@ -73,11 +74,14 @@ class EventFormState extends State<EventForm> {
                     if (value == null) {
                       return AppLocalizations.of(context)!
                           .minDurationMissingError;
-                    } else if (num.tryParse(value) == null) {
-                      return AppLocalizations.of(context)!
-                          .minDurationMalformedError;
                     } else {
-                      return null;
+                      try {
+                        parseDuration(value);
+                        return null;
+                      } on FormatException {
+                        return AppLocalizations.of(context)!
+                            .minDurationMalformedError;
+                      }
                     }
                   }),
               ElevatedButton(
@@ -85,7 +89,7 @@ class EventFormState extends State<EventForm> {
                     if (_formKey.currentState!.validate()) {
                       callback(Event(
                           name: name.text,
-                          minDuration: num.parse(minDuration.text)));
+                          minDuration: parseDuration(minDuration.text)));
                     }
                   },
                   child: Text(AppLocalizations.of(context)!.add))

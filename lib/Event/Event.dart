@@ -17,11 +17,14 @@ class Event {
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 
+  /// `toJson` is the convention for a class to declare support for serialization
+  /// to JSON. The implementation simply calls the private, generated
+  /// helper method `_$UserToJson`.
   Map<String, dynamic> toJson() => _$EventToJson(this);
 
   @JsonKey(ignore: true)
   late final List<Person> manualVisitors;
   late String unique;
   String name;
-  num minDuration;
+  Duration minDuration;
 }

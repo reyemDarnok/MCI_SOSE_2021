@@ -22,7 +22,7 @@ class OwnEventsRoute extends StatelessWidget {
               child: Text(AppLocalizations.of(context)!.createNewEvent)),
           Expanded(
             child: ValueListenableBuilder<List<PropertyValueNotifier<Event>>>(
-                valueListenable: events,
+                valueListenable: ownEvents,
                 builder: (context, status, child) {
                   return ListView.builder(
                       itemCount: status.length,
