@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:mci_practicum/Settings/InternalsRoute.dart';
 import 'package:mci_practicum/Settings/PersonalDataRoute.dart';
 import 'package:mci_practicum/globals.dart';
@@ -49,7 +48,10 @@ class SettingsRoute extends StatelessWidget {
   }
 
   void _showLanguageDialog(BuildContext context) {
-    var supportedLocales = ['de', 'en'];
+    var supportedLocales = [
+      {'id': 'de', 'name': 'Deutsch'},
+      {'id': 'en', 'name': 'English'}
+    ];
     showDialog(
         context: context,
         builder: (context) => SimpleDialog(
@@ -62,13 +64,12 @@ class SettingsRoute extends StatelessWidget {
             ));
   }
 
-  TextButton _localeButton(BuildContext context, String localeID) {
+  TextButton _localeButton(BuildContext context, Map<String, String> locale) {
     return TextButton(
         onPressed: () {
-          appLocale.value = Locale(localeID);
+          appLocale.value = Locale(locale['id']!);
           Navigator.of(context).pop();
         },
-        child: Text(
-            LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeID]!));
+        child: Text(locale['name']!));
   }
 }
