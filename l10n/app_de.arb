@@ -49,5 +49,11 @@
   "nameHintText": "Name eingeben",
   "minDurationLabel": "Minimale Verweildauer",
   "minDurationHintText": "Minimale Verweildauer eingeben",
-  "unknownQRCode": "Unbekannter QR Code"
+  "unknownQRCode": "Unbekannter QR Code",
+  "phoneNumberLabel": "Telefonnummer",
+  "phoneNumberHintText": "Telefonnummer eingeben",
+  "streetLabel": "Straße und Hausnummer",
+  "streetHintText": "Straße und Hausnummer eingeben",
+  "cityLabel": "Stadt",
+  "cityHintText": "PLZ und (optional) Stadtnamen eingeben"
 }

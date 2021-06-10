@@ -98,5 +98,11 @@
   "nameHintText": "Enter name",
   "minDurationLabel": "Minimal duration of presence",
   "minDurationHintText": "Enter minimum duration",
-  "unknownQRCode": "Unknown QR Code"
+  "unknownQRCode": "Unknown QR Code",
+  "phoneNumberLabel": "Telephone number",
+  "phoneNumberHintText": "Enter Telephone number",
+  "streetLabel": "Street and house number",
+  "streetHintText": "Enter Street and house number",
+  "cityLabel": "City",
+  "cityHintText": "Enter PLZ and (optionally) the cityname"
 }
