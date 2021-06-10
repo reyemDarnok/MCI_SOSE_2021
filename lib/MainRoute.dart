@@ -80,6 +80,11 @@ class MainRoute extends StatelessWidget {
                               Text(AppLocalizations.of(context)!
                                   .eventInfo(event.name, event.unique)),
                               TextFormField(
+                                decoration: InputDecoration(
+                                    labelText: AppLocalizations.of(context)!
+                                        .estimatedDurationLabel,
+                                    hintText: AppLocalizations.of(context)!
+                                        .estimatedDurationHintText),
                                 controller: estimatedDuration,
                                 validator: (content) {
                                   if (content == null || content.isEmpty) {

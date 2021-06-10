@@ -11,11 +11,11 @@ class EventForm extends StatefulWidget {
       {Key? key,
       required this.callback,
       this.defaultName = '',
-      this.defaultDuration = 3})
+      this.defaultDuration = '3h'})
       : super(key: key);
   final EventCallback callback;
   final String defaultName;
-  final num defaultDuration;
+  final String defaultDuration;
 
   @override
   State<StatefulWidget> createState() => EventFormState(
@@ -28,10 +28,10 @@ class EventFormState extends State<EventForm> {
   EventFormState({
     required this.callback,
     required String defaultName,
-    required num defaultDuration,
+    required String defaultDuration,
   }) {
     name = TextEditingController(text: defaultName);
-    minDuration = TextEditingController(text: defaultDuration.toString());
+    minDuration = TextEditingController(text: defaultDuration);
   }
 
   final EventCallback callback;

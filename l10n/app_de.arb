@@ -58,5 +58,7 @@
   "cityHintText": "PLZ und (optional) Stadtnamen eingeben",
   "estimatedDurationMalformedError": "Unbekanntes Format. Trennzeichen ist ',', bekannte Einheiten sind d,h,m,s,ms,us",
   "confirm": "Bestätigen",
-  "visitConfirmed": "Teilnahme am Event {event} registriert"
+  "visitConfirmed": "Teilnahme am Event {event} registriert",
+  "estimatedDurationLabel": "Erwartete Verweildauer",
+  "estimatedDurationHintText": "1d,3h,5m"
 }

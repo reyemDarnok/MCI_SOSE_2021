@@ -112,5 +112,7 @@
     "placeholders": {
       "event": {}
     }
-  }
+  },
+  "estimatedDurationLabel": "Estimated duration of stay",
+  "estimatedDurationHintText": "1d,3h,5m"
 }
