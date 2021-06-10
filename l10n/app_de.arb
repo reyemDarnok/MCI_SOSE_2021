@@ -44,5 +44,9 @@
   "selectLanguage": "Sprache wählen",
   "shareQRCodeImage": "QR Code als Bild teilen",
   "eventRegistered": "Event registriert",
-  "eventInfo": "Name: {name}\nId: {id}"
+  "eventInfo": "Name: {name}\nEindeutige Id: {id}",
+  "nameLabel": "Name",
+  "nameHintText": "Name eingeben",
+  "minDurationLabel": "Minimale Verweildauer",
+  "minDurationHintText": "Minimale Verweildauer eingeben"
 }

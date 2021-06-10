@@ -43,41 +43,53 @@ class EventFormState extends State<EventForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      child: Column(
-        children: <Widget>[
-          TextFormField(
-            controller: name,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return AppLocalizations.of(context)!.nameMissingError;
-              } else {
-                return null;
-              }
-            },
-          ),
-          TextFormField(
-              controller: minDuration,
-              validator: (value) {
-                if (value == null) {
-                  return AppLocalizations.of(context)!.minDurationMissingError;
-                } else if (num.tryParse(value) == null) {
-                  return AppLocalizations.of(context)!
-                      .minDurationMalformedError;
-                } else {
-                  return null;
-                }
-              }),
+      child: Center(
+            child: SizedBox(
+          width: MediaQuery.of(context).size.width * 2 / 3,
+          child: Column(
+            children: <Widget>[
+              TextFormField(
+                decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.nameHintText,
+                    labelText: AppLocalizations.of(context)!.nameLabel),
+                controller: name,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return AppLocalizations.of(context)!.nameMissingError;
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+              TextFormField(
+                  decoration: InputDecoration(
+                      hintText:
+                          AppLocalizations.of(context)!.minDurationHintText,
+                      labelText:
+                          AppLocalizations.of(context)!.minDurationLabel),
+                  controller: minDuration,
+                  validator: (value) {
+                    if (value == null) {
+                      return AppLocalizations.of(context)!
+                          .minDurationMissingError;
+                    } else if (num.tryParse(value) == null) {
+                      return AppLocalizations.of(context)!
+                          .minDurationMalformedError;
+                    } else {
+                      return null;
+                    }
+                  }),
           ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  callback(Event(
-                      name: name.text,
-                      minDuration: num.parse(minDuration.text)));
-                }
-              },
-              child: Text(AppLocalizations.of(context)!.add))
-        ],
-      ),
-    );
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      callback(Event(
+                          name: name.text,
+                          minDuration: num.parse(minDuration.text)));
+                    }
+                  },
+                  child: Text(AppLocalizations.of(context)!.add))
+            ],
+          ),
+        )));
   }
 }

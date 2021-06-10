@@ -86,12 +86,16 @@
   "selectLanguage": "Select language",
   "shareQRCodeImage": "Share QR code as picture",
   "eventRegistered": "Event registered",
-  "eventInfo": "Name: {name}\nId: {id}",
+  "eventInfo": "Name: {name}\nUnique Id: {id}",
   "@eventInfo": {
     "description": "Displays information of an event",
     "placeholders": {
       "name": {},
       "id": {}
     }
-  }
+  },
+  "nameLabel": "Name",
+  "nameHintText": "Enter name",
+  "minDurationLabel": "Minimal duration of presence",
+  "minDurationHintText": "Enter minimum duration"
 }
