@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:mci_practicum/QRCodeButton.dart';
 
 import 'NavBar.dart';
 
@@ -14,25 +13,16 @@ class TestEntryRoute extends StatelessWidget {
     return Scaffold(
       appBar: NavBar(AppLocalizations.of(context)!.enterTestResult),
       body: Center(
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            TextField(
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.enterCode,
+          children: [
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.red),
-                  ),
-                  onPressed: () {
-                    args.status.value = true;
-                  },
+              onPressed: () {
+                args.status.value = true;
+              },
                   child: Text(
                     AppLocalizations.of(context)!.positive,
                   ),
@@ -42,17 +32,12 @@ class TestEntryRoute extends StatelessWidget {
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.green)),
                   onPressed: () {
-                    args.status.value = false;
-                  },
-                  child: Text(
-                    AppLocalizations.of(context)!.negative,
-                  ),
-                ),
-              ],
+                args.status.value = false;
+              },
+              child: Text(
+                AppLocalizations.of(context)!.negative,
+              ),
             ),
-            QRCodeButton(
-                callback: (s) {},
-                text: AppLocalizations.of(context)!.scanTestQRCode)
           ],
         ),
       ),
