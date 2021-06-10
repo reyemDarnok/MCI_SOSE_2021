@@ -18,7 +18,7 @@ class ViewVisitorsRoute extends StatelessWidget {
         appBar: NavBar(args.event.value.name),
         body: Center(
             child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           Text(AppLocalizations.of(context)!.manuallyAddedVisitors),
           Expanded(
             child: Center(

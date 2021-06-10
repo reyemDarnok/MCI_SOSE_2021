@@ -15,7 +15,7 @@ class InternalsRoute extends StatelessWidget {
       appBar: NavBar(AppLocalizations.of(context)!.settings),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             ElevatedButton(
                 onPressed: () {
@@ -27,6 +27,7 @@ class InternalsRoute extends StatelessWidget {
                   Share.share(getWebLog());
                 },
                 child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(AppLocalizations.of(context)!.logfile),
                     Icon(Icons.share)

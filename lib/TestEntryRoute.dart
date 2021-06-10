@@ -15,7 +15,7 @@ class TestEntryRoute extends StatelessWidget {
       appBar: NavBar(AppLocalizations.of(context)!.enterTestResult),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             TextField(
               decoration: InputDecoration(
@@ -23,7 +23,7 @@ class TestEntryRoute extends StatelessWidget {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   style: ButtonStyle(

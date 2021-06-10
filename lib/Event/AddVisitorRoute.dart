@@ -18,16 +18,18 @@ class AddVisitorRoute extends StatelessWidget {
             AppLocalizations.of(context)!.addVisitor(args.event.value.name)),
         body: Center(
             child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          PersonEntryForm(
-            callback: (person) {
-              args.event.value.manualVisitors.add(person);
-              args.event.notifyListeners();
-              Navigator.of(context).pop();
-            },
-            submitText: AppLocalizations.of(context)!.add,
-          )
-        ])));
+                Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+              PersonEntryForm(
+                callback: (person) {
+                  args.event.value.manualVisitors.add(person);
+                  args.event.notifyListeners();
+                  Navigator.of(context).pop();
+                },
+                submitText: AppLocalizations.of(context)!.add,
+              )
+            ])));
   }
 }
 

@@ -14,7 +14,7 @@ class OwnEventsRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: NavBar(AppLocalizations.of(context)!.ownEvents),
-        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           ElevatedButton(
               onPressed: () => Navigator.of(context).pushNamed(
                     CreateEventRoute.route,

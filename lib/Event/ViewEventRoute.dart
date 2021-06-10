@@ -22,18 +22,22 @@ class ViewEventRoute extends StatelessWidget {
         appBar: NavBar(args.event.value.name),
         body: Center(
             child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(AppLocalizations.of(context)!
-              .minDuration(args.event.value.minDuration.toString())),
-          ValueListenableBuilder<Event>(
-              valueListenable: args.event,
-              builder: (context, status, child) {
-                return ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(ViewVisitorsRoute.route,
-                          arguments: ViewVisitorsRouteArguments(args.event));
-                    },
-                    child: Text(AppLocalizations.of(context)!.manualVisitors(
+                Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+              Text(AppLocalizations.of(context)!
+                  .minDuration(args.event.value.minDuration.toString())),
+              ValueListenableBuilder<Event>(
+                  valueListenable: args.event,
+                  builder: (context, status, child) {
+                    return ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(
+                              ViewVisitorsRoute.route,
+                              arguments:
+                                  ViewVisitorsRouteArguments(args.event));
+                        },
+                        child: Text(AppLocalizations.of(context)!.manualVisitors(
                         status.manualVisitors.length.toString())));
               }),
           ElevatedButton(

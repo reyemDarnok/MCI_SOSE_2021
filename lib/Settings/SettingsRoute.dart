@@ -15,7 +15,7 @@ class SettingsRoute extends StatelessWidget {
       appBar: NavBar(AppLocalizations.of(context)!.settings),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             ElevatedButton(
                 onPressed: () {

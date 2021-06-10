@@ -47,6 +47,7 @@ class EventFormState extends State<EventForm> {
             child: SizedBox(
           width: MediaQuery.of(context).size.width * 2 / 3,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(
@@ -64,9 +65,9 @@ class EventFormState extends State<EventForm> {
               TextFormField(
                   decoration: InputDecoration(
                       hintText:
-                          AppLocalizations.of(context)!.minDurationHintText,
+                      AppLocalizations.of(context)!.minDurationHintText,
                       labelText:
-                          AppLocalizations.of(context)!.minDurationLabel),
+                      AppLocalizations.of(context)!.minDurationLabel),
                   controller: minDuration,
                   validator: (value) {
                     if (value == null) {
@@ -79,7 +80,7 @@ class EventFormState extends State<EventForm> {
                       return null;
                     }
                   }),
-          ElevatedButton(
+              ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       callback(Event(

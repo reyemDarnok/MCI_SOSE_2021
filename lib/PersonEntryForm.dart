@@ -65,6 +65,7 @@ class PersonEntryFormState extends State<PersonEntryForm> {
             child: SizedBox(
           width: MediaQuery.of(context).size.width * 2 / 3,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(
@@ -79,12 +80,12 @@ class PersonEntryFormState extends State<PersonEntryForm> {
                   }
                 },
               ),
-          TextFormField(
+              TextFormField(
                   decoration: InputDecoration(
                       hintText:
-                          AppLocalizations.of(context)!.phoneNumberHintText,
+                      AppLocalizations.of(context)!.phoneNumberHintText,
                       labelText:
-                          AppLocalizations.of(context)!.phoneNumberLabel),
+                      AppLocalizations.of(context)!.phoneNumberLabel),
                   controller: telephoneNumber,
                   validator: (value) {
                     if (value == null) {
@@ -97,7 +98,7 @@ class PersonEntryFormState extends State<PersonEntryForm> {
                       return null;
                     }
                   }),
-          TextFormField(
+              TextFormField(
                 decoration: InputDecoration(
                     hintText: AppLocalizations.of(context)!.streetHintText,
                     labelText: AppLocalizations.of(context)!.streetLabel),
@@ -110,7 +111,7 @@ class PersonEntryFormState extends State<PersonEntryForm> {
                   }
                 },
               ),
-          TextFormField(
+              TextFormField(
                 decoration: InputDecoration(
                     hintText: AppLocalizations.of(context)!.cityHintText,
                     labelText: AppLocalizations.of(context)!.cityLabel),
@@ -123,9 +124,9 @@ class PersonEntryFormState extends State<PersonEntryForm> {
                   }
                 },
               ),
-          ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
+              ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
                       callback(Person(
                           name: name.text,
                           telephone: telephoneNumber.text,

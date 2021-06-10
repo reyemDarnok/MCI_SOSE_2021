@@ -13,15 +13,12 @@ class PersonalDataRoute extends StatelessWidget {
     return Scaffold(
         appBar: NavBar(AppLocalizations.of(context)!.personalData),
         body: Center(
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          PersonEntryForm(
-            callback: (person) {
-              me = person;
-            },
-            submitText: AppLocalizations.of(context)!.save,
-            defaultPerson: me,
-          )
-        ])));
+            child: PersonEntryForm(
+          callback: (person) {
+            me = person;
+          },
+          submitText: AppLocalizations.of(context)!.save,
+          defaultPerson: me,
+        )));
   }
 }

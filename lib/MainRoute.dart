@@ -48,7 +48,7 @@ class MainRoute extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             StatusWidget(status: status),
             ElevatedButton(

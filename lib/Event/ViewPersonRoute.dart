@@ -15,13 +15,15 @@ class ViewPersonRoute extends StatelessWidget {
         appBar: NavBar(args.person.name),
         body: Center(
             child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(AppLocalizations.of(context)!.name(args.person.name)),
-          Text(
-              AppLocalizations.of(context)!.phoneNumber(args.person.telephone)),
-          Text(AppLocalizations.of(context)!.street(args.person.street)),
-          Text(AppLocalizations.of(context)!.city(args.person.city)),
-        ])));
+                Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+              Text(AppLocalizations.of(context)!.name(args.person.name)),
+              Text(AppLocalizations.of(context)!
+                  .phoneNumber(args.person.telephone)),
+              Text(AppLocalizations.of(context)!.street(args.person.street)),
+              Text(AppLocalizations.of(context)!.city(args.person.city)),
+            ])));
   }
 }
 
