@@ -55,6 +55,7 @@ class SettingsRoute extends StatelessWidget {
         builder: (context) => SimpleDialog(
               title: Text(AppLocalizations.of(context)!.selectLanguage),
               children: [
+                //TODO Loop -> ListView, maybe?
                 _localeButton(context, supportedLocales[0]),
                 _localeButton(context, supportedLocales[1])
               ],
