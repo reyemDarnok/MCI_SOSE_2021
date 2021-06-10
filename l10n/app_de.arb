@@ -48,5 +48,6 @@
   "nameLabel": "Name",
   "nameHintText": "Name eingeben",
   "minDurationLabel": "Minimale Verweildauer",
-  "minDurationHintText": "Minimale Verweildauer eingeben"
+  "minDurationHintText": "Minimale Verweildauer eingeben",
+  "unknownQRCode": "Unbekannter QR Code"
 }

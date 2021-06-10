@@ -97,5 +97,6 @@
   "nameLabel": "Name",
   "nameHintText": "Enter name",
   "minDurationLabel": "Minimal duration of presence",
-  "minDurationHintText": "Enter minimum duration"
+  "minDurationHintText": "Enter minimum duration",
+  "unknownQRCode": "Unknown QR Code"
 }

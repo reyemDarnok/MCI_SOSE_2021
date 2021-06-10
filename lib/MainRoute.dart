@@ -60,14 +60,22 @@ class MainRoute extends StatelessWidget {
             ),
             QRCodeButton(
                 callback: (s) {
-                  Event event = Event.fromJson(jsonDecode(s));
-                  showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                          title: Text(
-                              AppLocalizations.of(context)!.eventRegistered),
-                          content: Text(AppLocalizations.of(context)!
-                              .eventInfo(event.name, event.unique))));
+                  try {
+                    Event event = Event.fromJson(jsonDecode(s));
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                            title: Text(
+                                AppLocalizations.of(context)!.eventRegistered),
+                            content: Text(AppLocalizations.of(context)!
+                                .eventInfo(event.name, event.unique))));
+                  } on FormatException {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                            title: Text(
+                                AppLocalizations.of(context)!.unknownQRCode)));
+                  }
                 },
                 text: AppLocalizations.of(context)!.scanQRCode),
           ],
