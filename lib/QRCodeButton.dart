@@ -28,26 +28,32 @@ class QRCodeButton extends StatelessWidget {
         child: ElevatedButton(
             onPressed: () async {
               if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
-                ScanResult result = await BarcodeScanner.scan();
-                if (result.type == ResultType.Barcode) {
-                  callback(result.rawContent);
-                  log.d('Scanned code: ' + result.rawContent);
-                } else {
-                  log.d('Scanning aborted');
-                }
+                await _scanQRCode();
               } else {
-                FilePickerResult? result =
-                    await FilePicker.platform.pickFiles();
-                if (result != null) {
-                  String content =
-                      String.fromCharCodes(result.files.first.bytes!);
-                  callback(content);
-                  log.d('Scanned code: ' + content);
-                } else {
-                  log.d('Scanning aborted');
-                }
+                await _getFile();
               }
             },
             child: Text(text)));
+  }
+
+  Future<void> _getFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
+    if (result != null) {
+      String content = String.fromCharCodes(result.files.first.bytes!);
+      callback(content);
+      log.d('Scanned code: ' + content);
+    } else {
+      log.d('Scanning aborted');
+    }
+  }
+
+  Future<void> _scanQRCode() async {
+    ScanResult result = await BarcodeScanner.scan();
+    if (result.type == ResultType.Barcode) {
+      callback(result.rawContent);
+      log.d('Scanned code: ' + result.rawContent);
+    } else {
+      log.d('Scanning aborted');
+    }
   }
 }

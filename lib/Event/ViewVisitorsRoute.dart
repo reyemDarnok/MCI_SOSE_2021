@@ -27,16 +27,8 @@ class ViewVisitorsRoute extends StatelessWidget {
                     builder: (context, status, child) {
                       return ListView.builder(
                           itemCount: status.manualVisitors.length,
-                          itemBuilder: (context, index) {
-                            return ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).pushNamed(
-                                      ViewPersonRoute.route,
-                                      arguments: ViewPersonRouteArguments(
-                                          status.manualVisitors[index]));
-                                },
-                                child: Text(status.manualVisitors[index].name));
-                          });
+                          itemBuilder: (context, index) =>
+                              _manualVisitorTile(context, status, index));
                     })),
           ),
           ElevatedButton(
@@ -49,6 +41,17 @@ class ViewVisitorsRoute extends StatelessWidget {
             child: Text(AppLocalizations.of(context)!.addManualVisitors),
           ),
         ])));
+  }
+
+  ElevatedButton _manualVisitorTile(
+      BuildContext context, Event status, int index) {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(ViewPersonRoute.route,
+              arguments:
+                  ViewPersonRouteArguments(status.manualVisitors[index]));
+        },
+        child: Text(status.manualVisitors[index].name));
   }
 }
 

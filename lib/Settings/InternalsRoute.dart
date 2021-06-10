@@ -17,25 +17,33 @@ class InternalsRoute extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            ElevatedButton(
-                onPressed: () {
-                  launch('https://github.com/reyemDarnok/MCI_SOSE_2021/');
-                },
-                child: Text(AppLocalizations.of(context)!.sourceCode)),
-            ElevatedButton(
-                onPressed: () {
-                  Share.share(getWebLog());
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(AppLocalizations.of(context)!.logfile),
-                    Icon(Icons.share)
-                  ],
-                ))
+            _sourceCodeButton(context),
+            _logFileButton(context)
           ],
         ),
       ),
     );
+  }
+
+  ElevatedButton _logFileButton(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Share.share(getWebLog());
+        },
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(AppLocalizations.of(context)!.logfile),
+            Icon(Icons.share)
+          ],
+        ));
+  }
+
+  ElevatedButton _sourceCodeButton(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          launch('https://github.com/reyemDarnok/MCI_SOSE_2021/');
+        },
+        child: Text(AppLocalizations.of(context)!.sourceCode));
   }
 }

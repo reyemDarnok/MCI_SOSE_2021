@@ -33,7 +33,7 @@ void main() {
     InternalsRoute.route: (context) => InternalsRoute(),
     FAQRoute.route: (context) => FAQRoute()
   };
-  runApp(ValueListenableBuilder<Locale>(
+  runApp(ValueListenableBuilder<Locale?>(
       valueListenable: appLocale,
       builder: (context, status, child) {
         return MaterialApp(

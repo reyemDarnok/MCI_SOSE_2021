@@ -10,11 +10,14 @@ import 'Person.dart';
 import 'PropertyValueNotifier.dart';
 import 'logger_outputs.dart';
 
-ValueNotifier<Locale> appLocale = ValueNotifier(Locale('en'));
+//null == System Locale
+ValueNotifier<Locale?> appLocale = ValueNotifier(null);
+
 PropertyValueNotifier<List<PropertyValueNotifier<Event>>> ownEvents =
     PropertyValueNotifier(List.empty(growable: true));
 PropertyValueNotifier<List<PropertyValueNotifier<EventVisit>>> visitedEvents =
     PropertyValueNotifier(List.empty(growable: true));
+
 Person me = Person(street: '', telephone: '', name: '', city: '');
 
 RetainOutput _webFileOutput = RetainOutput();

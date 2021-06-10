@@ -25,23 +25,24 @@ class FAQElementState extends State<FAQElement> {
             expanded = !expanded;
           });
         },
-        child: Center(
-            child: expanded
-                ? Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(title),
-                            Icon(Icons.keyboard_arrow_down_rounded)
-                          ]),
-                      Text(content),
-                    ],
-                  )
-                : Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Text(title),
-                    Icon(Icons.keyboard_arrow_right_rounded)
-                  ])));
+        child: Center(child: expanded ? _expanded() : _closed()));
+  }
+
+  Row _closed() {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [Text(title), Icon(Icons.keyboard_arrow_right_rounded)]);
+  }
+
+  Column _expanded() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Text(title), Icon(Icons.keyboard_arrow_down_rounded)]),
+        Text(content),
+      ],
+    );
   }
 }

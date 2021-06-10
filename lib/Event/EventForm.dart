@@ -43,58 +43,65 @@ class EventFormState extends State<EventForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
-      child: Center(
+        key: _formKey,
+        child: Center(
             child: SizedBox(
           width: MediaQuery.of(context).size.width * 2 / 3,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              TextFormField(
-                decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.nameHintText,
-                    labelText: AppLocalizations.of(context)!.nameLabel),
-                controller: name,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return AppLocalizations.of(context)!.nameMissingError;
-                  } else {
-                    return null;
-                  }
-                },
-              ),
-              TextFormField(
-                  decoration: InputDecoration(
-                      hintText:
-                      AppLocalizations.of(context)!.minDurationHintText,
-                      labelText:
-                      AppLocalizations.of(context)!.minDurationLabel),
-                  controller: minDuration,
-                  validator: (value) {
-                    if (value == null) {
-                      return AppLocalizations.of(context)!
-                          .minDurationMissingError;
-                    } else {
-                      try {
-                        parseDuration(value);
-                        return null;
-                      } on FormatException {
-                        return AppLocalizations.of(context)!
-                            .minDurationMalformedError;
-                      }
-                    }
-                  }),
-              ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      callback(Event(
-                          name: name.text,
-                          minDuration: parseDuration(minDuration.text)));
-                    }
-                  },
-                  child: Text(AppLocalizations.of(context)!.add))
+              _nameFormField(context),
+              _minDurationFormField(context),
+              _addButton(context)
             ],
           ),
         )));
+  }
+
+  ElevatedButton _addButton(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            callback(Event(
+                name: name.text, minDuration: parseDuration(minDuration.text)));
+          }
+        },
+        child: Text(AppLocalizations.of(context)!.add));
+  }
+
+  TextFormField _minDurationFormField(BuildContext context) {
+    return TextFormField(
+        decoration: InputDecoration(
+            hintText: AppLocalizations.of(context)!.minDurationHintText,
+            labelText: AppLocalizations.of(context)!.minDurationLabel),
+        controller: minDuration,
+        validator: (value) {
+          if (value == null) {
+            return AppLocalizations.of(context)!.minDurationMissingError;
+          } else {
+            try {
+              parseDuration(value);
+              return null;
+            } on FormatException {
+              return AppLocalizations.of(context)!.minDurationMalformedError;
+            }
+          }
+        });
+  }
+
+  TextFormField _nameFormField(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+          hintText: AppLocalizations.of(context)!.nameHintText,
+          labelText: AppLocalizations.of(context)!.nameLabel),
+      controller: name,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return AppLocalizations.of(context)!.nameMissingError;
+        } else {
+          return null;
+        }
+      },
+    );
   }
 }
