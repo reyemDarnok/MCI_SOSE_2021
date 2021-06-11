@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:mci_practicum/Event/EventVisit.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
 import 'package:mci_practicum/globals.dart';
@@ -16,7 +17,6 @@ class ViewVisitedEventsRoute extends StatelessWidget {
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-          Text(AppLocalizations.of(context)!.manuallyAddedVisitors),
           Expanded(
             child: Center(
                 child: ValueListenableBuilder<
@@ -35,14 +35,15 @@ class ViewVisitedEventsRoute extends StatelessWidget {
   _eventVisitTile(BuildContext context,
       List<PropertyValueNotifier<EventVisit>> status, int index) {
     var eventVisit = status[index].value;
+    var dateFormat = DateFormat.Hms(appLocale.value?.toLanguageTag()).add_yMd();
     return ListTile(
-        leading: Text(index.toString()),
         title: Center(child: Text(status[index].value.event.name)),
         subtitle:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          Text(AppLocalizations.of(context)!.start(eventVisit.start)),
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Text(AppLocalizations.of(context)!
-              .end(eventVisit.start.add(eventVisit.visitDuration))),
+              .start(dateFormat.format(eventVisit.start))),
+          Text(AppLocalizations.of(context)!.end(dateFormat
+              .format(eventVisit.start.add(eventVisit.visitDuration)))),
         ]));
   }
 }
