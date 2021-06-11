@@ -1,16 +1,14 @@
 # mci_practicum
 
-Project for MCI PRactium SOSE 2021 Group Grü 2
+Project for MCI Practium SOSE 2021 Group Grü 2
 
-## Getting Started
+## Purpose
 
-This project is a starting point for a Flutter application.
+This is a functional prototype for our [MCI Practicum](https://ilias.th-koeln.de/ilias.php?ref_id=1866870&cmdClass=ilrepositorygui&cmdNode=wb&baseClass=ilrepositorygui)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## TODOs
+- faq
+    - backend
+    - Contact tracking
+- employee code to enable adding manuals
+- visited events
