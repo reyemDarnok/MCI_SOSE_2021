@@ -11,7 +11,7 @@ import 'package:mci_practicum/globals.dart';
 import 'package:mci_practicum/utils.dart';
 
 import 'Event/Event.dart';
-import 'Event/OwnEventsRoute.dart';
+import 'Event/EventsRoute.dart';
 import 'FAQ/FAQRoute.dart';
 import 'NavBar.dart';
 import 'PropertyValueNotifier.dart';
@@ -132,9 +132,9 @@ class MainRoute extends StatelessWidget {
         },
         itemBuilder: (context) => [
               PopupMenuItem(
-                  value: OwnEventsRoute.route,
+                  value: EventsRoute.route,
                   child: Text(
-                    AppLocalizations.of(context)!.ownEvents,
+                    AppLocalizations.of(context)!.events,
                   )),
               PopupMenuItem(
                   value: SettingsRoute.route,

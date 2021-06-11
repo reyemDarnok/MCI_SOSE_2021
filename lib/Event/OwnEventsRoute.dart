@@ -9,7 +9,7 @@ import 'Event.dart';
 import 'ViewEventRoute.dart';
 
 class OwnEventsRoute extends StatelessWidget {
-  static const String route = '/ownEvents';
+  static const String route = '/events/own';
 
   Widget build(BuildContext context) {
     return Scaffold(

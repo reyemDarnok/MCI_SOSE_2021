@@ -7,7 +7,7 @@ import '../globals.dart';
 import 'EventForm.dart';
 
 class CreateEventRoute extends StatelessWidget {
-  static const String route = '/ownEvents/createEvent';
+  static const String route = '/events/own/createEvent';
 
   @override
   Widget build(BuildContext context) {

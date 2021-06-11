@@ -10,7 +10,7 @@ import '../utils.dart';
 import 'Event.dart';
 
 class AddVisitorRoute extends StatelessWidget {
-  static const String route = '/ownEvents/addVisitor';
+  static const String route = '/events/own/addVisitor';
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,7 @@ class AddVisitorRoute extends StatelessWidget {
         appBar: NavBar(
             AppLocalizations.of(context)!.addVisitor(args.event.value.name)),
         body: Center(
-            child:
-                Column(
+            child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
               PersonEntryForm(

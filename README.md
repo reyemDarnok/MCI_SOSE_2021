@@ -11,4 +11,4 @@ This is a functional prototype for our [MCI Practicum](https://ilias.th-koeln.de
     - backend
     - Contact tracking
 - employee code to enable adding manuals
-- visited events
+- visited events show individual

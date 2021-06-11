@@ -114,5 +114,19 @@
     }
   },
   "estimatedDurationLabel": "Estimated duration of stay",
-  "estimatedDurationHintText": "1d,3h,5m"
+  "estimatedDurationHintText": "1d,3h,5m",
+  "events": "Events",
+  "visitedEvents": "Visited Events",
+  "start": "Start: {start}",
+  "@start": {
+    "placeholders": {
+      "start": {}
+    }
+  },
+  "end": "End: {end}",
+  "@end": {
+    "placeholders": {
+      "end": {}
+    }
+  }
 }

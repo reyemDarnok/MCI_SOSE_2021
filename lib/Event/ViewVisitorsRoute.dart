@@ -8,7 +8,7 @@ import 'Event.dart';
 import 'ViewPersonRoute.dart';
 
 class ViewVisitorsRoute extends StatelessWidget {
-  static const String route = '/ownEvents/viewVisitors';
+  static const String route = '/events/own/viewVisitors';
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import '../NavBar.dart';
 import '../Person.dart';
 
 class ViewPersonRoute extends StatelessWidget {
-  static const String route = '/ownEvents/viewPerson';
+  static const String route = '/events/own/viewPerson';
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,7 @@ class ViewPersonRoute extends StatelessWidget {
     return Scaffold(
         appBar: NavBar(args.person.name),
         body: Center(
-            child:
-                Column(
+            child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
               Text(AppLocalizations.of(context)!.name(args.person.name)),

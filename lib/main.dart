@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/Event/AddVisitorRoute.dart';
 import 'package:mci_practicum/Event/CreateEventRoute.dart';
+import 'package:mci_practicum/Event/EventsRoute.dart';
 import 'package:mci_practicum/Event/OwnEventsRoute.dart';
 import 'package:mci_practicum/Event/ViewEventRoute.dart';
 import 'package:mci_practicum/Event/ViewPersonRoute.dart';
+import 'package:mci_practicum/Event/ViewVisitedEventsRoute.dart';
 import 'package:mci_practicum/Event/ViewVisitorsRoute.dart';
 import 'package:mci_practicum/FAQ/FAQRoute.dart';
 import 'package:mci_practicum/Settings/InternalsRoute.dart';
@@ -30,7 +32,9 @@ void main() {
     PersonalDataRoute.route: (context) => PersonalDataRoute(),
     InternalsRoute.route: (context) => InternalsRoute(),
     FAQRoute.route: (context) => FAQRoute(),
-    SelectDurationRoute.route: (context) => SelectDurationRoute()
+    SelectDurationRoute.route: (context) => SelectDurationRoute(),
+    EventsRoute.route: (context) => EventsRoute(),
+    ViewVisitedEventsRoute.route: (context) => ViewVisitedEventsRoute()
   };
   runApp(ValueListenableBuilder<Locale?>(
       valueListenable: appLocale,

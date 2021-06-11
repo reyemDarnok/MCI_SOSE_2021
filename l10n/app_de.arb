@@ -60,5 +60,9 @@
   "confirm": "Bestätigen",
   "visitConfirmed": "Teilnahme am Event {event} registriert",
   "estimatedDurationLabel": "Erwartete Verweildauer",
-  "estimatedDurationHintText": "1d,3h,5m"
+  "estimatedDurationHintText": "1d,3h,5m",
+  "events": "Events",
+  "visitedEvents": "Besuchte Events",
+  "start": "Start: {start}",
+  "end": "Ende: {end}"
 }
