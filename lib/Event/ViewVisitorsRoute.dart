@@ -48,10 +48,10 @@ class ViewVisitorsRoute extends StatelessWidget {
     return ElevatedButton(
         onPressed: () {
           Navigator.of(context).pushNamed(ViewPersonRoute.route,
-              arguments:
-                  ViewPersonRouteArguments(status.manualVisitors[index]));
+              arguments: ViewPersonRouteArguments(
+                  status.manualVisitors[index].value.person));
         },
-        child: Text(status.manualVisitors[index].name));
+        child: Text(status.manualVisitors[index].value.person.name));
   }
 }
 

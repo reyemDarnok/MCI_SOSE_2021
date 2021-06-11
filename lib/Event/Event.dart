@@ -1,7 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:mci_practicum/PropertyValueNotifier.dart';
 import 'package:uuid/uuid.dart';
 
-import '../Person.dart';
+import 'PersonVisit.dart';
 
 part 'Event.g.dart';
 
@@ -20,7 +21,7 @@ class Event {
   Map<String, dynamic> toJson() => _$EventToJson(this);
 
   @JsonKey(ignore: true)
-  late final List<Person> manualVisitors;
+  late final List<PropertyValueNotifier<PersonVisit>> manualVisitors;
   late String unique;
   String name;
   Duration minDuration;

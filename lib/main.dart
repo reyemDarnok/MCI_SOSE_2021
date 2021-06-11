@@ -29,7 +29,8 @@ void main() {
     TestEntryRoute.route: (context) => TestEntryRoute(),
     PersonalDataRoute.route: (context) => PersonalDataRoute(),
     InternalsRoute.route: (context) => InternalsRoute(),
-    FAQRoute.route: (context) => FAQRoute()
+    FAQRoute.route: (context) => FAQRoute(),
+    SelectDurationRoute.route: (context) => SelectDurationRoute()
   };
   runApp(ValueListenableBuilder<Locale?>(
       valueListenable: appLocale,
