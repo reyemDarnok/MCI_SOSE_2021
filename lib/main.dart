@@ -5,6 +5,7 @@ import 'package:mci_practicum/Event/CreateEventRoute.dart';
 import 'package:mci_practicum/Event/EventsRoute.dart';
 import 'package:mci_practicum/Event/OwnEventsRoute.dart';
 import 'package:mci_practicum/Event/ViewEventRoute.dart';
+import 'package:mci_practicum/Event/ViewEventVisit.dart';
 import 'package:mci_practicum/Event/ViewPersonRoute.dart';
 import 'package:mci_practicum/Event/ViewVisitedEventsRoute.dart';
 import 'package:mci_practicum/Event/ViewVisitorsRoute.dart';
@@ -34,7 +35,8 @@ void main() {
     FAQRoute.route: (context) => FAQRoute(),
     SelectDurationRoute.route: (context) => SelectDurationRoute(),
     EventsRoute.route: (context) => EventsRoute(),
-    ViewVisitedEventsRoute.route: (context) => ViewVisitedEventsRoute()
+    ViewVisitedEventsRoute.route: (context) => ViewVisitedEventsRoute(),
+    ViewEventVisitRoute.route: (context) => ViewEventVisitRoute()
   };
   runApp(ValueListenableBuilder<Locale?>(
       valueListenable: appLocale,

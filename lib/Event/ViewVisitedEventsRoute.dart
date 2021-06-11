@@ -6,6 +6,7 @@ import 'package:mci_practicum/PropertyValueNotifier.dart';
 import 'package:mci_practicum/globals.dart';
 
 import '../NavBar.dart';
+import 'ViewEventVisit.dart';
 
 class ViewVisitedEventsRoute extends StatelessWidget {
   static const String route = '/events/visited';
@@ -37,6 +38,13 @@ class ViewVisitedEventsRoute extends StatelessWidget {
     var eventVisit = status[index].value;
     var dateFormat = DateFormat.Hms(appLocale.value?.toLanguageTag()).add_yMd();
     return ListTile(
+        onTap: () => Navigator.of(context).pushNamed(ViewEventVisitRoute.route,
+            arguments: ViewEventVisitRouteArguments(eventVisit)),
+        tileColor: eventVisit.start
+                .add(eventVisit.visitDuration)
+                .isAfter(DateTime.now())
+            ? null
+            : Colors.grey,
         title: Center(child: Text(status[index].value.event.name)),
         subtitle:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
