@@ -1,4 +1,4 @@
-import '../miscTypes/Event.dart';
+import 'Event.dart';
 
 class EventVisit {
   EventVisit(

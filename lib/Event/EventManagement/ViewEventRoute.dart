@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
+import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -33,9 +34,9 @@ class ViewEventRoute extends StatelessWidget {
             ])));
   }
 
-  ElevatedButton _shareQRCodeButton(
+  GenericButton _shareQRCodeButton(
       ViewEventRouteArguments args, BuildContext context) {
-    return ElevatedButton(
+    return GenericButton(
         onPressed: () {
           Share.share(jsonEncode(args.event.value));
         },
@@ -50,9 +51,9 @@ class ViewEventRoute extends StatelessWidget {
         size: 200);
   }
 
-  ElevatedButton _addManualVisitorsButton(
+  GenericButton _addManualVisitorsButton(
       BuildContext context, ViewEventRouteArguments args) {
-    return ElevatedButton(
+    return GenericButton(
         onPressed: () {
           Navigator.of(context).pushNamed(AddVisitorRoute.route,
               arguments: AddVisitorRouteArguments(
@@ -67,7 +68,7 @@ class ViewEventRoute extends StatelessWidget {
     return ValueListenableBuilder<Event>(
         valueListenable: args.event,
         builder: (context, status, child) {
-          return ElevatedButton(
+          return GenericButton(
               onPressed: () {
                 Navigator.of(context).pushNamed(ViewVisitorsRoute.route,
                     arguments: ViewVisitorsRouteArguments(args.event));

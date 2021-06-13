@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 
 import '../../PropertyValueNotifier.dart';
 import '../../miscTypes/Event.dart';
@@ -31,7 +32,7 @@ class ViewVisitorsRoute extends StatelessWidget {
                               _manualVisitorTile(context, status, index));
                     })),
           ),
-          ElevatedButton(
+                  GenericButton(
             onPressed: () {
               Navigator.of(context).pushNamed(AddVisitorRoute.route,
                   arguments: AddVisitorRouteArguments(
@@ -43,9 +44,9 @@ class ViewVisitorsRoute extends StatelessWidget {
         ])));
   }
 
-  ElevatedButton _manualVisitorTile(
+  GenericButton _manualVisitorTile(
       BuildContext context, Event status, int index) {
-    return ElevatedButton(
+    return GenericButton(
         onPressed: () {
           Navigator.of(context).pushNamed(ViewPersonRoute.route,
               arguments: ViewPersonRouteArguments(

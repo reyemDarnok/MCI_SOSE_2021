@@ -4,10 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-import 'Event/EventVisit.dart';
 import 'PropertyValueNotifier.dart';
 import 'logger_outputs.dart';
 import 'miscTypes/Event.dart';
+import 'miscTypes/EventVisit.dart';
 import 'miscTypes/Person.dart';
 
 //null == System Locale

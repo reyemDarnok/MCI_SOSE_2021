@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:mci_practicum/Event/EventVisit.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
 import 'package:mci_practicum/globals.dart';
+import 'package:mci_practicum/miscTypes/EventVisit.dart';
 
 import '../../miscWidgets/NavBar.dart';
 import '../EventManagement/ViewEventVisit.dart';

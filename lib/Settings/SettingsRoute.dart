@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/Settings/InternalsRoute.dart';
 import 'package:mci_practicum/Settings/PersonalDataRoute.dart';
 import 'package:mci_practicum/globals.dart';
+import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 
 import '../miscWidgets/NavBar.dart';
 
@@ -26,21 +27,21 @@ class SettingsRoute extends StatelessWidget {
     );
   }
 
-  ElevatedButton _internalsButton(BuildContext context) {
-    return ElevatedButton(
+  GenericButton _internalsButton(BuildContext context) {
+    return GenericButton(
         onPressed: () => Navigator.of(context).pushNamed(InternalsRoute.route),
         child: Text(AppLocalizations.of(context)!.internalWorkings));
   }
 
-  ElevatedButton _personalDataButton(BuildContext context) {
-    return ElevatedButton(
+  GenericButton _personalDataButton(BuildContext context) {
+    return GenericButton(
       onPressed: () => Navigator.of(context).pushNamed(PersonalDataRoute.route),
       child: Text(AppLocalizations.of(context)!.personalData),
     );
   }
 
-  ElevatedButton _languageButton(BuildContext context) {
-    return ElevatedButton(
+  GenericButton _languageButton(BuildContext context) {
+    return GenericButton(
         onPressed: () {
           _showLanguageDialog(context);
         },

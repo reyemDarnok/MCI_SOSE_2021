@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
+import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 
 import '../../globals.dart';
 import '../../miscTypes/Event.dart';
@@ -37,7 +38,7 @@ class OwnEventsRoute extends StatelessWidget {
   Center _eventTile(BuildContext context,
       List<PropertyValueNotifier<Event>> status, int index) {
     return Center(
-        child: ElevatedButton(
+        child: GenericButton(
             onPressed: () {
               Navigator.of(context).pushNamed(ViewEventRoute.route,
                   arguments: ViewEventRouteArguments(status[index]));
@@ -45,8 +46,8 @@ class OwnEventsRoute extends StatelessWidget {
             child: Text(status[index].value.name)));
   }
 
-  ElevatedButton _newEventButton(BuildContext context) {
-    return ElevatedButton(
+  GenericButton _newEventButton(BuildContext context) {
+    return GenericButton(
         onPressed: () => Navigator.of(context).pushNamed(
               CreateEventRoute.route,
             ),

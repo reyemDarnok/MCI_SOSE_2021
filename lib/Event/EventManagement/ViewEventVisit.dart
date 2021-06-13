@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:mci_practicum/Event/EventVisit.dart';
+import 'package:mci_practicum/miscTypes/EventVisit.dart';
 
 import '../../globals.dart';
 import '../../miscWidgets/NavBar.dart';

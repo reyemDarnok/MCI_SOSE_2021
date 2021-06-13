@@ -3,9 +3,10 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:mci_practicum/Event/EventVisit.dart';
 import 'package:mci_practicum/TestEntryRoute.dart';
 import 'package:mci_practicum/globals.dart';
+import 'package:mci_practicum/miscTypes/EventVisit.dart';
+import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 import 'package:mci_practicum/miscWidgets/QRCodeButton.dart';
 import 'package:mci_practicum/miscWidgets/StatusWidget.dart';
 import 'package:mci_practicum/utils.dart';
@@ -114,9 +115,9 @@ class MainRoute extends StatelessWidget {
     );
   }
 
-  ElevatedButton _enterTestResultsButton(
+  GenericButton _enterTestResultsButton(
       BuildContext context, ValueNotifier<bool> status) {
-    return ElevatedButton(
+    return GenericButton(
       onPressed: () {
         Navigator.of(context).pushNamed(TestEntryRoute.route,
             arguments: TestEntryArguments(status));

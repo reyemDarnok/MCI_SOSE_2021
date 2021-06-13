@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:mci_practicum/Event/PersonVisit.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
 import 'package:mci_practicum/forms/PersonEntryForm.dart';
+import 'package:mci_practicum/miscTypes/PersonVisit.dart';
+import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 
 import '../../miscTypes/Event.dart';
 import '../../miscTypes/Person.dart';
@@ -77,12 +78,12 @@ class SelectDurationRoute extends StatelessWidget {
     );
   }
 
-  ElevatedButton _confirmButton(
+  GenericButton _confirmButton(
       TextEditingController estimatedDuration,
       PropertyValueNotifier<Event> event,
       SelectDurationRouteArguments args,
       BuildContext context) {
-    return ElevatedButton(
+    return GenericButton(
         onPressed: () {
           Duration d = parseDuration(estimatedDuration.text);
           event.value.manualVisitors.add(PropertyValueNotifier(PersonVisit(

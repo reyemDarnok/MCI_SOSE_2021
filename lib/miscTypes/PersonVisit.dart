@@ -1,4 +1,4 @@
-import '../miscTypes/Person.dart';
+import 'Person.dart';
 
 class PersonVisit {
   PersonVisit(

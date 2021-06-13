@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/globals.dart';
+import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -25,8 +26,8 @@ class InternalsRoute extends StatelessWidget {
     );
   }
 
-  ElevatedButton _logFileButton(BuildContext context) {
-    return ElevatedButton(
+  GenericButton _logFileButton(BuildContext context) {
+    return GenericButton(
         onPressed: () {
           Share.share(getWebLog());
         },
@@ -39,8 +40,8 @@ class InternalsRoute extends StatelessWidget {
         ));
   }
 
-  ElevatedButton _sourceCodeButton(BuildContext context) {
-    return ElevatedButton(
+  GenericButton _sourceCodeButton(BuildContext context) {
+    return GenericButton(
         onPressed: () {
           launch('https://github.com/reyemDarnok/MCI_SOSE_2021/');
         },
