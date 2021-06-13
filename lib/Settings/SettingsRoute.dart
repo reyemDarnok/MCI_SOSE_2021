@@ -4,7 +4,7 @@ import 'package:mci_practicum/Settings/InternalsRoute.dart';
 import 'package:mci_practicum/Settings/PersonalDataRoute.dart';
 import 'package:mci_practicum/globals.dart';
 
-import '../NavBar.dart';
+import '../miscWidgets/NavBar.dart';
 
 class SettingsRoute extends StatelessWidget {
   static const String route = '/settings';
@@ -49,8 +49,9 @@ class SettingsRoute extends StatelessWidget {
 
   void _showLanguageDialog(BuildContext context) {
     var supportedLocales = [
-      {'id': 'de', 'name': 'Deutsch'},
-      {'id': 'en', 'name': 'English'}
+      {'locale': Locale('de'), 'name': 'Deutsch'},
+      {'locale': Locale('en', 'US'), 'name': 'English (US)'},
+      {'locale': Locale('en', 'GB'), 'name': 'English (UK)'}
     ];
     showDialog(
         context: context,
@@ -59,17 +60,20 @@ class SettingsRoute extends StatelessWidget {
               children: [
                 //TODO Loop -> ListView, maybe?
                 _localeButton(context, supportedLocales[0]),
-                _localeButton(context, supportedLocales[1])
+                _localeButton(context, supportedLocales[1]),
+                _localeButton(context, supportedLocales[2])
               ],
             ));
   }
 
-  TextButton _localeButton(BuildContext context, Map<String, String> locale) {
+  TextButton _localeButton(BuildContext context, Map<String, Object> locale) {
     return TextButton(
         onPressed: () {
-          appLocale.value = Locale(locale['id']!);
+          appLocale.value = locale['locale'] as Locale;
+          log.i(
+              "Changed locale to ${(locale['locale'] as Locale).toLanguageTag()}");
           Navigator.of(context).pop();
         },
-        child: Text(locale['name']!));
+        child: Text(locale['name'].toString()));
   }
 }

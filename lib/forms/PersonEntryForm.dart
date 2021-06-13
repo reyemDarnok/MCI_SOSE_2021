@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'Person.dart';
+import '../miscTypes/Person.dart';
 
 typedef PersonCallback = void Function(Person person);
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/FAQ/FAQElement.dart';
 
-import '../NavBar.dart';
+import '../miscWidgets/NavBar.dart';
 
 //TODO Questions and answers
 class FAQRoute extends StatelessWidget {

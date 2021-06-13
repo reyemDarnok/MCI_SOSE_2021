@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../NavBar.dart';
-import '../Person.dart';
+import '../../miscTypes/Person.dart';
+import '../../miscWidgets/NavBar.dart';
 
 class ViewPersonRoute extends StatelessWidget {
   static const String route = '/events/own/viewPerson';

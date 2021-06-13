@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/Event/PersonVisit.dart';
-import 'package:mci_practicum/PersonEntryForm.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
+import 'package:mci_practicum/forms/PersonEntryForm.dart';
 
-import '../NavBar.dart';
-import '../Person.dart';
-import '../utils.dart';
-import 'Event.dart';
+import '../../miscTypes/Event.dart';
+import '../../miscTypes/Person.dart';
+import '../../miscWidgets/NavBar.dart';
+import '../../utils.dart';
 
 class AddVisitorRoute extends StatelessWidget {
   static const String route = '/events/own/addVisitor';

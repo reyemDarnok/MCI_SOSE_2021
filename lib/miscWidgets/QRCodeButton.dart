@@ -6,7 +6,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
-import 'globals.dart';
+import '../globals.dart';
 
 typedef StringCallback = void Function(String data);
 

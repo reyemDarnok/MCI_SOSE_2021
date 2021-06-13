@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../NavBar.dart';
-import '../PropertyValueNotifier.dart';
+import '../../PropertyValueNotifier.dart';
+import '../../miscTypes/Event.dart';
+import '../../miscWidgets/NavBar.dart';
 import 'AddVisitorRoute.dart';
-import 'Event.dart';
 import 'ViewPersonRoute.dart';
 
 class ViewVisitorsRoute extends StatelessWidget {

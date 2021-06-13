@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
 
-import '../NavBar.dart';
-import '../globals.dart';
+import '../../globals.dart';
+import '../../miscTypes/Event.dart';
+import '../../miscWidgets/NavBar.dart';
 import 'CreateEventRoute.dart';
-import 'Event.dart';
 import 'ViewEventRoute.dart';
 
 class OwnEventsRoute extends StatelessWidget {

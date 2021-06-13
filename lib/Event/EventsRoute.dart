@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:mci_practicum/Event/OwnEventsRoute.dart';
-import 'package:mci_practicum/Event/ViewVisitedEventsRoute.dart';
+import 'package:mci_practicum/Event/EventManagement/OwnEventsRoute.dart';
+import 'package:mci_practicum/Event/VisitManagement/ViewVisitedEventsRoute.dart';
 
-import '../NavBar.dart';
+import '../miscWidgets/NavBar.dart';
 
 class EventsRoute extends StatelessWidget {
   static const String route = '/events';

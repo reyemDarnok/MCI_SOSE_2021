@@ -5,8 +5,8 @@ import 'package:mci_practicum/Event/EventVisit.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
 import 'package:mci_practicum/globals.dart';
 
-import '../NavBar.dart';
-import 'ViewEventVisit.dart';
+import '../../miscWidgets/NavBar.dart';
+import '../EventManagement/ViewEventVisit.dart';
 
 class ViewVisitedEventsRoute extends StatelessWidget {
   static const String route = '/events/visited';

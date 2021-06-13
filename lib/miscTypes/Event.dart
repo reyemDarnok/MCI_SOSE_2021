@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
 import 'package:uuid/uuid.dart';
 
-import 'PersonVisit.dart';
+import '../Event/PersonVisit.dart';
 
 part 'Event.g.dart';
 

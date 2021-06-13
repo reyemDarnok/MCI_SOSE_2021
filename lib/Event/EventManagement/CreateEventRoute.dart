@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
 
-import '../NavBar.dart';
-import '../globals.dart';
-import 'EventForm.dart';
+import '../../forms/EventForm.dart';
+import '../../globals.dart';
+import '../../miscWidgets/NavBar.dart';
 
 class CreateEventRoute extends StatelessWidget {
   static const String route = '/events/own/createEvent';

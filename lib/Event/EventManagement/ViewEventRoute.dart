@@ -6,10 +6,10 @@ import 'package:mci_practicum/PropertyValueNotifier.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../NavBar.dart';
-import 'AddVisitorRoute.dart';
-import 'Event.dart';
-import 'ViewVisitorsRoute.dart';
+import '../../miscTypes/Event.dart';
+import '../../miscWidgets/NavBar.dart';
+import '../VisitManagement/AddVisitorRoute.dart';
+import '../VisitManagement/ViewVisitorsRoute.dart';
 
 class ViewEventRoute extends StatelessWidget {
   static const String route = '/events/own/viewEvent';

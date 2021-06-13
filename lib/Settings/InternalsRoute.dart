@@ -4,7 +4,7 @@ import 'package:mci_practicum/globals.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../NavBar.dart';
+import '../miscWidgets/NavBar.dart';
 
 class InternalsRoute extends StatelessWidget {
   static const String route = '/settings/internals';
