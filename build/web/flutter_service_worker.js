@@ -13,8 +13,8 @@ const RESOURCES = {
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "version.json": "0e6c25a40fb01bee5d8959a0cda66ca5",
 "main.dart.js": "60e79fa199ef9098531e715b80b8dc63",
-"index.html": "d300191dd71eef6fbf832d44c5403f66",
-"/": "d300191dd71eef6fbf832d44c5403f66",
+"index.html": "41d009bbe3b5d77dba22ebfba3f07690",
+"/": "41d009bbe3b5d77dba22ebfba3f07690",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1"
 };
