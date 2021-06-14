@@ -23,7 +23,6 @@ class MainRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ValueNotifier<bool> status = ValueNotifier(false);
     return Scaffold(
       appBar: NavBar(
         AppLocalizations.of(context)!.title,
@@ -34,7 +33,7 @@ class MainRoute extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            StatusWidget(status: status),
+            StatusWidget(),
             _enterTestResultsButton(context, status),
             _scanQRCodeButton(context),
           ],

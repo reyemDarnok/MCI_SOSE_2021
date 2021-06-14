@@ -26,6 +26,8 @@ String getWebLog() {
   return _webFileOutput.content;
 }
 
+ValueNotifier<bool> status = ValueNotifier(false);
+
 Logger log = Logger(
     output: MultiOutput([ConsoleOutput(), _webFileOutput]),
     printer: PrettyPrinter(printTime: true, colors: false, printEmojis: false));
