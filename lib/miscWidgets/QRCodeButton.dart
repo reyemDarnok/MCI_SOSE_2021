@@ -1,10 +1,10 @@
 import 'dart:io' show Platform;
-import 'dart:math';
 
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:mci_practicum/sizes.dart';
 
 import '../globals.dart';
 
@@ -18,13 +18,9 @@ class QRCodeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size mediaSize = MediaQuery.of(context).size;
-    double widthSuggestion = mediaSize.width * 0.8;
-    double heightSuggestion = mediaSize.height * 0.4;
-    double size = min(widthSuggestion, heightSuggestion);
     return SizedBox(
-        width: size,
-        height: size,
+        width: qrCodeButtonWidth(context),
+        height: qrCodeButtonWidth(context),
         child: ElevatedButton(
             onPressed: () async {
               if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
