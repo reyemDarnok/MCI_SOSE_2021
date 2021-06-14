@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mci_practicum/MainRoute.dart';
 
 class NavBar extends StatelessWidget with PreferredSizeWidget {
-  NavBar(this.title, {Key? key, this.implyLeading = true, this.actions})
+  NavBar(this.title,
+      {Key? key, this.implyLeading = true, this.actions, this.preTitle})
       : preferredSize = Size.fromHeight(50.0),
         super(key: key);
+
+  final Widget? preTitle;
   final String title;
   late final List<Widget>? actions;
   final bool implyLeading;
@@ -15,7 +18,11 @@ class NavBar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
         automaticallyImplyLeading: implyLeading,
-        title: Text(title),
+        title: preTitle == null
+            ? Text(title)
+            : Row(
+                children: [preTitle!, Text(title)],
+              ),
         actions: actions != null
             ? actions
             : [

@@ -28,6 +28,7 @@ class MainRoute extends StatelessWidget {
     return Scaffold(
       appBar: NavBar(
         AppLocalizations.of(context)!.title,
+        preTitle: Image.asset('assets/logo.png'),
         actions: [_popupMenu(context)],
       ),
       body: Center(
