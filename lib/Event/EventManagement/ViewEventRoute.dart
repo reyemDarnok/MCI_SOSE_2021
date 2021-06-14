@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:duration/duration.dart';
+import 'package:duration/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
@@ -79,8 +81,10 @@ class ViewEventRoute extends StatelessWidget {
   }
 
   Text _minDuration(BuildContext context, ViewEventRouteArguments args) {
-    return Text(AppLocalizations.of(context)!
-        .minDuration(args.event.value.minDuration.toString()));
+    return Text(AppLocalizations.of(context)!.minDuration(prettyDuration(
+        args.event.value.minDuration,
+        abbreviated: true,
+        locale: DurationLocale.fromLanguageCode('en')!)));
   }
 }
 

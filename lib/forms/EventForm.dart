@@ -1,17 +1,16 @@
+import 'package:duration/duration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:mci_practicum/utils.dart';
 
 import '../miscTypes/Event.dart';
 
 typedef EventCallback = void Function(Event person);
 
 class EventForm extends StatefulWidget {
-  EventForm(
-      {Key? key,
-      required this.callback,
-      this.defaultName = '',
-      this.defaultDuration = '3h'})
+  EventForm({Key? key,
+    required this.callback,
+    this.defaultName = '',
+    this.defaultDuration = '3h'})
       : super(key: key);
   final EventCallback callback;
   final String defaultName;
@@ -46,16 +45,16 @@ class EventFormState extends State<EventForm> {
         key: _formKey,
         child: Center(
             child: SizedBox(
-          width: MediaQuery.of(context).size.width * 2 / 3,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              _nameFormField(context),
-              _minDurationFormField(context),
-              _addButton(context)
-            ],
-          ),
-        )));
+              width: MediaQuery.of(context).size.width * 2 / 3,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  _nameFormField(context),
+                  _minDurationFormField(context),
+                  _addButton(context)
+                ],
+              ),
+            )));
   }
 
   ElevatedButton _addButton(BuildContext context) {

@@ -1,3 +1,5 @@
+import 'package:duration/duration.dart';
+import 'package:duration/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
@@ -8,7 +10,6 @@ import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 import '../../miscTypes/Event.dart';
 import '../../miscTypes/Person.dart';
 import '../../miscWidgets/NavBar.dart';
-import '../../utils.dart';
 
 class AddVisitorRoute extends StatelessWidget {
   static const String route = '/events/own/addVisitor';
@@ -16,7 +17,7 @@ class AddVisitorRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args =
-        ModalRoute.of(context)!.settings.arguments as AddVisitorRouteArguments;
+    ModalRoute.of(context)!.settings.arguments as AddVisitorRouteArguments;
     return Scaffold(
         appBar: NavBar(
             AppLocalizations.of(context)!.addVisitor(args.event.value.name)),
@@ -24,15 +25,15 @@ class AddVisitorRoute extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-              PersonEntryForm(
-                callback: (person) {
-                  Navigator.of(context).pushNamed(SelectDurationRoute.route,
-                      arguments:
+                  PersonEntryForm(
+                    callback: (person) {
+                      Navigator.of(context).pushNamed(SelectDurationRoute.route,
+                          arguments:
                           SelectDurationRouteArguments(args.event, person));
-                },
-                submitText: AppLocalizations.of(context)!.add,
-              )
-            ])));
+                    },
+                    submitText: AppLocalizations.of(context)!.add,
+                  )
+                ])));
   }
 }
 
@@ -43,9 +44,10 @@ class SelectDurationRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments
         as SelectDurationRouteArguments;
-    //TODO remove hacky solution
+    //TODO localization ?
     TextEditingController estimatedDuration = TextEditingController(
-        text: args.event.value.minDuration.inHours.toString() + 'h');
+        text: prettyDuration(args.event.value.minDuration,
+            abbreviated: true, locale: DurationLocale.fromLanguageCode('en')!));
     return Scaffold(
         appBar: NavBar(
             AppLocalizations.of(context)!.addVisitor(args.event.value.name)),
@@ -58,8 +60,7 @@ class SelectDurationRoute extends StatelessWidget {
             ])));
   }
 
-  TextFormField _estimatedDurationFormField(
-      BuildContext context, TextEditingController estimatedDuration) {
+  TextFormField _estimatedDurationFormField(BuildContext context, TextEditingController estimatedDuration) {
     return TextFormField(
       decoration: InputDecoration(
           labelText: AppLocalizations.of(context)!.estimatedDurationLabel,
@@ -78,8 +79,7 @@ class SelectDurationRoute extends StatelessWidget {
     );
   }
 
-  GenericButton _confirmButton(
-      TextEditingController estimatedDuration,
+  GenericButton _confirmButton(TextEditingController estimatedDuration,
       PropertyValueNotifier<Event> event,
       SelectDurationRouteArguments args,
       BuildContext context) {

@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:duration/duration.dart';
+import 'package:duration/locale.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -9,7 +11,6 @@ import 'package:mci_practicum/miscTypes/EventVisit.dart';
 import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 import 'package:mci_practicum/miscWidgets/QRCodeButton.dart';
 import 'package:mci_practicum/miscWidgets/StatusWidget.dart';
-import 'package:mci_practicum/utils.dart';
 
 import 'Event/EventsRoute.dart';
 import 'FAQ/FAQRoute.dart';
@@ -23,11 +24,11 @@ class MainRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    appLocale.value = Localizations.localeOf(context);
     return Scaffold(
       appBar: NavBar(
         AppLocalizations.of(context)!.title,
-        actions: [
-          _popupMenu(context)],
+        actions: [_popupMenu(context)],
       ),
       body: Center(
         child: Column(
@@ -49,7 +50,9 @@ class MainRoute extends StatelessWidget {
             Event event = Event.fromJson(jsonDecode(s));
             //TODO remove hacky solution
             TextEditingController estimatedDuration = TextEditingController(
-                text: event.minDuration.inHours.toString() + 'h');
+                text: prettyDuration(event.minDuration,
+                    abbreviated: true,
+                    locale: DurationLocale.fromLanguageCode('en')!));
             _showRegisterToEventDialog(context, event, estimatedDuration);
           } on FormatException {
             showDialog(
