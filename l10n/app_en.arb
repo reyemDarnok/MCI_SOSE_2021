@@ -128,5 +128,16 @@
     "placeholders": {
       "end": {}
     }
-  }
+  },
+  "reallyDelete": "Really delete event {eventName}?",
+  "@reallyDelete": {
+    "placeholders": {
+      "eventName": {}
+    }
+  },
+  "yes": "Yes",
+  "no": "No",
+  "confirmSendPositive": "Really register a positive test result?",
+  "confirmSendNegative": "Really register a negative test result?",
+  "informedGovernment": "Government is informed"
 }

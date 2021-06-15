@@ -49,7 +49,7 @@ class MainRoute extends StatelessWidget {
         callback: (s) {
           try {
             Event event = Event.fromJson(jsonDecode(s));
-            //TODO remove hacky solution
+            //TODO localization
             TextEditingController estimatedDuration = TextEditingController(
                 text: prettyDuration(event.minDuration,
                     abbreviated: true,
@@ -121,10 +121,9 @@ class MainRoute extends StatelessWidget {
   GenericButton _enterTestResultsButton(
       BuildContext context, ValueNotifier<bool> status) {
     return GenericButton(
-      onPressed: () {
-        Navigator.of(context).pushNamed(TestEntryRoute.route,
-            arguments: TestEntryArguments(status));
-      },
+      onPressed: () => Navigator.of(context).pushNamed(
+        TestEntryRoute.route,
+      ),
       child: Text(AppLocalizations.of(context)!.enterTestResult),
     );
   }

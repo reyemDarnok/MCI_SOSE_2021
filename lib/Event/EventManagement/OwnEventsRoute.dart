@@ -29,21 +29,40 @@ class OwnEventsRoute extends StatelessWidget {
             return ListView.builder(
                 itemCount: status.length,
                 itemBuilder: (context, index) {
-                  return _eventTile(context, status, index);
+                  return _eventTile(context, index);
                 });
           }),
     );
   }
 
-  Center _eventTile(BuildContext context,
-      List<PropertyValueNotifier<Event>> status, int index) {
-    return Center(
-        child: GenericButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(ViewEventRoute.route,
-                  arguments: ViewEventRouteArguments(status[index]));
-            },
-            child: Text(status[index].value.name)));
+  Widget _eventTile(BuildContext context, int index) {
+    return ListTile(
+      onTap: () => Navigator.of(context).pushNamed(ViewEventRoute.route,
+          arguments: ViewEventRouteArguments(ownEvents.value[index])),
+      title: Text(ownEvents.value[index].value.name),
+      trailing: IconButton(
+        icon: Icon(Icons.delete_forever),
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) => SimpleDialog(
+                      title: Text(AppLocalizations.of(context)!
+                          .reallyDelete(ownEvents.value[index].value.name)),
+                      children: [
+                        SimpleDialogOption(
+                            onPressed: () {
+                              ownEvents.value.removeAt(index);
+                              ownEvents.notifyListeners();
+                              Navigator.of(context).pop();
+                            },
+                            child: Text(AppLocalizations.of(context)!.yes)),
+                        SimpleDialogOption(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: Text(AppLocalizations.of(context)!.no))
+                      ]));
+        },
+      ),
+    );
   }
 
   GenericButton _newEventButton(BuildContext context) {

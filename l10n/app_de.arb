@@ -64,5 +64,11 @@
   "events": "Events",
   "visitedEvents": "Besuchte Events",
   "start": "Start: {start}",
-  "end": "Ende: {end}"
+  "end": "Ende: {end}",
+  "reallyDelete": "Event {eventName} wirkllich löschen?",
+  "yes": "Ja",
+  "no": "Nein",
+  "confirmSendPositive": "Wirklich einen positiven Test registrieren?",
+  "confirmSendNegative": "Wirklich einen negativen Test registrieren?",
+  "informedGovernment": "Gesundheitsamt ist informiert"
 }

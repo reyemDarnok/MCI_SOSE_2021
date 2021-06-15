@@ -60,23 +60,28 @@ class SelectDurationRoute extends StatelessWidget {
             ])));
   }
 
-  TextFormField _estimatedDurationFormField(BuildContext context, TextEditingController estimatedDuration) {
-    return TextFormField(
-      decoration: InputDecoration(
-          labelText: AppLocalizations.of(context)!.estimatedDurationLabel,
-          hintText: AppLocalizations.of(context)!.estimatedDurationHintText),
-      controller: estimatedDuration,
-      validator: (content) {
-        if (content == null || content.isEmpty) {
-          return null;
-        }
-        try {
-          parseDuration(content);
-        } on FormatException {
-          return AppLocalizations.of(context)!.estimatedDurationMalformedError;
-        }
-      },
-    );
+  SizedBox _estimatedDurationFormField(
+      BuildContext context, TextEditingController estimatedDuration) {
+    return SizedBox(
+        width: MediaQuery.of(context).size.width * 2 / 3,
+        child: TextFormField(
+          decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.estimatedDurationLabel,
+              hintText:
+                  AppLocalizations.of(context)!.estimatedDurationHintText),
+          controller: estimatedDuration,
+          validator: (content) {
+            if (content == null || content.isEmpty) {
+              return null;
+            }
+            try {
+              parseDuration(content);
+            } on FormatException {
+              return AppLocalizations.of(context)!
+                  .estimatedDurationMalformedError;
+            }
+          },
+        ));
   }
 
   GenericButton _confirmButton(TextEditingController estimatedDuration,

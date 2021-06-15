@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'globals.dart';
 import 'miscWidgets/NavBar.dart';
 
 class TestEntryRoute extends StatelessWidget {
@@ -8,8 +9,6 @@ class TestEntryRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final args =
-        ModalRoute.of(context)!.settings.arguments as TestEntryArguments;
     return Scaffold(
       appBar: NavBar(AppLocalizations.of(context)!.enterTestResult),
       body: Center(
@@ -21,7 +20,30 @@ class TestEntryRoute extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
               ),
               onPressed: () {
-                args.status.value = true;
+                showDialog(
+                    context: context,
+                    builder: (context) => SimpleDialog(
+                            title: Text(AppLocalizations.of(context)!
+                                .confirmSendPositive),
+                            children: [
+                              SimpleDialogOption(
+                                  onPressed: () {
+                                    status.value = true;
+                                    Navigator.of(context).pop();
+                                    Navigator.of(context).pop();
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) => SimpleDialog(
+                                            title: Text(
+                                                AppLocalizations.of(context)!
+                                                    .informedGovernment)));
+                                  },
+                                  child:
+                                      Text(AppLocalizations.of(context)!.yes)),
+                              SimpleDialogOption(
+                                  onPressed: () => Navigator.of(context).pop(),
+                                  child: Text(AppLocalizations.of(context)!.no))
+                            ]));
               },
                   child: Text(
                     AppLocalizations.of(context)!.positive,
@@ -32,7 +54,30 @@ class TestEntryRoute extends StatelessWidget {
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.green)),
                   onPressed: () {
-                args.status.value = false;
+                showDialog(
+                    context: context,
+                    builder: (context) => SimpleDialog(
+                            title: Text(AppLocalizations.of(context)!
+                                .confirmSendPositive),
+                            children: [
+                              SimpleDialogOption(
+                                  onPressed: () {
+                                    status.value = false;
+                                    Navigator.of(context).pop();
+                                    Navigator.of(context).pop();
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) => SimpleDialog(
+                                            title: Text(
+                                                AppLocalizations.of(context)!
+                                                    .informedGovernment)));
+                                  },
+                                  child:
+                                      Text(AppLocalizations.of(context)!.yes)),
+                              SimpleDialogOption(
+                                  onPressed: () => Navigator.of(context).pop(),
+                                  child: Text(AppLocalizations.of(context)!.no))
+                            ]));
               },
               child: Text(
                 AppLocalizations.of(context)!.negative,
@@ -43,10 +88,4 @@ class TestEntryRoute extends StatelessWidget {
       ),
     );
   }
-}
-
-class TestEntryArguments {
-  TestEntryArguments(this.status);
-
-  final ValueNotifier<bool> status;
 }
