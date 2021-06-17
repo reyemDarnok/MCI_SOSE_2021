@@ -29,7 +29,15 @@ class QRCodeButton extends StatelessWidget {
                 await _getFile();
               }
             },
-            child: Text(text)));
+            child: Container(
+                width: qrCodeButtonWidth(context),
+                height: qrCodeButtonWidth(context),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/qrCodeBackground.png'),
+                      fit: BoxFit.cover),
+                ),
+                child: Center(child: Text(text)))));
   }
 
   Future<void> _getFile() async {
