@@ -6,6 +6,10 @@ Project for MCI Practium SOSE 2021 Group Grü 2
 
 This is a functional prototype for our [MCI Practicum](https://ilias.th-koeln.de/ilias.php?ref_id=1866870&cmdClass=ilrepositorygui&cmdNode=wb&baseClass=ilrepositorygui)
 
+## Publishing
+
+The app is currently available add [this](https://reyemDarnok.github.io) github pages site
+
 ## TODOs
 - faq
     - backend
