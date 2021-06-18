@@ -66,6 +66,8 @@
   "start": "Start: {start}",
   "end": "Ende: {end}",
   "reallyDelete": "Event {eventName} wirkllich löschen?",
+  "reallyDeleteVisitor": "Besucher {name} wirklich löschen?",
+  "reallyDeleteVisit": "Den Besuch bei {eventName} wirklich löschen?",
   "yes": "Ja",
   "no": "Nein",
   "confirmSendPositive": "Wirklich einen positiven Test registrieren?",

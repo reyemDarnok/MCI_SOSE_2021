@@ -52,6 +52,29 @@ class ViewVisitedEventsRoute extends StatelessWidget {
               .start(dateFormat.format(eventVisit.start))),
           Text(AppLocalizations.of(context)!.end(dateFormat
               .format(eventVisit.start.add(eventVisit.visitDuration)))),
-        ]));
+        ]),
+        trailing: IconButton(
+          icon: Icon(Icons.delete_forever),
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (context) => SimpleDialog(
+                        title: Text(AppLocalizations.of(context)!
+                            .reallyDeleteVisit(
+                                visitedEvents.value[index].value.event.name)),
+                        children: [
+                          SimpleDialogOption(
+                              onPressed: () {
+                                visitedEvents.value.removeAt(index);
+                                visitedEvents.notifyListeners();
+                                Navigator.of(context).pop();
+                              },
+                              child: Text(AppLocalizations.of(context)!.yes)),
+                          SimpleDialogOption(
+                              onPressed: () => Navigator.of(context).pop(),
+                              child: Text(AppLocalizations.of(context)!.no))
+                        ]));
+          },
+        ));
   }
 }

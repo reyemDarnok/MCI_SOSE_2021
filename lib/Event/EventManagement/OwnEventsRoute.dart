@@ -40,7 +40,7 @@ class OwnEventsRoute extends StatelessWidget {
     return ListTile(
       onTap: () => Navigator.of(context).pushNamed(ViewEventRoute.route,
           arguments: ViewEventRouteArguments(ownEvents.value[index])),
-      title: Text(ownEvents.value[index].value.name),
+      title: Center(child: Text(ownEvents.value[index].value.name)),
       trailing: IconButton(
         icon: Icon(Icons.delete_forever),
         onPressed: () {
@@ -48,7 +48,8 @@ class OwnEventsRoute extends StatelessWidget {
               context: context,
               builder: (context) => SimpleDialog(
                       title: Text(AppLocalizations.of(context)!
-                          .reallyDelete(ownEvents.value[index].value.name)),
+                          .reallyDeleteEvent(
+                              ownEvents.value[index].value.name)),
                       children: [
                         SimpleDialogOption(
                             onPressed: () {

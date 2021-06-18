@@ -11,9 +11,11 @@ import 'ViewPersonRoute.dart';
 class ViewVisitorsRoute extends StatelessWidget {
   static const String route = '/events/own/viewVisitors';
 
+  late final ViewVisitorsRouteArguments args;
+
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments
+    args = ModalRoute.of(context)!.settings.arguments
         as ViewVisitorsRouteArguments;
     return Scaffold(
         appBar: NavBar(args.event.value.name),
@@ -44,15 +46,38 @@ class ViewVisitorsRoute extends StatelessWidget {
         ])));
   }
 
-  GenericButton _manualVisitorTile(
+  Widget _manualVisitorTile(
       BuildContext context, AuthorisedEvent status, int index) {
-    return GenericButton(
+    return ListTile(
+      onTap: () => Navigator.of(context).pushNamed(ViewPersonRoute.route,
+          arguments: ViewPersonRouteArguments(
+              status.manualVisitors[index].value.person)),
+      title:
+          Center(child: Text(status.manualVisitors[index].value.person.name)),
+      trailing: IconButton(
+        icon: Icon(Icons.delete_forever),
         onPressed: () {
-          Navigator.of(context).pushNamed(ViewPersonRoute.route,
-              arguments: ViewPersonRouteArguments(
-                  status.manualVisitors[index].value.person));
+          showDialog(
+              context: context,
+              builder: (context) => SimpleDialog(
+                      title: Text(AppLocalizations.of(context)!
+                          .reallyDeleteVisitor(
+                              status.manualVisitors[index].value.person.name)),
+                      children: [
+                        SimpleDialogOption(
+                            onPressed: () {
+                              args.event.value.manualVisitors.removeAt(index);
+                              args.event.notifyListeners();
+                              Navigator.of(context).pop();
+                            },
+                            child: Text(AppLocalizations.of(context)!.yes)),
+                        SimpleDialogOption(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: Text(AppLocalizations.of(context)!.no))
+                      ]));
         },
-        child: Text(status.manualVisitors[index].value.person.name));
+      ),
+    );
   }
 }
 

@@ -129,8 +129,20 @@
       "end": {}
     }
   },
-  "reallyDelete": "Really delete event {eventName}?",
-  "@reallyDelete": {
+  "reallyDeleteEvent": "Really delete event {eventName}?",
+  "@reallyDeleteEvent": {
+    "placeholders": {
+      "eventName": {}
+    }
+  },
+  "reallyDeleteVisitor": "Really delete visitor {name}?",
+  "@reallyDeleteVisitor": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "reallyDeleteVisit": "Really delete your visit to {eventName}?",
+  "@reallyDeleteVisit": {
     "placeholders": {
       "eventName": {}
     }
