@@ -58,7 +58,7 @@ class TestEntryRoute extends StatelessWidget {
                     context: context,
                     builder: (context) => SimpleDialog(
                             title: Text(AppLocalizations.of(context)!
-                                .confirmSendPositive),
+                                .confirmSendNegative),
                             children: [
                               SimpleDialogOption(
                                   onPressed: () {
