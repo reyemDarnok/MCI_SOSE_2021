@@ -15,6 +15,7 @@ class CreateEventRoute extends StatelessWidget {
         appBar: NavBar(AppLocalizations.of(context)!.newEvent),
         body: EventForm(
           callback: (event) {
+            event.initKeys();
             ownEvents.value.add(PropertyValueNotifier(event));
             ownEvents.notifyListeners();
             Navigator.of(context).pop(event);

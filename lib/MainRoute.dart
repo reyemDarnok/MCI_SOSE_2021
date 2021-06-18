@@ -51,12 +51,10 @@ class MainRoute extends StatelessWidget {
           try {
             AuthorisedEvent authorisedEvent =
                 AuthorisedEvent.fromJson(jsonDecode(s));
-            Navigator.of(context).pop();
             _showAuthRegisterDialog(context, authorisedEvent);
           } on FormatException {
             try {
               PublicEvent event = PublicEvent.fromJson(jsonDecode(s));
-              Navigator.of(context).pop();
               _showRegisterToEventDialog(context, event);
             } on FormatException {
               showDialog(

@@ -23,6 +23,9 @@ class AuthorisedEvent {
   AuthorisedEvent({required this.name, required this.minDuration}) {
     this.manualVisitors = List.empty(growable: true);
     unique = uuid.v4();
+  }
+
+  void initKeys() {
     var keyPair = getRsaKeyPair(getSecureRandom());
     publicKey = keyPair.publicKey as RSAPublicKey;
     privateKey = keyPair.privateKey as RSAPrivateKey;
