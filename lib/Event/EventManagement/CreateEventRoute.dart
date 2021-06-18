@@ -20,6 +20,7 @@ class CreateEventRoute extends StatelessWidget {
             var notifier = PropertyValueNotifier(event);
             ownEvents.value.insert(0, notifier);
             ownEvents.notifyListeners();
+            log.i('Created Event with id: ${event.unique}');
             Navigator.of(context).pop(event);
             Navigator.of(context).pushNamed(ViewEventRoute.route,
                 arguments: ViewEventRouteArguments(notifier));

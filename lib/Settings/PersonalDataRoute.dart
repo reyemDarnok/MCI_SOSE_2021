@@ -16,6 +16,7 @@ class PersonalDataRoute extends StatelessWidget {
             child: PersonEntryForm(
           callback: (person) {
             me = person;
+            log.i('Changed personal data to ${me.toJson()}');
           },
           submitText: AppLocalizations.of(context)!.save,
           defaultPerson: me,

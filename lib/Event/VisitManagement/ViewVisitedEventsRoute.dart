@@ -79,8 +79,11 @@ class ViewVisitedEventsRoute extends StatelessWidget {
                         children: [
                           SimpleDialogOption(
                               onPressed: () {
-                                visitedEvents.value.removeAt(index);
+                                var deleted =
+                                    visitedEvents.value.removeAt(index);
                                 visitedEvents.notifyListeners();
+                                log.i(
+                                    'Deleted visit to event ${deleted.value.event.unique} starting at ${deleted.value.start.millisecondsSinceEpoch}');
                                 Navigator.of(context).pop();
                               },
                               child: Text(AppLocalizations.of(context)!.yes)),

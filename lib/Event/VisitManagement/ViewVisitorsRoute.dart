@@ -78,9 +78,12 @@ class ViewVisitorsRoute extends StatelessWidget {
                       children: [
                         SimpleDialogOption(
                             onPressed: () {
-                              args.event.value.manualVisitors.removeAt(index);
+                              var deleted = args.event.value.manualVisitors
+                                  .removeAt(index);
                               args.event.notifyListeners();
                               Navigator.of(context).pop();
+                              log.i(
+                                  'Deleted manual visitor ${deleted.value.person.toJson()} from event ${args.event.value.unique} starting at ${deleted.value.startTime.millisecondsSinceEpoch}');
                             },
                             child: Text(AppLocalizations.of(context)!.yes)),
                         SimpleDialogOption(

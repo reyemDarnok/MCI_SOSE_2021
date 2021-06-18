@@ -31,6 +31,7 @@ class TestEntryRoute extends StatelessWidget {
                                     status.value = true;
                                     Navigator.of(context).pop();
                                     Navigator.of(context).pop();
+                                    log.i('Registering positive test');
                                     showDialog(
                                         context: context,
                                         builder: (context) => SimpleDialog(
@@ -65,6 +66,7 @@ class TestEntryRoute extends StatelessWidget {
                                     status.value = false;
                                     Navigator.of(context).pop();
                                     Navigator.of(context).pop();
+                                    log.i('Registering negative test');
                                     showDialog(
                                         context: context,
                                         builder: (context) => SimpleDialog(

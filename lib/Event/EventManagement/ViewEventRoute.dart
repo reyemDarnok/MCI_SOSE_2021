@@ -50,6 +50,7 @@ class ViewEventRoute extends StatelessWidget {
     return GenericButton(
         onPressed: () {
           Share.share(jsonEncode(public));
+          log.i('Shared public code for event: ${args.event.value.unique}');
         },
         child: Text(AppLocalizations.of(context)!.shareQRCode));
   }
@@ -76,6 +77,8 @@ class ViewEventRoute extends StatelessWidget {
     return GenericButton(
         onPressed: () {
           Share.share(jsonEncode(args.event.value));
+          log.i(
+              'Shared authentication code for event: ${args.event.value.unique}');
         },
         child: Text(AppLocalizations.of(context)!.shareQRCode));
   }

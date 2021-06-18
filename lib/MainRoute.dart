@@ -51,12 +51,15 @@ class MainRoute extends StatelessWidget {
           try {
             AuthorisedEvent authorisedEvent =
                 AuthorisedEvent.fromJson(jsonDecode(s));
+            log.i('Detected auth code for event: ${authorisedEvent.unique}');
             _showAuthRegisterDialog(context, authorisedEvent);
           } on FormatException {
             try {
               PublicEvent event = PublicEvent.fromJson(jsonDecode(s));
+              log.i('Detected public code for event: ${event.unique}');
               _showRegisterToEventDialog(context, event);
             } on FormatException {
+              log.w('Could not understand qr code: $s}');
               showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
@@ -72,6 +75,7 @@ class MainRoute extends StatelessWidget {
       BuildContext context, AuthorisedEvent authorisedEvent) {
     ownEvents.value.add(PropertyValueNotifier(authorisedEvent));
     ownEvents.notifyListeners();
+    log.i('Added new own event with id ${authorisedEvent.unique}');
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -107,6 +111,7 @@ class MainRoute extends StatelessWidget {
           }
           visitedEvents.value.add(PropertyValueNotifier(EventVisit(
               event: event, start: DateTime.now(), visitDuration: d)));
+          log.i('Added Visit to ${event.unique} for ${d.inMilliseconds}ms');
           visitedEvents.notifyListeners();
           Navigator.of(context).pop();
           showDialog(

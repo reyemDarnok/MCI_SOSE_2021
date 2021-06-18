@@ -71,7 +71,7 @@ class SettingsRoute extends StatelessWidget {
     return TextButton(
         onPressed: () {
           appLocale.value = locale['locale'] as Locale;
-          log.i(
+          log.d(
               "Changed locale to ${(locale['locale'] as Locale).toLanguageTag()}");
           Navigator.of(context).pop();
         },

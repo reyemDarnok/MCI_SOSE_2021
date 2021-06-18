@@ -60,8 +60,9 @@ class OwnEventsRoute extends StatelessWidget {
                       children: [
                         SimpleDialogOption(
                             onPressed: () {
-                              ownEvents.value.removeAt(index);
+                              var deleted = ownEvents.value.removeAt(index);
                               ownEvents.notifyListeners();
+                              log.i('Deleted Event: ${deleted.value.unique}');
                               Navigator.of(context).pop();
                             },
                             child: Text(AppLocalizations.of(context)!.yes)),

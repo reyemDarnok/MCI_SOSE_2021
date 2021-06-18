@@ -7,6 +7,7 @@ import 'package:mci_practicum/forms/PersonEntryForm.dart';
 import 'package:mci_practicum/miscTypes/PersonVisit.dart';
 import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 
+import '../../globals.dart';
 import '../../miscTypes/AuthorisedEvent.dart';
 import '../../miscTypes/Person.dart';
 import '../../miscWidgets/NavBar.dart';
@@ -93,11 +94,15 @@ class SelectDurationRoute extends StatelessWidget {
         onPressed: () {
           Duration d = parseDuration(estimatedDuration.text);
           if (d.compareTo(event.value.minDuration) < 0) {
+            log.i(
+                'Corrected duration from ${d.inMilliseconds}ms to minimum duration of ${event.value.minDuration.inMilliseconds}ms');
             d = event.value.minDuration;
           }
           event.value.manualVisitors.add(PropertyValueNotifier(PersonVisit(
               person: args.person, startTime: DateTime.now(), duration: d)));
           event.notifyListeners();
+          log.i(
+              'Added visitor to ${event.value.unique}: ${args.person.toJson()}\nwith duration ${d.inMilliseconds}ms');
           Navigator.of(context).pop();
           Navigator.of(context).pop();
         },
