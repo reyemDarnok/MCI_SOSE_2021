@@ -4,7 +4,7 @@ import 'package:mci_practicum/PropertyValueNotifier.dart';
 import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 
 import '../../globals.dart';
-import '../../miscTypes/Event.dart';
+import '../../miscTypes/AuthorisedEvent.dart';
 import '../../miscWidgets/NavBar.dart';
 import 'CreateEventRoute.dart';
 import 'ViewEventRoute.dart';
@@ -23,15 +23,16 @@ class OwnEventsRoute extends StatelessWidget {
 
   Expanded _eventList() {
     return Expanded(
-      child: ValueListenableBuilder<List<PropertyValueNotifier<Event>>>(
-          valueListenable: ownEvents,
-          builder: (context, status, child) {
-            return ListView.builder(
-                itemCount: status.length,
-                itemBuilder: (context, index) {
-                  return _eventTile(context, index);
-                });
-          }),
+      child:
+          ValueListenableBuilder<List<PropertyValueNotifier<AuthorisedEvent>>>(
+              valueListenable: ownEvents,
+              builder: (context, status, child) {
+                return ListView.builder(
+                    itemCount: status.length,
+                    itemBuilder: (context, index) {
+                      return _eventTile(context, index);
+                    });
+              }),
     );
   }
 

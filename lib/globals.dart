@@ -6,14 +6,14 @@ import 'package:logger/logger.dart';
 
 import 'PropertyValueNotifier.dart';
 import 'logger_outputs.dart';
-import 'miscTypes/Event.dart';
+import 'miscTypes/AuthorisedEvent.dart';
 import 'miscTypes/EventVisit.dart';
 import 'miscTypes/Person.dart';
 
 //null == System Locale
 ValueNotifier<Locale?> appLocale = ValueNotifier(null);
 
-PropertyValueNotifier<List<PropertyValueNotifier<Event>>> ownEvents =
+PropertyValueNotifier<List<PropertyValueNotifier<AuthorisedEvent>>> ownEvents =
     PropertyValueNotifier(List.empty(growable: true));
 PropertyValueNotifier<List<PropertyValueNotifier<EventVisit>>> visitedEvents =
     PropertyValueNotifier(List.empty(growable: true));

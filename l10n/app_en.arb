@@ -139,5 +139,7 @@
   "no": "No",
   "confirmSendPositive": "Really register a positive test result?",
   "confirmSendNegative": "Really register a negative test result?",
-  "informedGovernment": "Government is informed"
+  "informedGovernment": "Government is informed",
+  "visitorCode": "Visitor QR code",
+  "authCode": "Administrator QR code"
 }

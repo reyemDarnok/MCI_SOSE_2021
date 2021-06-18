@@ -19,3 +19,10 @@ double qrCodeButtonWidth(BuildContext context) {
   double heightSuggestion = mediaSize.height * 0.4;
   return min(widthSuggestion, heightSuggestion);
 }
+
+double qrCodeWidth(BuildContext context) {
+  Size mediaSize = MediaQuery.of(context).size;
+  double widthSuggestion = mediaSize.width * 0.4;
+  double heightSuggestion = mediaSize.height * 0.2;
+  return min(widthSuggestion, heightSuggestion);
+}

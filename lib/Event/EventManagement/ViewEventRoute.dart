@@ -5,11 +5,14 @@ import 'package:duration/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
+import 'package:mci_practicum/miscTypes/PublicEvent.dart';
 import 'package:mci_practicum/miscWidgets/GenericButton.dart';
+import 'package:mci_practicum/sizes.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../../miscTypes/Event.dart';
+import '../../globals.dart';
+import '../../miscTypes/AuthorisedEvent.dart';
 import '../../miscWidgets/NavBar.dart';
 import '../VisitManagement/AddVisitorRoute.dart';
 import '../VisitManagement/ViewVisitorsRoute.dart';
@@ -30,27 +33,53 @@ class ViewEventRoute extends StatelessWidget {
               _minDuration(context, args),
               _showManualVisitorsButton(args),
               _addManualVisitorsButton(context, args),
-              _visitorQRCode(args),
+              Text(AppLocalizations.of(context)!.visitorCode),
+              _visitorQRCode(args, context),
+              _sharePublicQRCodeButton(args, context),
+
+              Text(AppLocalizations.of(context)!.authCode),
+              _authQRCode(args, context),
+              _sharePrivateQRCodeButton(args, context),
               //TODO share image button
-              _shareQRCodeButton(args, context),
             ])));
   }
 
-  GenericButton _shareQRCodeButton(
+  GenericButton _sharePublicQRCodeButton(
+      ViewEventRouteArguments args, BuildContext context) {
+    PublicEvent public = PublicEvent.fromAuthorisedEvent(args.event.value);
+    return GenericButton(
+        onPressed: () {
+          Share.share(jsonEncode(public));
+        },
+        child: Text(AppLocalizations.of(context)!.shareQRCode));
+  }
+
+  QrImage _visitorQRCode(ViewEventRouteArguments args, BuildContext context) {
+    PublicEvent public = PublicEvent.fromAuthorisedEvent(args.event.value);
+    log.d(qrCodeWidth(context));
+    return QrImage(
+        embeddedImage: Image.asset('assets/logo.png').image,
+        data: jsonEncode(public),
+        errorCorrectionLevel: QrErrorCorrectLevel.L,
+        size: qrCodeWidth(context) * 1.2);
+  }
+
+  QrImage _authQRCode(ViewEventRouteArguments args, BuildContext context) {
+    log.d(qrCodeWidth(context));
+    return QrImage(
+        embeddedImage: Image.asset('assets/logo.png').image,
+        data: jsonEncode(args.event.value),
+        errorCorrectionLevel: QrErrorCorrectLevel.L,
+        size: qrCodeWidth(context) * 1.1);
+  }
+
+  GenericButton _sharePrivateQRCodeButton(
       ViewEventRouteArguments args, BuildContext context) {
     return GenericButton(
         onPressed: () {
           Share.share(jsonEncode(args.event.value));
         },
         child: Text(AppLocalizations.of(context)!.shareQRCode));
-  }
-
-  QrImage _visitorQRCode(ViewEventRouteArguments args) {
-    return QrImage(
-        embeddedImage: Image.asset('assets/logo.png').image,
-        data: jsonEncode(args.event.value),
-        errorCorrectionLevel: QrErrorCorrectLevel.H,
-        size: 200);
   }
 
   GenericButton _addManualVisitorsButton(
@@ -65,9 +94,9 @@ class ViewEventRoute extends StatelessWidget {
         child: Text(AppLocalizations.of(context)!.addManualVisitors));
   }
 
-  ValueListenableBuilder<Event> _showManualVisitorsButton(
+  ValueListenableBuilder<AuthorisedEvent> _showManualVisitorsButton(
       ViewEventRouteArguments args) {
-    return ValueListenableBuilder<Event>(
+    return ValueListenableBuilder<AuthorisedEvent>(
         valueListenable: args.event,
         builder: (context, status, child) {
           return GenericButton(
@@ -91,5 +120,5 @@ class ViewEventRoute extends StatelessWidget {
 class ViewEventRouteArguments {
   ViewEventRouteArguments(this.event);
 
-  final PropertyValueNotifier<Event> event;
+  final PropertyValueNotifier<AuthorisedEvent> event;
 }

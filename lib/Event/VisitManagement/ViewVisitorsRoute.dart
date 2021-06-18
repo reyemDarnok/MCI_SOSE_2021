@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 
 import '../../PropertyValueNotifier.dart';
-import '../../miscTypes/Event.dart';
+import '../../miscTypes/AuthorisedEvent.dart';
 import '../../miscWidgets/NavBar.dart';
 import 'AddVisitorRoute.dart';
 import 'ViewPersonRoute.dart';
@@ -23,7 +23,7 @@ class ViewVisitorsRoute extends StatelessWidget {
           Text(AppLocalizations.of(context)!.manuallyAddedVisitors),
           Expanded(
             child: Center(
-                child: ValueListenableBuilder<Event>(
+                child: ValueListenableBuilder<AuthorisedEvent>(
                     valueListenable: args.event,
                     builder: (context, status, child) {
                       return ListView.builder(
@@ -45,7 +45,7 @@ class ViewVisitorsRoute extends StatelessWidget {
   }
 
   GenericButton _manualVisitorTile(
-      BuildContext context, Event status, int index) {
+      BuildContext context, AuthorisedEvent status, int index) {
     return GenericButton(
         onPressed: () {
           Navigator.of(context).pushNamed(ViewPersonRoute.route,
@@ -59,5 +59,5 @@ class ViewVisitorsRoute extends StatelessWidget {
 class ViewVisitorsRouteArguments {
   ViewVisitorsRouteArguments(this.event);
 
-  final PropertyValueNotifier<Event> event;
+  final PropertyValueNotifier<AuthorisedEvent> event;
 }

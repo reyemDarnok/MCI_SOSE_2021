@@ -70,5 +70,7 @@
   "no": "Nein",
   "confirmSendPositive": "Wirklich einen positiven Test registrieren?",
   "confirmSendNegative": "Wirklich einen negativen Test registrieren?",
-  "informedGovernment": "Gesundheitsamt ist informiert"
+  "informedGovernment": "Gesundheitsamt ist informiert",
+  "visitorCode": "Besucher QR Code",
+  "authCode": "Administrator QR Code"
 }

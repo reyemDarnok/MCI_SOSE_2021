@@ -1,10 +1,10 @@
-import 'Event.dart';
+import 'PublicEvent.dart';
 
 class EventVisit {
   EventVisit(
       {required this.event, required this.start, required this.visitDuration});
 
-  Event event;
+  PublicEvent event;
   Duration visitDuration;
   DateTime start;
 }

@@ -8,6 +8,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/TestEntryRoute.dart';
 import 'package:mci_practicum/globals.dart';
 import 'package:mci_practicum/miscTypes/EventVisit.dart';
+import 'package:mci_practicum/miscTypes/PublicEvent.dart';
 import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 import 'package:mci_practicum/miscWidgets/QRCodeButton.dart';
 import 'package:mci_practicum/miscWidgets/StatusWidget.dart';
@@ -16,7 +17,6 @@ import 'Event/EventsRoute.dart';
 import 'FAQ/FAQRoute.dart';
 import 'PropertyValueNotifier.dart';
 import 'Settings/SettingsRoute.dart';
-import 'miscTypes/Event.dart';
 import 'miscWidgets/NavBar.dart';
 
 class MainRoute extends StatelessWidget {
@@ -48,7 +48,7 @@ class MainRoute extends StatelessWidget {
     return QRCodeButton(
         callback: (s) {
           try {
-            Event event = Event.fromJson(jsonDecode(s));
+            PublicEvent event = PublicEvent.fromJson(jsonDecode(s));
             //TODO localization
             TextEditingController estimatedDuration = TextEditingController(
                 text: prettyDuration(event.minDuration,
@@ -65,7 +65,7 @@ class MainRoute extends StatelessWidget {
         text: AppLocalizations.of(context)!.scanQRCode);
   }
 
-  void _showRegisterToEventDialog(BuildContext context, Event event,
+  void _showRegisterToEventDialog(BuildContext context, PublicEvent event,
       TextEditingController estimatedDuration) {
     showDialog(
         barrierDismissible: false,
@@ -81,7 +81,7 @@ class MainRoute extends StatelessWidget {
   }
 
   ElevatedButton _confirmButton(TextEditingController estimatedDuration,
-      Event event, BuildContext context) {
+      PublicEvent event, BuildContext context) {
     return ElevatedButton(
         onPressed: () {
           Duration d = parseDuration(estimatedDuration.text);

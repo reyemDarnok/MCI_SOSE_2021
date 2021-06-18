@@ -2,9 +2,9 @@ import 'package:duration/duration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../miscTypes/Event.dart';
+import '../miscTypes/AuthorisedEvent.dart';
 
-typedef EventCallback = void Function(Event person);
+typedef EventCallback = void Function(AuthorisedEvent person);
 
 class EventForm extends StatefulWidget {
   EventForm({Key? key,
@@ -61,7 +61,7 @@ class EventFormState extends State<EventForm> {
     return ElevatedButton(
         onPressed: () {
           if (_formKey.currentState!.validate()) {
-            callback(Event(
+            callback(AuthorisedEvent(
                 name: name.text, minDuration: parseDuration(minDuration.text)));
           }
         },

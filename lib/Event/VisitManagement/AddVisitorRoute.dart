@@ -7,7 +7,7 @@ import 'package:mci_practicum/forms/PersonEntryForm.dart';
 import 'package:mci_practicum/miscTypes/PersonVisit.dart';
 import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 
-import '../../miscTypes/Event.dart';
+import '../../miscTypes/AuthorisedEvent.dart';
 import '../../miscTypes/Person.dart';
 import '../../miscWidgets/NavBar.dart';
 
@@ -84,8 +84,9 @@ class SelectDurationRoute extends StatelessWidget {
         ));
   }
 
-  GenericButton _confirmButton(TextEditingController estimatedDuration,
-      PropertyValueNotifier<Event> event,
+  GenericButton _confirmButton(
+      TextEditingController estimatedDuration,
+      PropertyValueNotifier<AuthorisedEvent> event,
       SelectDurationRouteArguments args,
       BuildContext context) {
     return GenericButton(
@@ -104,12 +105,12 @@ class SelectDurationRoute extends StatelessWidget {
 class SelectDurationRouteArguments {
   SelectDurationRouteArguments(this.event, this.person);
 
-  final PropertyValueNotifier<Event> event;
+  final PropertyValueNotifier<AuthorisedEvent> event;
   final Person person;
 }
 
 class AddVisitorRouteArguments {
   AddVisitorRouteArguments(this.event);
 
-  final PropertyValueNotifier<Event> event;
+  final PropertyValueNotifier<AuthorisedEvent> event;
 }
