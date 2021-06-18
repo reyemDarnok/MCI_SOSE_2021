@@ -24,8 +24,17 @@ class DurationSerializer implements PrimitiveSerializer<Duration> {
   final String wireName = 'Duration';
 }
 
-RSAPrivateKey deserializeRSAPrivateKey(Object serialized) {
+RSAPrivateKey deserializeRSAPrivateKey(Object? serialized) {
+  if (serialized == null) {
+    throw FormatException('Serialized Object is null');
+  }
   var map = serialized as Map<String, dynamic>;
+  if (!map.containsKey('modulus') ||
+      !map.containsKey('privateExponent') ||
+      !map.containsKey('p') ||
+      !map.containsKey('q')) {
+    throw FormatException('Format does no match RSA private Key');
+  }
   return RSAPrivateKey(
     readBytes(base64Decode(map['modulus'])),
     readBytes(base64Decode(map['privateExponent'])),
@@ -43,8 +52,14 @@ Map<String, dynamic> serializeRSAPrivateKey(RSAPrivateKey object) {
   };
 }
 
-RSAPublicKey deserializeRSAPublicKey(Object serialized) {
+RSAPublicKey deserializeRSAPublicKey(Object? serialized) {
+  if (serialized == null) {
+    throw FormatException('Serialized Object is null');
+  }
   var map = serialized as Map<String, dynamic>;
+  if (!map.containsKey('modulus') || !map.containsKey('exponent')) {
+    throw FormatException('Format does no match RSA public Key');
+  }
   return RSAPublicKey(
     readBytes(base64Decode(map['modulus'])),
     readBytes(base64Decode(map['exponent'])),

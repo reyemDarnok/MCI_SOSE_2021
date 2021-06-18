@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/TestEntryRoute.dart';
 import 'package:mci_practicum/globals.dart';
+import 'package:mci_practicum/miscTypes/AuthorisedEvent.dart';
 import 'package:mci_practicum/miscTypes/EventVisit.dart';
 import 'package:mci_practicum/miscTypes/PublicEvent.dart';
 import 'package:mci_practicum/miscWidgets/GenericButton.dart';
@@ -48,31 +49,49 @@ class MainRoute extends StatelessWidget {
     return QRCodeButton(
         callback: (s) {
           try {
-            PublicEvent event = PublicEvent.fromJson(jsonDecode(s));
-            //TODO localization
-            TextEditingController estimatedDuration = TextEditingController(
-                text: prettyDuration(event.minDuration,
-                    abbreviated: true,
-                    locale: DurationLocale.fromLanguageCode('en')!));
-            _showRegisterToEventDialog(context, event, estimatedDuration);
+            AuthorisedEvent authorisedEvent =
+                AuthorisedEvent.fromJson(jsonDecode(s));
+            Navigator.of(context).pop();
+            _showAuthRegisterDialog(context, authorisedEvent);
           } on FormatException {
-            showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                    title: Text(AppLocalizations.of(context)!.unknownQRCode)));
+            try {
+              PublicEvent event = PublicEvent.fromJson(jsonDecode(s));
+              Navigator.of(context).pop();
+              _showRegisterToEventDialog(context, event);
+            } on FormatException {
+              showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                      title:
+                          Text(AppLocalizations.of(context)!.unknownQRCode)));
+            }
           }
         },
         text: AppLocalizations.of(context)!.scanQRCode);
   }
 
-  void _showRegisterToEventDialog(BuildContext context, PublicEvent event,
-      TextEditingController estimatedDuration) {
+  void _showAuthRegisterDialog(
+      BuildContext context, AuthorisedEvent authorisedEvent) {
+    ownEvents.value.add(PropertyValueNotifier(authorisedEvent));
+    ownEvents.notifyListeners();
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+            title: Text(AppLocalizations.of(context)!.authorisedTitle),
+            content: Text(AppLocalizations.of(context)!
+                .eventInfo(authorisedEvent.name, authorisedEvent.unique))));
+  }
+
+  void _showRegisterToEventDialog(BuildContext context, PublicEvent event) {
+    TextEditingController estimatedDuration = TextEditingController(
+        text: prettyDuration(event.minDuration,
+            abbreviated: true, locale: DurationLocale.fromLanguageCode('en')!));
     showDialog(
         barrierDismissible: false,
         context: context,
         builder: (context) => AlertDialog(
             title: Text(AppLocalizations.of(context)!.eventRegistered),
-            content: Column(children: [
+            content: Column(mainAxisSize: MainAxisSize.min, children: [
               Text(AppLocalizations.of(context)!
                   .eventInfo(event.name, event.unique)),
               _estimatedDurationFormField(context, estimatedDuration),
@@ -91,9 +110,12 @@ class MainRoute extends StatelessWidget {
           Navigator.of(context).pop();
           showDialog(
               context: context,
-              builder: (context) => SimpleDialog(
-                  title: Text(AppLocalizations.of(context)!
-                      .visitConfirmed(event.name))));
+              builder: (context) => AlertDialog(
+                    title: Text(AppLocalizations.of(context)!
+                        .visitConfirmed(event.name)),
+                    content: Text(AppLocalizations.of(context)!
+                        .eventInfo(event.name, event.unique)),
+                  ));
         },
         child: Text(AppLocalizations.of(context)!.confirm));
   }

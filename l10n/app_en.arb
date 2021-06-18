@@ -141,5 +141,6 @@
   "confirmSendNegative": "Really register a negative test result?",
   "informedGovernment": "Government is informed",
   "visitorCode": "Visitor QR code",
-  "authCode": "Administrator QR code"
+  "authCode": "Administrator QR code",
+  "authorisedTitle": "Added Event to own Events"
 }

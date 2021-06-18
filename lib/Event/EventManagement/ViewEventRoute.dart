@@ -60,8 +60,7 @@ class ViewEventRoute extends StatelessWidget {
     return QrImage(
         embeddedImage: Image.asset('assets/logo.png').image,
         data: jsonEncode(public),
-        errorCorrectionLevel: QrErrorCorrectLevel.L,
-        size: qrCodeWidth(context) * 1.2);
+        size: qrCodeWidth(context));
   }
 
   QrImage _authQRCode(ViewEventRouteArguments args, BuildContext context) {
@@ -69,8 +68,7 @@ class ViewEventRoute extends StatelessWidget {
     return QrImage(
         embeddedImage: Image.asset('assets/logo.png').image,
         data: jsonEncode(args.event.value),
-        errorCorrectionLevel: QrErrorCorrectLevel.L,
-        size: qrCodeWidth(context) * 1.1);
+        size: qrCodeWidth(context));
   }
 
   GenericButton _sharePrivateQRCodeButton(
