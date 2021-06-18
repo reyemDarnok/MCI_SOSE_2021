@@ -154,5 +154,15 @@
   "informedGovernment": "Government is informed",
   "visitorCode": "Visitor QR code",
   "authCode": "Administrator QR code",
-  "authorisedTitle": "Added Event to own Events"
+  "authorisedTitle": "Added Event to own Events",
+  "faqQuestion1": "Does the Corona Event App collect my data?",
+  "faqAnswer1": "The Corona Event App only collects the information you enter when registering and pseudonymised information on which events you visited. If you want to check this claim, the apps source code is publicly available",
+  "faqQuestion2": "Are there any hidden costs?",
+  "faqAnswer2": "There are no costs associated with the app",
+  "faqQuestion3": "How is my personal data protected?",
+  "faqAnswer3": "Your personal data is only sent if you had contact with someone infected, using state of the art encryption",
+  "faqQuestion4": "How do I change the apps language?",
+  "faqAnswer4": "Homescreen --> Menu --> Settings --> Language --> Select your language",
+  "faqQuestion5": "How do I create a new Event?",
+  "faqAnswer5": "Homescreen --> Events --> Own Events --> Create new event"
 }

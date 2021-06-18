@@ -75,5 +75,15 @@
   "informedGovernment": "Gesundheitsamt ist informiert",
   "visitorCode": "Besucher QR Code",
   "authCode": "Administrator QR Code",
-  "authorisedTitle": "Event zu eigenen Events hinzugefügt"
+  "authorisedTitle": "Event zu eigenen Events hinzugefügt",
+  "faqQuestion1": "Sammelt die CoronaEvent-App meine Daten?",
+  "faqAnswer1": "Die Corona Event App sammelt nur die Daten, die Sie manuell eingeben und pseudonymisierte Daten darüber, auf welchen Events Sie waren. Falls Sie die nötigen IT-Kenntnisse haben, können Sie sich im Source-Code darüber vergewissern",
+  "faqQuestion2": "Fallen versteckte Kosten an?",
+  "faqAnswer2": "Nein es fallen keine Kosten an",
+  "faqQuestion3": "Sind meine Persöhnlichendaten sicher?",
+  "faqAnswer3": "Ihre persönlichen Daten verlasse ihr Gerät nur, falls Sie Kontakt mit einem Infizierten hatten. In diesem Fall werden Sie mithilfe gängiger Algoritmen verschlüsselt",
+  "faqQuestion4": "Wie ändere ich die Sprache in meiner App?",
+  "faqAnswer4": "Homescreen --> Menü --> Einstellungen --> Sprache --> Sprache wählen",
+  "faqQuestion5": "Wie erstelle ich ein Event?",
+  "faqAnswer5": "Homescreen --> Events --> Eigene Events --> Neues Event erstellen"
 }

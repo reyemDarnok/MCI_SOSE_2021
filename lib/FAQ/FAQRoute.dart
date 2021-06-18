@@ -11,11 +11,16 @@ class FAQRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var faqElements = [
-      FAQElement('Sammelt die CoronaEvent-App meine Daten?', 'Die Corona Event App sammelt nur Ihre nötigsten Daten. Falls Sie die nötigen IT.Kenntnisse haben, können Sie sich im Source-Code darüber vergewissern'),
-      FAQElement('Fallen versteckte Kosten an?', 'Nein es fallen keine Kosten an'),
-      FAQElement('Sind meine Persöhnlichendaten sicher?', 'Durch eine RSA-Verschlüsslung sind Ihre Daten bei uns sicher '),
-      FAQElement('Wie ändere ich die Sprache in meiner App', 'Homescreen --> Menü --> Einstellungen --> Sprache --> Sprache wählen  '),
-      FAQElement('Wie erstelle ich ein Event', 'Homescreen --> Events --> Eigene Events --> Neues Event erstellen'),
+      FAQElement(AppLocalizations.of(context)!.faqQuestion1,
+          AppLocalizations.of(context)!.faqAnswer1),
+      FAQElement(AppLocalizations.of(context)!.faqQuestion2,
+          AppLocalizations.of(context)!.faqAnswer2),
+      FAQElement(AppLocalizations.of(context)!.faqQuestion3,
+          AppLocalizations.of(context)!.faqAnswer3),
+      FAQElement(AppLocalizations.of(context)!.faqQuestion4,
+          AppLocalizations.of(context)!.faqAnswer4),
+      FAQElement(AppLocalizations.of(context)!.faqQuestion5,
+          AppLocalizations.of(context)!.faqAnswer5),
     ];
     return Scaffold(
       appBar: NavBar(AppLocalizations.of(context)!.faq),
