@@ -85,5 +85,6 @@
   "faqQuestion4": "Wie ändere ich die Sprache in meiner App?",
   "faqAnswer4": "Homescreen --> Menü --> Einstellungen --> Sprache --> Sprache wählen",
   "faqQuestion5": "Wie erstelle ich ein Event?",
-  "faqAnswer5": "Homescreen --> Events --> Eigene Events --> Neues Event erstellen"
+  "faqAnswer5": "Homescreen --> Events --> Eigene Events --> Neues Event erstellen",
+  "signOutOfEvent": "Das Event jetzt verlassen?"
 }

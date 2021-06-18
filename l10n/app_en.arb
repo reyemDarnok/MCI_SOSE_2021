@@ -164,5 +164,6 @@
   "faqQuestion4": "How do I change the apps language?",
   "faqAnswer4": "Homescreen --> Menu --> Settings --> Language --> Select your language",
   "faqQuestion5": "How do I create a new Event?",
-  "faqAnswer5": "Homescreen --> Events --> Own Events --> Create new event"
+  "faqAnswer5": "Homescreen --> Events --> Own Events --> Create new event",
+  "signOutOfEvent": "Leave the event now?"
 }

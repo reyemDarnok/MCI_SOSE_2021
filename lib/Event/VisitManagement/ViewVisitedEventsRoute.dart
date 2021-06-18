@@ -24,6 +24,9 @@ class ViewVisitedEventsRoute extends StatelessWidget {
                         List<PropertyValueNotifier<EventVisit>>>(
                     valueListenable: visitedEvents,
                     builder: (context, status, child) {
+                      visitedEvents.value.sort((a, b) => b.value.start
+                          .add(b.value.visitDuration)
+                          .compareTo(a.value.start.add(a.value.visitDuration)));
                       return ListView.builder(
                           itemCount: status.length,
                           itemBuilder: (context, index) =>
@@ -45,6 +48,17 @@ class ViewVisitedEventsRoute extends StatelessWidget {
                 .isAfter(DateTime.now())
             ? null
             : Colors.grey,
+        leading: eventVisit.start
+                    .add(eventVisit.visitDuration)
+                    .compareTo(DateTime.now()) >
+                0
+            ? IconButton(
+                onPressed: () => _changeVisitDuration(context, status, index),
+                icon: Icon(Icons.stop, color: Colors.red))
+            : IconButton(
+                icon: Icon(Icons.stop, color: Colors.grey),
+                onPressed: null,
+              ),
         title: Center(child: Text(status[index].value.event.name)),
         subtitle:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
@@ -76,5 +90,27 @@ class ViewVisitedEventsRoute extends StatelessWidget {
                         ]));
           },
         ));
+  }
+
+  _changeVisitDuration(BuildContext context,
+      List<PropertyValueNotifier<EventVisit>> status, int index) {
+    showDialog(
+        context: context,
+        builder: (context) => SimpleDialog(
+              title: Text(AppLocalizations.of(context)!.signOutOfEvent),
+              children: [
+                SimpleDialogOption(
+                    onPressed: () {
+                      status[index].value.visitDuration =
+                          DateTime.now().difference(status[index].value.start);
+                      visitedEvents.notifyListeners();
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(AppLocalizations.of(context)!.yes)),
+                SimpleDialogOption(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text(AppLocalizations.of(context)!.no))
+              ],
+            ));
   }
 }
