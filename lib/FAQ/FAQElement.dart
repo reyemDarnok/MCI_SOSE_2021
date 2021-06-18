@@ -13,6 +13,8 @@ class FAQElement extends StatefulWidget {
 class FAQElementState extends State<FAQElement> {
   FAQElementState(this.title, this.content);
 
+  static const TextStyle style = TextStyle(color: Colors.black);
+
   final String title;
   final String content;
   bool expanded = false;
@@ -29,19 +31,30 @@ class FAQElementState extends State<FAQElement> {
   }
 
   Row _closed() {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text(title), Icon(Icons.keyboard_arrow_right_rounded)]);
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Text(
+        title,
+        style: style,
+      ),
+      Icon(Icons.keyboard_arrow_right_rounded)
+    ]);
   }
 
   Column _expanded() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text(title), Icon(Icons.keyboard_arrow_down_rounded)]),
-        Text(content),
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text(
+            title,
+            style: style,
+          ),
+          Icon(Icons.keyboard_arrow_down_rounded)
+        ]),
+        Text(
+          content,
+          style: style,
+        ),
       ],
     );
   }
