@@ -1,6 +1,6 @@
 # mci_practicum
 
-Project for MCI Practium SOSE 2021 Group Grü 2
+Project for MCI Practium SOSE 2021 Group Grün 2
 
 ## Purpose
 
