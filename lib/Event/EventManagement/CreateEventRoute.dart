@@ -18,7 +18,7 @@ class CreateEventRoute extends StatelessWidget {
           callback: (event) {
             event.initKeys();
             var notifier = PropertyValueNotifier(event);
-            ownEvents.value.add(notifier);
+            ownEvents.value.insert(0, notifier);
             ownEvents.notifyListeners();
             Navigator.of(context).pop(event);
             Navigator.of(context).pushNamed(ViewEventRoute.route,

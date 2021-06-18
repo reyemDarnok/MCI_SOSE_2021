@@ -31,6 +31,8 @@ class ViewVisitorsRoute extends StatelessWidget {
                 child: ValueListenableBuilder<AuthorisedEvent>(
                     valueListenable: args.event,
                     builder: (context, status, child) {
+                      status.manualVisitors.sort((a, b) =>
+                          a.value.person.name.compareTo(b.value.person.name));
                       return ListView.builder(
                           itemCount: status.manualVisitors.length,
                           itemBuilder: (context, index) =>
