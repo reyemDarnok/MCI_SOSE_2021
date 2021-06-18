@@ -60,8 +60,7 @@ SecureRandom getSecureRandom() {
 
 AsymmetricKeyPair<PublicKey, PrivateKey> getRsaKeyPair(
     SecureRandom secureRandom) {
-  var rsaParameters =
-      new RSAKeyGeneratorParameters(BigInt.from(65537), 1024, 5);
+  var rsaParameters = new RSAKeyGeneratorParameters(BigInt.from(65537), 512, 5);
   var params = new ParametersWithRandom(rsaParameters, secureRandom);
   var keyGenerator = new RSAKeyGenerator();
   keyGenerator.init(params);
