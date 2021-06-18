@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
+import 'package:mci_practicum/miscTypes/PersonVisit.dart';
 import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 
 import '../../PropertyValueNotifier.dart';
+import '../../globals.dart';
 import '../../miscTypes/AuthorisedEvent.dart';
 import '../../miscWidgets/NavBar.dart';
 import 'AddVisitorRoute.dart';
@@ -48,12 +51,16 @@ class ViewVisitorsRoute extends StatelessWidget {
 
   Widget _manualVisitorTile(
       BuildContext context, AuthorisedEvent status, int index) {
+    PersonVisit visit = status.manualVisitors[index].value;
+    var dateFormat = DateFormat.Hms(appLocale.value?.toLanguageTag()).add_yMd();
     return ListTile(
       onTap: () => Navigator.of(context).pushNamed(ViewPersonRoute.route,
-          arguments: ViewPersonRouteArguments(
-              status.manualVisitors[index].value.person)),
-      title:
-          Center(child: Text(status.manualVisitors[index].value.person.name)),
+          arguments: ViewPersonRouteArguments(visit.person)),
+      title: Center(child: Text(visit.person.name)),
+      subtitle: Center(
+          child: Text(AppLocalizations.of(context)!.startAndEndOfVisit(
+              dateFormat.format(visit.startTime),
+              dateFormat.format(visit.startTime.add(visit.duration))))),
       trailing: IconButton(
         icon: Icon(Icons.delete_forever),
         onPressed: () {

@@ -75,5 +75,6 @@
   "informedGovernment": "Gesundheitsamt ist informiert",
   "visitorCode": "Besucher QR Code",
   "authCode": "Administrator QR Code",
-  "authorisedTitle": "Event zu eigenen Events hinzugefügt"
+  "authorisedTitle": "Event zu eigenen Events hinzugefügt",
+  "startAndEndOfVisit": "Start: {start}\tEnde: {end}"
 }

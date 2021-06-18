@@ -41,6 +41,13 @@ class OwnEventsRoute extends StatelessWidget {
       onTap: () => Navigator.of(context).pushNamed(ViewEventRoute.route,
           arguments: ViewEventRouteArguments(ownEvents.value[index])),
       title: Center(child: Text(ownEvents.value[index].value.name)),
+      subtitle: ValueListenableBuilder(
+        valueListenable: ownEvents.value[index],
+        builder: (BuildContext context, AuthorisedEvent value, Widget? child) =>
+            Center(
+                child: Text(AppLocalizations.of(context)!
+                    .manualVisitors(value.manualVisitors.length))),
+      ),
       trailing: IconButton(
         icon: Icon(Icons.delete_forever),
         onPressed: () {
