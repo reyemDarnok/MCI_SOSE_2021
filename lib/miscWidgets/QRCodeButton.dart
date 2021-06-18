@@ -30,8 +30,8 @@ class QRCodeButton extends StatelessWidget {
               }
             },
             child: Container(
-                width: qrCodeButtonWidth(context),
-                height: qrCodeButtonWidth(context),
+                width: qrCodeButtonWidth(context) * 0.9,
+                height: qrCodeButtonWidth(context) * 0.9,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/qrCodeBackground.png'),
