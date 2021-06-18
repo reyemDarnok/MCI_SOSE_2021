@@ -8,11 +8,6 @@ This is a functional prototype for our [MCI Practicum](https://ilias.th-koeln.de
 
 ## Publishing
 
-The app is currently available add [this](https://reyemDarnok.github.io) github pages site
+The app is currently available at [this](https://reyemDarnok.github.io) github pages site
 
 ## TODOs
-- faq
-    - backend
-    - Contact tracking
-- employee code to enable adding manuals
-- visited events show individual
