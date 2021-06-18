@@ -65,7 +65,7 @@
   "visitedEvents": "Besuchte Events",
   "start": "Start: {start}",
   "end": "Ende: {end}",
-  "reallyDelete": "Event {eventName} wirkllich löschen?",
+  "reallyDeleteEvent": "Event {eventName} wirkllich löschen?",
   "reallyDeleteVisitor": "Besucher {name} wirklich löschen?",
   "reallyDeleteVisit": "Den Besuch bei {eventName} wirklich löschen?",
   "yes": "Ja",
@@ -75,6 +75,5 @@
   "informedGovernment": "Gesundheitsamt ist informiert",
   "visitorCode": "Besucher QR Code",
   "authCode": "Administrator QR Code",
-  "authorisedTitle": "Event zu eigenen Events hinzugefügt",
-  "startAndEndOfVisit": "Start: {start}\tEnde: {end}"
+  "authorisedTitle": "Event zu eigenen Events hinzugefügt"
 }

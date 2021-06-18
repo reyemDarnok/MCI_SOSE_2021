@@ -1,7 +1,7 @@
 mkdir build/release
 flutter build web
 pushd build/web/ || exit
-git add -- *
+git add -- * .last_build_id
 git commit -m "new version"
 git push
 tar -cf ../release/webHostable.tar.gz ./*

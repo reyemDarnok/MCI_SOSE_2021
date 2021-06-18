@@ -57,10 +57,13 @@ class ViewVisitorsRoute extends StatelessWidget {
       onTap: () => Navigator.of(context).pushNamed(ViewPersonRoute.route,
           arguments: ViewPersonRouteArguments(visit.person)),
       title: Center(child: Text(visit.person.name)),
-      subtitle: Center(
-          child: Text(AppLocalizations.of(context)!.startAndEndOfVisit(
-              dateFormat.format(visit.startTime),
-              dateFormat.format(visit.startTime.add(visit.duration))))),
+      subtitle: Column(children: [
+        Text(AppLocalizations.of(context)!.start(
+          dateFormat.format(visit.startTime),
+        )),
+        Text(AppLocalizations.of(context)!
+            .end(dateFormat.format(visit.startTime.add(visit.duration)))),
+      ]),
       trailing: IconButton(
         icon: Icon(Icons.delete_forever),
         onPressed: () {

@@ -154,12 +154,5 @@
   "informedGovernment": "Government is informed",
   "visitorCode": "Visitor QR code",
   "authCode": "Administrator QR code",
-  "authorisedTitle": "Added Event to own Events",
-  "startAndEndOfVisit": "Start: {start}\tEnd: {end}",
-  "@startAndEndOfVisit": {
-    "placeholders": {
-      "start": {},
-      "end": {}
-    }
-  }
+  "authorisedTitle": "Added Event to own Events"
 }
