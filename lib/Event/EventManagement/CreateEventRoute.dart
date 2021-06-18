@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mci_practicum/Event/EventManagement/ViewEventRoute.dart';
 import 'package:mci_practicum/PropertyValueNotifier.dart';
 
 import '../../forms/EventForm.dart';
@@ -16,9 +17,12 @@ class CreateEventRoute extends StatelessWidget {
         body: EventForm(
           callback: (event) {
             event.initKeys();
-            ownEvents.value.add(PropertyValueNotifier(event));
+            var notifier = PropertyValueNotifier(event);
+            ownEvents.value.add(notifier);
             ownEvents.notifyListeners();
             Navigator.of(context).pop(event);
+            Navigator.of(context).pushNamed(ViewEventRoute.route,
+                arguments: ViewEventRouteArguments(notifier));
           },
         ));
   }
