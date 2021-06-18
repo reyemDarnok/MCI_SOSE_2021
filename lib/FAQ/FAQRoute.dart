@@ -11,9 +11,11 @@ class FAQRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var faqElements = [
-      FAQElement('question',
-          'Long answer. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'),
-      FAQElement('second question', 'second answer'),
+      FAQElement('Sammelt die CoronaEvent-App meine Daten?', 'Die Corona Event App sammelt nur Ihre nötigsten Daten. Falls Sie die nötigen IT.Kenntnisse haben, können Sie sich im Source-Code darüber vergewissern'),
+      FAQElement('Fallen versteckte Kosten an?', 'Nein es fallen keine Kosten an'),
+      FAQElement('Sind meine Persöhnlichendaten sicher?', 'Durch eine RSA-Verschlüsslung sind Ihre Daten bei uns sicher '),
+      FAQElement('Wie ändere ich die Sprache in meiner App', 'Homescreen --> Menü --> Einstellungen --> Sprache --> Sprache wählen  '),
+      FAQElement('Wie erstelle ich ein Event', 'Homescreen --> Events --> Eigene Events --> Neues Event erstellen'),
     ];
     return Scaffold(
       appBar: NavBar(AppLocalizations.of(context)!.faq),
