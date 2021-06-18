@@ -37,6 +37,7 @@ class AuthorisedEvent {
   late final List<PropertyValueNotifier<PersonVisit>> manualVisitors;
   @JsonKey(fromJson: deserializeRSAPrivateKey, toJson: serializeRSAPrivateKey)
   late RSAPrivateKey privateKey;
+  @JsonKey(fromJson: deserializeRSAPublicKey, toJson: serializeRSAPublicKey)
   late RSAPublicKey publicKey;
   late String unique;
   String name;
@@ -57,7 +58,7 @@ SecureRandom getSecureRandom() {
 AsymmetricKeyPair<PublicKey, PrivateKey> getRsaKeyPair(
     SecureRandom secureRandom) {
   var rsaParameters =
-      new RSAKeyGeneratorParameters(BigInt.from(65537), 2048, 5);
+      new RSAKeyGeneratorParameters(BigInt.from(65537), 1024, 5);
   var params = new ParametersWithRandom(rsaParameters, secureRandom);
   var keyGenerator = new RSAKeyGenerator();
   keyGenerator.init(params);

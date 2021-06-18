@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:built_value/serializer.dart';
 import 'package:pointycastle/asymmetric/api.dart';
 
@@ -24,33 +27,64 @@ class DurationSerializer implements PrimitiveSerializer<Duration> {
 RSAPrivateKey deserializeRSAPrivateKey(Object serialized) {
   var map = serialized as Map<String, dynamic>;
   return RSAPrivateKey(
-      BigInt.parse(map['modulus']),
-      BigInt.parse(map['privateExponent']),
-      BigInt.parse(map['p']),
-      BigInt.parse(map['q']));
+    readBytes(base64Decode(map['modulus'])),
+    readBytes(base64Decode(map['privateExponent'])),
+    readBytes(base64Decode(map['p'])),
+    readBytes(base64Decode(map['q'])),
+  );
 }
 
 Map<String, dynamic> serializeRSAPrivateKey(RSAPrivateKey object) {
   return {
-    'modulus': object.modulus.toString(),
-    'privateExponent': object.privateExponent.toString(),
-    'p': object.p.toString(),
-    'q': object.q.toString()
+    'modulus': base64Encode(writeBigInt(object.modulus!)),
+    'privateExponent': base64Encode(writeBigInt(object.privateExponent!)),
+    'p': base64Encode(writeBigInt(object.p!)),
+    'q': base64Encode(writeBigInt(object.q!))
   };
 }
 
 RSAPublicKey deserializeRSAPublicKey(Object serialized) {
   var map = serialized as Map<String, dynamic>;
   return RSAPublicKey(
-    BigInt.parse(map['modulus']),
-    BigInt.parse(map['exponent']),
+    readBytes(base64Decode(map['modulus'])),
+    readBytes(base64Decode(map['exponent'])),
   );
 }
 
 @override
 Map<String, dynamic> serializeRSAPublicKey(RSAPublicKey object) {
   return {
-    'modulus': object.modulus.toString(),
-    'exponent': object.exponent.toString(),
+    'modulus': base64Encode(writeBigInt(object.modulus!)),
+    'exponent': base64Encode(writeBigInt(object.exponent!)),
   };
+}
+
+BigInt readBytes(Uint8List bytes) {
+  BigInt read(int start, int end) {
+    if (end - start <= 4) {
+      int result = 0;
+      for (int i = end - 1; i >= start; i--) {
+        result = result * 256 + bytes[i];
+      }
+      return new BigInt.from(result);
+    }
+    int mid = start + ((end - start) >> 1);
+    var result =
+        read(start, mid) + read(mid, end) * (BigInt.one << ((mid - start) * 8));
+    return result;
+  }
+
+  return read(0, bytes.length);
+}
+
+Uint8List writeBigInt(BigInt number) {
+  // Not handling negative numbers. Decide how you want to do that.
+  int bytes = (number.bitLength + 7) >> 3;
+  var b256 = new BigInt.from(256);
+  var result = new Uint8List(bytes);
+  for (int i = 0; i < bytes; i++) {
+    result[i] = number.remainder(b256).toInt();
+    number = number >> 8;
+  }
+  return result;
 }
