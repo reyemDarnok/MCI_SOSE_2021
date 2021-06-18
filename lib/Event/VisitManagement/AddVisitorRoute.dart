@@ -92,6 +92,9 @@ class SelectDurationRoute extends StatelessWidget {
     return GenericButton(
         onPressed: () {
           Duration d = parseDuration(estimatedDuration.text);
+          if (d.compareTo(event.value.minDuration) < 0) {
+            d = event.value.minDuration;
+          }
           event.value.manualVisitors.add(PropertyValueNotifier(PersonVisit(
               person: args.person, startTime: DateTime.now(), duration: d)));
           event.notifyListeners();

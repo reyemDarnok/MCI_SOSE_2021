@@ -102,6 +102,9 @@ class MainRoute extends StatelessWidget {
     return ElevatedButton(
         onPressed: () {
           Duration d = parseDuration(estimatedDuration.text);
+          if (d.compareTo(event.minDuration) < 0) {
+            d = event.minDuration;
+          }
           visitedEvents.value.add(PropertyValueNotifier(EventVisit(
               event: event, start: DateTime.now(), visitDuration: d)));
           visitedEvents.notifyListeners();
