@@ -86,5 +86,8 @@
   "faqAnswer4": "Homescreen --> Menü --> Einstellungen --> Sprache --> Sprache wählen",
   "faqQuestion5": "Wie erstelle ich ein Event?",
   "faqAnswer5": "Homescreen --> Events --> Eigene Events --> Neues Event erstellen",
-  "signOutOfEvent": "Das Event jetzt verlassen?"
+  "signOutOfEvent": "Das Event jetzt verlassen?",
+  "personalDataReminder": "Sie haben Ihre persönlichen Daten noch nicht gesetzt. Klicken Sie hier um das zu ändern",
+  "personalDataChangedTitle": "Persönliche Daten gespeichert",
+  "personalDataChangedContent": "Die App hat ihre neuen persönlichen Daten gespeichert"
 }

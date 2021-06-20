@@ -15,11 +15,19 @@ class PersonalDataRoute extends StatelessWidget {
         body: Center(
             child: PersonEntryForm(
           callback: (person) {
-            me = person;
-            log.i('Changed personal data to ${me.toJson()}');
+            me.value = person;
+            log.i('Changed personal data to ${me.value.toJson()}');
+            showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                      title: Text(AppLocalizations.of(context)!
+                          .personalDataChangedTitle),
+                      content: Text(AppLocalizations.of(context)!
+                          .personalDataChangedContent),
+                    ));
           },
           submitText: AppLocalizations.of(context)!.save,
-          defaultPerson: me,
+          defaultPerson: me.value,
         )));
   }
 }

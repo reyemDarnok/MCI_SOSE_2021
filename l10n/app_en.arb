@@ -165,5 +165,8 @@
   "faqAnswer4": "Homescreen --> Menu --> Settings --> Language --> Select your language",
   "faqQuestion5": "How do I create a new Event?",
   "faqAnswer5": "Homescreen --> Events --> Own Events --> Create new event",
-  "signOutOfEvent": "Leave the event now?"
+  "signOutOfEvent": "Leave the event now?",
+  "personalDataReminder": "You have not set your personal data. Click here to change that",
+  "personalDataChangedTitle": "Saved personal data",
+  "personalDataChangedContent": "The app saved your personal data"
 }

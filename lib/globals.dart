@@ -18,7 +18,8 @@ PropertyValueNotifier<List<PropertyValueNotifier<AuthorisedEvent>>> ownEvents =
 PropertyValueNotifier<List<PropertyValueNotifier<EventVisit>>> visitedEvents =
     PropertyValueNotifier(List.empty(growable: true));
 
-Person me = Person(street: '', telephone: '', name: '', city: '');
+ValueNotifier<Person> me =
+    ValueNotifier(Person(street: '', telephone: '', name: '', city: ''));
 
 RetainOutput _webFileOutput = RetainOutput();
 
