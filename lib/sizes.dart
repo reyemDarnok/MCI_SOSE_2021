@@ -6,7 +6,7 @@ double buttonWidth(BuildContext context) {
   var mediaSize = MediaQuery.of(context).size;
   if (mediaSize.width > mediaSize.height) {
     //landscape
-    return mediaSize.width * 0.1;
+    return mediaSize.width * 0.2;
   } else {
     //portrait
     return min(mediaSize.width * 0.8, qrCodeButtonWidth(context));
