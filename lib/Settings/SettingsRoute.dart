@@ -52,18 +52,17 @@ class SettingsRoute extends StatelessWidget {
     var supportedLocales = [
       {'locale': Locale('de'), 'name': 'Deutsch'},
       {'locale': Locale('en', 'US'), 'name': 'English (US)'},
-      {'locale': Locale('en', 'GB'), 'name': 'English (UK)'}
+      {'locale': Locale('en', 'GB'), 'name': 'English (UK)'},
+      {'locale': Locale('fr'), 'name': 'Français'}
     ];
+    List<Widget> buttons = List.empty(growable: true);
+    supportedLocales
+        .forEach((element) => buttons.add(_localeButton(context, element)));
     showDialog(
         context: context,
         builder: (context) => SimpleDialog(
               title: Text(AppLocalizations.of(context)!.selectLanguage),
-              children: [
-                //TODO Loop -> ListView, maybe?
-                _localeButton(context, supportedLocales[0]),
-                _localeButton(context, supportedLocales[1]),
-                _localeButton(context, supportedLocales[2])
-              ],
+              children: buttons,
             ));
   }
 
