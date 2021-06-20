@@ -48,17 +48,7 @@ class ViewVisitedEventsRoute extends StatelessWidget {
                 .isAfter(DateTime.now())
             ? null
             : Colors.grey,
-        leading: eventVisit.start
-                    .add(eventVisit.visitDuration)
-                    .compareTo(DateTime.now()) >
-                0
-            ? IconButton(
-                onPressed: () => _changeVisitDuration(context, status, index),
-                icon: Icon(Icons.stop, color: Colors.red))
-            : IconButton(
-                icon: Icon(Icons.stop, color: Colors.grey),
-                onPressed: null,
-              ),
+        leading: _leaveButton(eventVisit, context, status, index),
         title: Center(child: Text(status[index].value.event.name)),
         subtitle:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
@@ -93,6 +83,29 @@ class ViewVisitedEventsRoute extends StatelessWidget {
                         ]));
           },
         ));
+  }
+
+  Widget _leaveButton(EventVisit eventVisit, BuildContext context,
+      List<PropertyValueNotifier<EventVisit>> status, int index) {
+    if (eventVisit.start
+            .add(eventVisit.visitDuration)
+            .compareTo(DateTime.now()) >
+        0) {
+      return TextButton(
+          onPressed: () => _changeVisitDuration(context, status, index),
+          child: Text(
+            AppLocalizations.of(context)!.leaveEvent,
+            style: TextStyle(color: Colors.red),
+          ));
+      //Icon(Icons.stop, color: Colors.red));
+    } else {
+      return TextButton(
+          onPressed: null,
+          child: Text(
+            AppLocalizations.of(context)!.leaveEvent,
+            style: TextStyle(color: Colors.grey),
+          ));
+    }
   }
 
   _changeVisitDuration(BuildContext context,
