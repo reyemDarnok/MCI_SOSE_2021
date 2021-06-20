@@ -86,8 +86,11 @@
   "faqAnswer4": "Homescreen --> Menü --> Einstellungen --> Sprache --> Sprache wählen",
   "faqQuestion5": "Wie erstelle ich ein Event?",
   "faqAnswer5": "Homescreen --> Events --> Eigene Events --> Neues Event erstellen",
+  "faqQuestion6": "Wie funktioniert die App im Hintergrund",
+  "faqAnswer6": "Das System ist auf Anonymität und Datenschutz ausgelegt, weshalb wir uns gegen einen Ansatz mit Location-Tracking entschieden haben. Statt dessen verwenden wir QR-Codes, die bei der Teilnahme an einem Event eingescannt werden können.\nDie QR-Codes beinhalten jeweils den Namen des Events, so wie eine eindeutige, zufällig generierte ID.\nDiese Daten werden ausschließlich auf den Geräten der Teilnehmer:innen und Veranstalter:innen gespeichert.\nWenn nun ein User ein positives Testergebnis bestätigt, werden die ID’s aller Events, die er in den letzten 14 Tagen besucht hat zusammen mit dem Zeitraum der Anwesenheit an einen zentralen Server geschickt, und dort hinterlegt. Da lediglich die Event-ID hinterlegt wird, kann der Server nicht ermitteln, um was für ein Event es sich handelt.\nAlle Geräte mit installierter App prüfen in regelmäßigen Abständen, ob eine der von ihnen besuchten Event-ID’s auf dem Server hinterlegt wurde, und falls dem so ist, ob sich die Zeiträume überschneiden. Falls ja, schlägt die App alarm und die Nutzer:innen können sich testen lassen.\nSollte die App erkennen, dass die ID eines eigenen Events auf dem Server hinterlegt ist, wird zusätzlich die Liste der manuell hinzugefügten Teilnehmer:innen und deren Anwesenheitszeiten mit den auf dem Server hinterlegten Zeiten abgeglichen. Sollten manuell hinzugefügte Teilnehmer:innen in dem fraglichen Zeitraum das Event besucht haben, werden deren Persönlichen Daten in verschlüsselter Form an den Server gesendet, welcher sie weiter an das Gesundheitsamt leitet. Dort können die Daten wieder entschlüsselt werden um die betreffenden Personen zu informieren (SMS, Telefon, Post).",
   "signOutOfEvent": "Das Event jetzt verlassen?",
   "personalDataReminder": "Sie haben Ihre persönlichen Daten noch nicht gesetzt. Klicken Sie hier um das zu ändern",
   "personalDataChangedTitle": "Persönliche Daten gespeichert",
-  "personalDataChangedContent": "Die App hat ihre neuen persönlichen Daten gespeichert"
+  "personalDataChangedContent": "Die App hat ihre neuen persönlichen Daten gespeichert",
+  "leaveEvent": "Verlassen"
 }

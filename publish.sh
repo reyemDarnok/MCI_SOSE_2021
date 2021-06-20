@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 mkdir build/release
 flutter build web
 pushd build/web/ || exit

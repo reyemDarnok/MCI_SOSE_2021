@@ -21,6 +21,8 @@ class FAQRoute extends StatelessWidget {
           AppLocalizations.of(context)!.faqAnswer4),
       FAQElement(AppLocalizations.of(context)!.faqQuestion5,
           AppLocalizations.of(context)!.faqAnswer5),
+      FAQElement(AppLocalizations.of(context)!.faqQuestion6,
+          AppLocalizations.of(context)!.faqAnswer6),
     ];
     return Scaffold(
       appBar: NavBar(AppLocalizations.of(context)!.faq),
