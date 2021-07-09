@@ -11,7 +11,7 @@
   "streetMalformedError": "هذا ليس شارعًا صالحًا.",
   "cityMissingError": "يجب تحديد مدينة.",
   "cityMalformedError": "يجب تحديد رمز بريدي واسم مدينة اختياريًا.",
-  "add": "add",
+  "add": "يضيف",
   "infectionRisk": "خطر الإصابة:",
   "high": "عالي",
   "low": "منخفض",
