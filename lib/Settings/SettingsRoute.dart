@@ -44,7 +44,8 @@ class SettingsRoute extends StatelessWidget {
       {'locale': Locale('de'), 'name': 'Deutsch'},
       {'locale': Locale('en', 'US'), 'name': 'English (US)'},
       {'locale': Locale('en', 'GB'), 'name': 'English (UK)'},
-      {'locale': Locale('fr'), 'name': 'Français'}
+      {'locale': Locale('fr'), 'name': 'Français'},
+      {'locale': Locale('ar'), 'name': 'عربى'}
     ];
     List<Widget> buttons = List.empty(growable: true);
     supportedLocales

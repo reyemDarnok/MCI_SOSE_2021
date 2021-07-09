@@ -151,7 +151,7 @@
   "no": "No",
   "confirmSendPositive": "Really register a positive test result?",
   "confirmSendNegative": "Really register a negative test result?",
-  "informedGovernment": "Government is informed",
+  "informedGovernment": "Informing contacts",
   "visitorCode": "Visitor QR code",
   "authCode": "Administrator QR code",
   "authorisedTitle": "Added Event to own Events",

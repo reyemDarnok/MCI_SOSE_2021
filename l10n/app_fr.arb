@@ -72,7 +72,7 @@
   "no": "Non",
   "confirmSendPositive": "Vraiment enregistrer un test positif?",
   "confirmSendNegative": "Vraiment enregistrer un test négatif?",
-  "informedGovernment": "Le ministère de la Santé est informé",
+  "informedGovernment": "les personnes de contact seront informées",
   "visitorCode": "QR code visiteur",
   "authCode": "QR code administrateur",
   "authorisedTitle": "Événement ajouté à ses propres événements",
