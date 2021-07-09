@@ -13,3 +13,10 @@ class RetainOutput extends LogOutput {
     _list.addAll(event.lines);
   }
 }
+
+class PassAll extends LogFilter {
+  @override
+  bool shouldLog(LogEvent event) {
+    return true;
+  }
+}
