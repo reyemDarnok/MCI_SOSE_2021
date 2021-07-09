@@ -5,7 +5,6 @@ import 'package:duration/locale.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:mci_practicum/Settings/PersonalDataRoute.dart';
 import 'package:mci_practicum/TestEntryRoute.dart';
 import 'package:mci_practicum/globals.dart';
 import 'package:mci_practicum/miscTypes/AuthorisedEvent.dart';
@@ -19,7 +18,6 @@ import 'Event/EventsRoute.dart';
 import 'FAQ/FAQRoute.dart';
 import 'PropertyValueNotifier.dart';
 import 'Settings/SettingsRoute.dart';
-import 'miscTypes/Person.dart';
 import 'miscWidgets/NavBar.dart';
 
 class MainRoute extends StatelessWidget {
@@ -29,30 +27,20 @@ class MainRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     appLocale.value = Localizations.localeOf(context);
     return Scaffold(
-      appBar: NavBar(
-        AppLocalizations.of(context)!.title,
-        preTitle: Image.asset('assets/logo.png'),
-        actions: [_popupMenu(context)],
-      ),
-      body: Center(
-        child: ValueListenableBuilder<Person>(
-          builder: (BuildContext context, value, Widget? child) {
-            List<Widget> mainWidgets = [
-              StatusWidget(),
-              _enterTestResultsButton(context, status),
-              _scanQRCodeButton(context),
-            ];
-            if (value.name == '') {
-              mainWidgets.insert(0, _personalDataReminder(context));
-            }
-            return Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: mainWidgets);
-          },
-          valueListenable: me,
+        appBar: NavBar(
+          AppLocalizations.of(context)!.title,
+          preTitle: Image.asset('assets/logo.png'),
+          actions: [_popupMenu(context)],
         ),
-      ),
-    );
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            StatusWidget(),
+            _enterTestResultsButton(context, status),
+            _scanQRCodeButton(context)
+          ],
+        ));
   }
 
   QRCodeButton _scanQRCodeButton(BuildContext context) {
@@ -188,14 +176,6 @@ class MainRoute extends StatelessWidget {
                     AppLocalizations.of(context)!.faq,
                   )),
             ]);
-  }
-
-  _personalDataReminder(BuildContext context) {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(primary: Colors.red),
-        onPressed: () =>
-            Navigator.of(context).pushNamed(PersonalDataRoute.route),
-        child: Text(AppLocalizations.of(context)!.personalDataReminder));
   }
 }
 

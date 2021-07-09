@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mci_practicum/Settings/InternalsRoute.dart';
-import 'package:mci_practicum/Settings/PersonalDataRoute.dart';
 import 'package:mci_practicum/globals.dart';
 import 'package:mci_practicum/miscWidgets/GenericButton.dart';
 
@@ -19,7 +18,6 @@ class SettingsRoute extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             _languageButton(context),
-            _personalDataButton(context),
             _internalsButton(context)
           ],
         ),
@@ -31,13 +29,6 @@ class SettingsRoute extends StatelessWidget {
     return GenericButton(
         onPressed: () => Navigator.of(context).pushNamed(InternalsRoute.route),
         child: Text(AppLocalizations.of(context)!.internalWorkings));
-  }
-
-  GenericButton _personalDataButton(BuildContext context) {
-    return GenericButton(
-      onPressed: () => Navigator.of(context).pushNamed(PersonalDataRoute.route),
-      child: Text(AppLocalizations.of(context)!.personalData),
-    );
   }
 
   GenericButton _languageButton(BuildContext context) {

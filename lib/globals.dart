@@ -8,7 +8,6 @@ import 'PropertyValueNotifier.dart';
 import 'logger_outputs.dart';
 import 'miscTypes/AuthorisedEvent.dart';
 import 'miscTypes/EventVisit.dart';
-import 'miscTypes/Person.dart';
 
 //null == System Locale
 ValueNotifier<Locale?> appLocale = ValueNotifier(null);
@@ -17,9 +16,6 @@ PropertyValueNotifier<List<PropertyValueNotifier<AuthorisedEvent>>> ownEvents =
     PropertyValueNotifier(List.empty(growable: true));
 PropertyValueNotifier<List<PropertyValueNotifier<EventVisit>>> visitedEvents =
     PropertyValueNotifier(List.empty(growable: true));
-
-ValueNotifier<Person> me =
-    ValueNotifier(Person(street: '', telephone: '', name: '', city: ''));
 
 RetainOutput _webFileOutput = RetainOutput();
 
