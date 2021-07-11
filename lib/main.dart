@@ -41,6 +41,7 @@ void main() {
       builder: (context, status, child) {
         return MaterialApp(
             title: 'Corona EventApp',
+            theme: ThemeData(fontFamily: 'Cairo'),
             locale: status,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
